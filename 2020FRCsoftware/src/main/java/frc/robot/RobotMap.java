@@ -10,4 +10,7 @@ public class RobotMap {
     public static final int controller1 = 0;
     public static final int controller2 = 1;
 
+    //shooter
+    public static final int shooterMotor = 1;
+
 }
