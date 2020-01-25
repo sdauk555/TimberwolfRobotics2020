@@ -11,13 +11,19 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import frc.robot.commands.ShooterRun;
+import frc.robot.commands.ShooterSlow;
+import frc.robot.commands.ShooterSpeed;
+
 /**
  * Add your docs here.
  */
 public class OI {
 
     public OI () {
-
+		driverButtonLeftBumper.whenPressed(new ShooterSlow());
+		driverButtonRightBumper.whenPressed(new ShooterSpeed());
+		driverButtonA.whenPressed(new ShooterRun());
     }
 
     private static final int LEFT_HORIZ_AXIS = 0;
