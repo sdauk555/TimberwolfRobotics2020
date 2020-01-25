@@ -31,6 +31,8 @@ public class Robot extends TimedRobot {
   public static final Drive driveSubsystem = new Drive();
   public static final Shooter shooterSubsystem = new Shooter();
 
+  public static final OI CONTROLLERBINDING = new OI();
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
