@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-//import frc.robot.subsystems.Drive;
+import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Shooter;
 
 /**
@@ -28,7 +28,7 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
-  //public static final Drive driveSubsystem = new Drive();
+  public static final Drive driveSubsystem = new Drive();
   public static final Shooter shooterSubsystem = new Shooter();
 
   public static final OI CONTROLLERBINDING = new OI();

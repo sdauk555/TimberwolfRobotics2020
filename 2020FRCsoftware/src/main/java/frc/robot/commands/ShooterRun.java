@@ -7,17 +7,15 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.XboxController;
-
 import frc.robot.Robot;
 import frc.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;;
 
 public class ShooterRun extends Command {
 
-  private static final XboxController controller1 = new XboxController(RobotMap.controller1);
   private static final WPI_VictorSPX shooterMotor = new WPI_VictorSPX(RobotMap.shooterMotor);
 
   public ShooterRun() {
