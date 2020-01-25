@@ -8,6 +8,8 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.ColorCommand;
+
 import com.revrobotics.ColorSensorV3;
 
 
@@ -22,6 +24,7 @@ public class ColorSensor extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
+    setDefaultCommand(new ColorCommand());
 
     // Set the default command for a subsystem here.
     // setDefaultCommand(new initColorSensor());
