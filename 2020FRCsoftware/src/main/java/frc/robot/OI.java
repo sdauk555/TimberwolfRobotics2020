@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.ShooterRun;
 import frc.robot.commands.ShooterSlow;
 import frc.robot.commands.ShooterSpeed;
+import frc.robot.commands.ShooterStop;
 
 /**
  * Add your docs here.
@@ -24,6 +25,7 @@ public class OI {
 		driverButtonLeftBumper.whenPressed(new ShooterSlow());
 		driverButtonRightBumper.whenPressed(new ShooterSpeed());
 		driverButtonA.whenPressed(new ShooterRun());
+		driverButtonX.whenPressed(new ShooterStop());
     }
 
     private static final int LEFT_HORIZ_AXIS = 0;

@@ -35,20 +35,19 @@ public class ShooterRun extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double speed =shooterMotor.get();
+    double speed = shooterMotor.get();
     System.out.println(speed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-      return controller1.getXButton();
+      return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.shooterSubsystem.shooterStop();
   }
 
   // Called when another command which requires one or more of the same

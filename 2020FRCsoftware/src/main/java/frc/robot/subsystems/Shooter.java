@@ -8,7 +8,8 @@
 package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
-//import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.commands.DefaultCommand;
+//import frc.robot.commands.ShooterRun;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
@@ -26,7 +27,7 @@ public class Shooter extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    //setDefaultCommand(new Command());
+    setDefaultCommand(new DefaultCommand());
   }
 
   public void shoot() {
