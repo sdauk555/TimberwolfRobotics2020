@@ -11,7 +11,7 @@ import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 /**
@@ -20,7 +20,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 public class Shooter extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private static final WPI_TalonSRX shooterMotor = new WPI_TalonSRX(RobotMap.shooterMotor);
+  private static final WPI_VictorSPX shooterMotor = new WPI_VictorSPX(RobotMap.shooterMotor);
 
   @Override
   public void initDefaultCommand() {
