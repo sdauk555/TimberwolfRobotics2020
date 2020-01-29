@@ -7,40 +7,47 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.Compressor; //Pneumatics, Compressor
+import edu.wpi.first.wpilibj.DoubleSolenoid; //Pneumatics, Solenoid
+import frc.robot.commands.pneumaticsCommand;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;  //Pneumatics, Solenoid values
+import edu.wpi.first.wpilibj.XboxController;  //Controller
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.pneumaticsCommand;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.GenericHID;
+
 
 
 public class Pneumatics extends Subsystem {
     private static final XboxController logitech1 = new XboxController(RobotMap.controller1);
-    private static final Compressor charlie = new Compressor(0);
-    public static final DoubleSolenoid pushy = new DoubleSolenoid(RobotMap.pushy[0],RobotMap.pushy[1])
-    //charlie.setClosedLoopControl(true);
-    //charlie.setClosedLoopControl(false);
+    private static final Compressor comp = new Compressor(0);
+
+    public static final DoubleSolenoid.Value kForward;
+    public static final DoubleSolenoid.Value kReverse;
     
+    public void XboxController
+    public boolean getX(GenericHID.Hand hand);
+    public boolean getY(GenericHID.Hand hand);
+
+    DoubleSolenoid pistonArm;
+    Compressor compressor;
+    
+    public void pistons(){
+        pistonArm = new DoubleSolenoid(1, 2);
+		compressor = new Compressor();
+    
+    }
+
+    public void bumper(){
+        compressor.start();
+        compressor.setClosedLoopControl(true);
+        
+    }
+
     @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new PneumaticsCommand());
-  }
+    protected void initDefaultCommand() {
+        // TODO Auto-generated method stub
 
-  //public void pneumaticsSystem() {
-    //boolean enabled = charlie.enabled();
-    //boolean pressureSwitch = charlie.getPressureSwitch();
-    //double current = charlie.getCompressorCurrent();
-  //}
-
-  public void pushy() {
-      boolean downDPad = logitech.getStartButtonPushed(Hand.kRight)
-      public boolean getStartButtonPressed()
-
-  }
-  
+    }
 }
