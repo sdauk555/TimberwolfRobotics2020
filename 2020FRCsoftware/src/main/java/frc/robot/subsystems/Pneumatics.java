@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 //From 5839
 
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.Compressor;
 //import frc.robot.RobotMap;
 //import edu.wpi.first.wpilibj.GenericHID.Hand;
@@ -23,7 +22,7 @@ import edu.wpi.first.wpilibj.Compressor;
 public class Pneumatics extends Subsystem {
     private static final Compressor comp = new Compressor(0);
 
-    private DoubleSolenoid doubleSolenoid;
+    private DoubleSolenoid feederSolenoid;
     //From 5839
     
     
@@ -35,22 +34,20 @@ public class Pneumatics extends Subsystem {
 //runs compressor
 
 
-    public void forward(){
-        
-        if ()
-        doubleSolenoid.set(DoubleSolenoid.Value.kForward);
+    public void feederDeployment(){
+        feederSolenoid.set(DoubleSolenoid.Value.kForward);
         //From 5839
     }
 //moves pistons forward
     
     public void reverse(){
-        doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
+        feederSolenoid.set(DoubleSolenoid.Value.kReverse);
         //From 5839
     }
 //moves pistons backward
 
     public void off(){
-        doubleSolenoid.set(Value.kOff);
+        feederSolenoid.set(Value.kOff);
     }
 //Stops pistons
 
