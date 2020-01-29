@@ -20,6 +20,22 @@ public class ColorCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+/**         Not certain this portion is needed, since the color sensor can give what color it senses by defaul, without testing for it.
+ *   if (sensorColor.blue() == true) {
+        return onBlue
+        // then we are on blue sector, do something here
+     } else if (sensorColor.green == true) {
+       return onGreen
+        // then we are on green sector, do something here
+     } else if (sensorColor.red == true) {
+       return onRed
+        // then we are on red sector, do something here
+     } else if (sensorColor.yellow == true) {
+       return onYellow
+        // then we are on yellow sector, do something here
+     }
+*/
+     
       Robot.driveSubsystem.driveSystem();
     }
   
