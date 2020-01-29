@@ -7,16 +7,17 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 
 import com.revrobotics.ColorSensorV3;
 
-public class ColorSensor extends TimedRobot {
+public class PrintColor extends Subsystem {
   /**
    * Change the I2C port below to match the connection of your color sensor
    */
@@ -75,5 +76,10 @@ public class ColorSensor extends TimedRobot {
     */
   
   }
-}
 
+    @Override
+    protected void initDefaultCommand() {
+        // TODO Auto-generated method stub
+
+    }
+}
