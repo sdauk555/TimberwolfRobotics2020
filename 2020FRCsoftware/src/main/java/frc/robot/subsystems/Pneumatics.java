@@ -5,13 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot;
+package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 //From 5839
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.Compressor;
 //import frc.robot.RobotMap;
 //import edu.wpi.first.wpilibj.GenericHID.Hand;
@@ -31,21 +32,31 @@ public class Pneumatics extends Subsystem {
         Pneumatics.comp.setClosedLoopControl(true);
         
     }
+//runs compressor
+
+
     public void forward(){
+        
+        if ()
         doubleSolenoid.set(DoubleSolenoid.Value.kForward);
         //From 5839
     }
+//moves pistons forward
     
     public void reverse(){
         doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
         //From 5839
     }
+//moves pistons backward
 
     public void off(){
         doubleSolenoid.set(Value.kOff);
     }
+//Stops pistons
+
     @Override
     protected void initDefaultCommand() {
 
     }
+//Necessary override
 }
