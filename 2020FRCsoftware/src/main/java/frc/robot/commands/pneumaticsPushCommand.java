@@ -1,22 +1,25 @@
 
 
 package frc.robot.commands;
-import frc.robot.Robot;
 
-import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
+import frc.robot.subsystems.Pneumatics;
+
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
 public class pneumaticsPushCommand extends InstantCommand {
 
     public pneumaticsPushCommand(){
-        requires(Robot.PneumaticsSubsystem);
+        requires(Robot.pneumaticsSubsystem);
     }
 
     @Override
-    protected void execute(){
-    Robot.PneumaticsSubsystem.feederDeployment();
+    protected void execute() {
+        ((Pneumatics) Robot.pneumaticsSubsystem).feederDeployment();
     }
 
     @Override
+  protected void interrupted() {
+  }
 
 }
