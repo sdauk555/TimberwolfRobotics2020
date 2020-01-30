@@ -9,12 +9,17 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.subsystems.Drive;
+<<<<<<< HEAD:src/main/java/frc/robot/Robot.java
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Feeder;
+=======
+import frc.robot.subsystems.Pneumatics;
+>>>>>>> Fixed pneumatics command:2020FRCsoftware/src/main/java/frc/robot/Robot.java
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,6 +39,8 @@ public class Robot extends TimedRobot {
   public static final Feeder feederSubsystem = new Feeder();
 
   public static final OI CONTROLLERBINDING = new OI();
+  public static final Pneumatics pneumaticsSubsystem = new Pneumatics();
+
 
   /**
    * This function is run when the robot is first started up and should be
