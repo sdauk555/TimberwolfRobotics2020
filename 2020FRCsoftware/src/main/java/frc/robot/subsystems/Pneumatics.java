@@ -22,11 +22,9 @@ import edu.wpi.first.wpilibj.Compressor;
 
 public class Pneumatics extends Subsystem {
     private static final Compressor comp = new Compressor(0);
-    
+    private static final DoubleSolenoid feederSolenoid = new DoubleSolenoid(RobotMap.hammerPneumatics, RobotMap.hammerPneumatics);
+    private static final DoubleSolenoid armSolenoid = new DoubleSolenoid(RobotMap.armsPneumatics, RobotMap.armsPneumatics);
 
-    private DoubleSolenoid feederSolenoid;
-    //From 5839
-    
     
     public void start(){
         Pneumatics.comp.start();
@@ -52,14 +50,19 @@ public class Pneumatics extends Subsystem {
 //Stops pistons
 
     public void ArmsRaise(){
-        feederSolenoid.set(DoubleSolenoid.Value.kForward);
+        armSolenoid.set(DoubleSolenoid.Value.kForward);
     }
 //Raises arms
 
     public void ArmsRetract(){
-        feederSolenoid.set(DoubleSolenoid.Value.kReverse);
+        armSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 // lowers arms
+
+public void stop(){
+    armSolenoid.set(Value.kOff);
+}
+//Stops pistons
 
     @Override
     protected void initDefaultCommand() {
