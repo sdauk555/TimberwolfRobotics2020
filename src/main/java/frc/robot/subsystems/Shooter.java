@@ -40,9 +40,7 @@ public class Shooter extends Subsystem {
     shooterMotor.set(ControlMode.PercentOutput, fastSpeed);
     if (fastSpeed > 1.0)(
       fastSpeed = 1.0
-    );
-    
-    
+    );  
   }
 
   public void speedDown() {
