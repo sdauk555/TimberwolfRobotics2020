@@ -37,14 +37,12 @@ public class Pneumatics extends Subsystem {
 
 
     public void feederDeployment(){
-        feederSolenoid.set(DoubleSolenoid.Value.kReverse);
-        //From 5839
+        feederSolenoid.set(DoubleSolenoid.Value.kForward);
     }
 //moves pistons forward
     
     public void feederRetract(){
         feederSolenoid.set(DoubleSolenoid.Value.kReverse);
-        //From 5839
     }
 //moves pistons backward
 
@@ -52,6 +50,16 @@ public class Pneumatics extends Subsystem {
         feederSolenoid.set(Value.kOff);
     }
 //Stops pistons
+
+    public void ArmsRaise(){
+        feederSolenoid.set(DoubleSolenoid.Value.kForward);
+    }
+//Raises arms
+
+    public void ArmsRetract(){
+        feederSolenoid.set(DoubleSolenoid.Value.kReverse);
+    }
+// lowers arms
 
     @Override
     protected void initDefaultCommand() {
