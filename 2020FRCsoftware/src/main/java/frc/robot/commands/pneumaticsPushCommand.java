@@ -15,7 +15,9 @@ public class pneumaticsPushCommand extends InstantCommand {
 
     @Override
     protected void execute() {
-        ((Pneumatics) Robot.pneumaticsSubsystem).feederDeployment();
+        (Robot.pneumaticsSubsystem).feederDeployment();
+        
+        (Robot.pneumaticsSubsystem).feederRetract();
     }
 
     @Override
