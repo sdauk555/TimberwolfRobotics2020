@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 //From 5839
 
 import edu.wpi.first.wpilibj.Compressor;
@@ -21,6 +22,7 @@ import edu.wpi.first.wpilibj.Compressor;
 
 public class Pneumatics extends Subsystem {
     private static final Compressor comp = new Compressor(0);
+    
 
     private DoubleSolenoid feederSolenoid;
     //From 5839
@@ -35,7 +37,7 @@ public class Pneumatics extends Subsystem {
 
 
     public void feederDeployment(){
-        feederSolenoid.set(DoubleSolenoid.Value.kForward);
+        feederSolenoid.set(DoubleSolenoid.Value.kReverse);
         //From 5839
     }
 //moves pistons forward
