@@ -7,9 +7,9 @@ import frc.robot.subsystems.Pneumatics;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
-public class pneumaticsPushCommand extends InstantCommand {
+public class PneumaticsPush extends InstantCommand {
 
-    public pneumaticsPushCommand(){
+    public PneumaticsPush(){
         requires(Robot.pneumaticsSubsystem);
     }
 
