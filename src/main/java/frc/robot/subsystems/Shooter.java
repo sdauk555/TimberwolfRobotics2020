@@ -37,8 +37,9 @@ public class Shooter extends Subsystem {
     double speedIncrease = .1;
     double currentSpeed = shooterMotor.get();
     double fastSpeed = currentSpeed + speedIncrease;
-    if (fastSpeed > 1.0){
-      fastSpeed = 1.0;}
+    if (fastSpeed > 1.0) {
+      fastSpeed = 1.0;
+    }
     shooterMotor.set(ControlMode.PercentOutput, fastSpeed);
   }
 
@@ -47,7 +48,8 @@ public class Shooter extends Subsystem {
     double currentSpeed = shooterMotor.get();
     double slowSpeed = currentSpeed + speedDecrease;
     if (slowSpeed < -1.0) {
-      slowSpeed = -1.0;}
+      slowSpeed = -1.0;
+    }
     shooterMotor.set(ControlMode.PercentOutput, slowSpeed);
   }
 
