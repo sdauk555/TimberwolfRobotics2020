@@ -40,7 +40,7 @@ public class Pneumatics extends Subsystem {
     }
 //moves pistons forward
     
-    public void reverse(){
+    public void feederRetract(){
         feederSolenoid.set(DoubleSolenoid.Value.kReverse);
         //From 5839
     }
@@ -56,4 +56,6 @@ public class Pneumatics extends Subsystem {
 
     }
 //Necessary override
+
+
 }
