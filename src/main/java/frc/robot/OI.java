@@ -22,20 +22,22 @@ import frc.robot.commands.ShooterStop;
 public class OI {
 
     public OI () {
-		//driverButtonA.whenPressed(new liftCommand());
+		//driverButtonA.whenPressed(new LiftCommand());
+		//driverButtonStart.whenPressed(new FeederDeploy());
+		//driverButtonBack.whenPressed(new FeederRetract());
 
 		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
 		operatorButtonA.whenPressed(new ShooterRun());
 		operatorButtonX.whenPressed(new ShooterStop());
-		//operatorButtonA.whenPressed(new selectGreen());
-		//operatorButtonB.whenPressed(new selectRed());
-		//operatorButtonX.whenPressed(new selectBlue());
-		//operatorButtonY.whenPressed(new selectYellow());
-		//operatorButtonLeftBumper.whenPressed(new feederCommand());
-		//operatorButtonRightBumper.whenPressed(new shootBall());
-
-		
+		//operatorButtonA.whenPressed(new SelectGreen());
+		//operatorButtonB.whenPressed(new SelectRed());
+		//operatorButtonX.whenPressed(new SelectBlue());
+		//operatorButtonY.whenPressed(new SelectYellow());
+		//operatorButtonRightBumper.whenPressed(new ShooterStart());
+		//operatorButtonLeftBumper.whenPressed(new ShooterStop());
+		//operatorButtonStart.whenPressed(new FeederStart());
+		//operatorButtonBack.whenPressed(new FeederStop());
     }
 
     private static final int LEFT_HORIZ_AXIS = 0;
