@@ -14,12 +14,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.subsystems.Drive;
-<<<<<<< HEAD:src/main/java/frc/robot/Robot.java
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Feeder;
-=======
 import frc.robot.subsystems.Pneumatics;
->>>>>>> Fixed pneumatics command:2020FRCsoftware/src/main/java/frc/robot/Robot.java
 
 /**
  * The VM is configured to automatically run this class, and to call the
