@@ -59,9 +59,9 @@ public class Pneumatics extends Subsystem {
     }
 // lowers arms
 
-public void stop(){
-    armSolenoid.set(Value.kOff);
-}
+    public void stop(){
+        armSolenoid.set(Value.kOff);
+    }
 //Stops pistons
 
     @Override
