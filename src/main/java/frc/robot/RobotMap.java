@@ -17,6 +17,8 @@ public class RobotMap {
     public static final int FeederMotor = 5;
 
     //Pneumatics
-    public static final int hammerPneumatics = 0;
-    public static final int armsPneumatics = 1;
+    public static final int hammerPneumaticsForward = 0;
+    public static final int hammerPneumaticsBackward = 1;
+    public static final int armsPneumaticsForward = 2;
+    public static final int armsPneumaticsBackward = 3;
 }

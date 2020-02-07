@@ -22,8 +22,8 @@ import frc.robot.RobotMap;
 
 public class Pneumatics extends Subsystem {
     private static final Compressor comp = new Compressor(0);
-    private static final DoubleSolenoid feederSolenoid = new DoubleSolenoid(RobotMap.hammerPneumatics, RobotMap.hammerPneumatics);
-    private static final DoubleSolenoid armSolenoid = new DoubleSolenoid(RobotMap.armsPneumatics, RobotMap.armsPneumatics);
+    private static final DoubleSolenoid feederSolenoid = new DoubleSolenoid(RobotMap.hammerPneumaticsForward, RobotMap.hammerPneumaticsBackward);
+    private static final DoubleSolenoid armSolenoid = new DoubleSolenoid(RobotMap.armsPneumaticsForward, RobotMap.armsPneumaticsBackward);
     
     public void start(){
         Pneumatics.comp.start();
