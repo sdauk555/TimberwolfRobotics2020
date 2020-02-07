@@ -8,12 +8,12 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.SolenoidBase;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.Compressor;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-
 //import frc.robot.RobotMap;
 //import edu.wpi.first.wpilibj.GenericHID.Hand;
 //import edu.wpi.first.wpilibj.GenericHID;
@@ -22,9 +22,10 @@ import frc.robot.RobotMap;
 
 public class Pneumatics extends Subsystem {
     private static final Compressor comp = new Compressor(0);
+    private static final XboxController controller1 = new XboxController(RobotMap.controller1);
     private static final DoubleSolenoid feederSolenoid = new DoubleSolenoid(RobotMap.hammerPneumaticsForward, RobotMap.hammerPneumaticsBackward);
     private static final DoubleSolenoid armSolenoid = new DoubleSolenoid(RobotMap.armsPneumaticsForward, RobotMap.armsPneumaticsBackward);
-    
+
     public void start(){
         Pneumatics.comp.start();
         Pneumatics.comp.setClosedLoopControl(true);
@@ -32,10 +33,8 @@ public class Pneumatics extends Subsystem {
     }
 //runs compressor
 
-
 public void feederDeployment(){
-
-    feederSolenoid.set(DoubleSolenoid.Value.kForward);
+        feederSolenoid.set(DoubleSolenoid.Value.kForward);
 }
 //moves pistons forward
 
@@ -45,9 +44,13 @@ public void feederRetract(){
 //moves pistons backward
 
 public void off(){
-    feederSolenoid.set(Value.kOff);
+    if(controller1.getRawButtonReleased(2)) {
+        feederSolenoid.set(Value.kOff);
+    }
 }
 //Stops pistons
+
+////////////////////////////////////////////////////////////////////////////////
 
 public void ArmsRaise(){
     armSolenoid.set(DoubleSolenoid.Value.kForward);
@@ -65,7 +68,7 @@ public void stop(){
 //Stops pistons
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
 
 @Override
     protected void initDefaultCommand() {
