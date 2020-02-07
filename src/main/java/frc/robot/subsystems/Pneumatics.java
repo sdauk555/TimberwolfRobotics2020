@@ -9,11 +9,11 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.Compressor;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-//From 5839
 
-import edu.wpi.first.wpilibj.Compressor;
 //import frc.robot.RobotMap;
 //import edu.wpi.first.wpilibj.GenericHID.Hand;
 //import edu.wpi.first.wpilibj.GenericHID;
@@ -24,7 +24,6 @@ public class Pneumatics extends Subsystem {
     private static final Compressor comp = new Compressor(0);
     private static final DoubleSolenoid feederSolenoid = new DoubleSolenoid(RobotMap.hammerPneumatics, RobotMap.hammerPneumatics);
     private static final DoubleSolenoid armSolenoid = new DoubleSolenoid(RobotMap.armsPneumatics, RobotMap.armsPneumatics);
-
     
     public void start(){
         Pneumatics.comp.start();
@@ -34,35 +33,26 @@ public class Pneumatics extends Subsystem {
 //runs compressor
 
 
-    public void feederDeployment(){
+    public void feederMove(){
         feederSolenoid.set(DoubleSolenoid.Value.kForward);
+
     }
-//moves pistons forward
-    
-    public void feederRetract(){
-        feederSolenoid.set(DoubleSolenoid.Value.kReverse);
-    }
-//moves pistons backward
+//moves feeder pistons
 
     public void off(){
         feederSolenoid.set(Value.kOff);
     }
 //Stops pistons
 
-    public void ArmsRaise(){
-        armSolenoid.set(DoubleSolenoid.Value.kForward);
+    public void ArmsOff(){
+        armSolenoid.set(Value.kOff);
     }
-//Raises arms
+//moves arms
 
-    public void ArmsRetract(){
+    public void ArmsMove(){
         armSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 // lowers arms
-
-    public void stop(){
-        armSolenoid.set(Value.kOff);
-    }
-//Stops pistons
 
     @Override
     protected void initDefaultCommand() {
