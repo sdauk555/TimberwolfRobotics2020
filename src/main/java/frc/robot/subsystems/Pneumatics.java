@@ -33,28 +33,41 @@ public class Pneumatics extends Subsystem {
 //runs compressor
 
 
-    public void feederMove(){
-        feederSolenoid.set(DoubleSolenoid.Value.kForward);
+public void feederDeployment(){
 
-    }
-//moves feeder pistons
+    feederSolenoid.set(DoubleSolenoid.Value.kForward);
+}
+//moves pistons forward
 
-    public void off(){
-        feederSolenoid.set(Value.kOff);
-    }
+public void feederRetract(){
+    feederSolenoid.set(DoubleSolenoid.Value.kReverse);
+}
+//moves pistons backward
+
+public void off(){
+    feederSolenoid.set(Value.kOff);
+}
 //Stops pistons
 
-    public void ArmsOff(){
-        armSolenoid.set(Value.kOff);
-    }
-//moves arms
+public void ArmsRaise(){
+    armSolenoid.set(DoubleSolenoid.Value.kForward);
+}
+//Raises arms
 
-    public void ArmsMove(){
-        armSolenoid.set(DoubleSolenoid.Value.kReverse);
-    }
+public void ArmsRetract(){
+    armSolenoid.set(DoubleSolenoid.Value.kReverse);
+}
 // lowers arms
 
-    @Override
+public void stop(){
+    armSolenoid.set(Value.kOff);
+}
+//Stops pistons
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@Override
     protected void initDefaultCommand() {
 
     }

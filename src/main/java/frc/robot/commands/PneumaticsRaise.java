@@ -7,15 +7,15 @@ import frc.robot.subsystems.Pneumatics;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
-public class PneumaticsFeeder extends InstantCommand {
+public class PneumaticsRaise extends InstantCommand {
 
-    public PneumaticsFeeder(){
+    public PneumaticsRaise(){
         requires(Robot.pneumaticsSubsystem);
     }
 
     @Override
     protected void execute() {
-        (Robot.pneumaticsSubsystem).feederMove();
+        (Robot.pneumaticsSubsystem).ArmsRaise();
     
     }
 
