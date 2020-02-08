@@ -33,7 +33,7 @@ public class Robot extends TimedRobot {
   public static final Drive driveSubsystem = new Drive();
   public static final Shooter shooterSubsystem = new Shooter();
   public static final Feeder feederSubsystem = new Feeder();
-  public static final ColorSensor colorSensorSubsystem = new ColorSensor();
+  public static final ColorSensor colorSensorSubsystem = new ColorSensor(null);
 
   public static final OI CONTROLLERBINDING = new OI();
 

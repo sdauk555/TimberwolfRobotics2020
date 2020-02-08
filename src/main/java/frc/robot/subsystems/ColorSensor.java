@@ -35,7 +35,7 @@ public class ColorSensor extends Subsystem {
 
   public ColorSensor(Port i2cPort2) {
   }
-  
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
