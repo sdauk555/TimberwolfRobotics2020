@@ -13,30 +13,14 @@ import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Robot; 
-import com.revrobotics.ColorSensorV3;
+import frc.robot.Robot;
 
-
-public class PrintColorCommand extends Command {
-  public PrintColorCommand() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.driveSubsystem);
-  }
+public class PrintColorv2 extends Command {
 
   // Called just before this Command runs the first time
   @Override
-  protected void initialize() {
-  }
-
-  // Called repeatedly when this Command is scheduled to run
-  @Override
-  protected void execute() {
-    //Robot.driveSubsystem.driveSystem(); becomes the future subsystem.
-
-    private final I2C.Port i2cPort = I2C.Port.kOnboard;
-
-  /**
+  protected void initialize() {    
+      /**
    * A Rev Color Sensor V3 object is constructed with an I2C port as a 
    * parameter. The device will be automatically initialized with default 
    * parameters.
@@ -53,19 +37,28 @@ public class PrintColorCommand extends Command {
      * measurements and make it difficult to accurately determine its color.
      */
     Color detectedColor = m_colorSensor.getColor();
+  }
 
-public class ColorSensor extends Subsystem {
+  // Called repeatedly when this Command is scheduled to run
+  @Override
+  protected void execute() {
+    //Robot.driveSubsystem.driveSystem(); becomes the future subsystem.
+
+    private final I2C.Port i2cPort = I2C.Port.kOnboard;
+
+
+  }
+
+  @Override
+  protected boolean isFinished() {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+public class ColorSensor extends Command {
 
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-
-  @Override
-  public void initDefaultCommand() {
-    setDefaultCommand(new ColorCommand());
-
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new initColorSensor());
-  }
     
   // Make this return true when this Command no longer needs to run execute()
   @Override
@@ -84,3 +77,5 @@ public class ColorSensor extends Subsystem {
   protected void interrupted() {
   }
 }
+}
+
