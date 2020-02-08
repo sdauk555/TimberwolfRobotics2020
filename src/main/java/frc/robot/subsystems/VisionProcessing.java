@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -24,6 +25,8 @@ public class VisionProcessing extends Subsystem {
   }
 
   public void getCameraData() {
-    double theValue = ntinst.getTable("contourPoints").getEntry("MaxX").getDouble();
+    // ntinst.getTable("contourPoints").getEntry("maxArea").getDouble(maxArea);
+    // ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(maxMidX);
+    // ntinst.getTable("contourPoints").getEntry("midPointY").getDouble(maxMidY);
   }
 }
