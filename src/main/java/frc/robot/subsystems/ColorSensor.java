@@ -87,4 +87,8 @@ public class ColorSensor extends Subsystem {
       */
     
     }
+
+	public Color getColor() {
+		return null;
+	}
   }

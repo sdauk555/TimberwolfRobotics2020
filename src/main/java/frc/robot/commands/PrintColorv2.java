@@ -36,16 +36,13 @@ public class PrintColorv2 extends Command {
      * an object is the more light from the surroundings will bleed into the 
      * measurements and make it difficult to accurately determine its color.
      */
-    Color detectedColor = m_colorSensor.getColor();
+    Color detectedColor = Robot.colorSensorSubsystem.getColor();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     //Robot.driveSubsystem.driveSystem(); becomes the future subsystem.
-
-    private final I2C.Port i2cPort = I2C.Port.kOnboard;
-
 
   }
 
