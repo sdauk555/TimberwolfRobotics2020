@@ -17,30 +17,29 @@ import frc.robot.RobotMap;
 import frc.robot.commands.DriveCommand;
 
 /**
- * Add your docs here.
- */
+* Add your docs here.
+*/
 public class Drive extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private static final XboxController logitech1 = new XboxController(RobotMap.controller1);
-  private static final PWMVictorSPX motor1 = new PWMVictorSPX(RobotMap.leftMotors[0]);
-  private static final PWMVictorSPX motor2 = new PWMVictorSPX(RobotMap.leftMotors[1]);
-  private static final PWMVictorSPX motor3 = new PWMVictorSPX(RobotMap.rightMotors[0]);
-  private static final PWMVictorSPX motor4 = new PWMVictorSPX(RobotMap.rightMotors[1]);
-  SpeedControllerGroup leftmotors = new SpeedControllerGroup(motor1, motor2);
-  SpeedControllerGroup rightmotors = new SpeedControllerGroup(motor3, motor4);
-  DifferentialDrive maindrive = new DifferentialDrive(leftmotors, rightmotors);
+  private static final XboxController controller1 = new XboxController(RobotMap.controller1);
+    private static final PWMVictorSPX motor1 = new PWMVictorSPX(RobotMap.leftMotors[0]);
+    private static final PWMVictorSPX motor2 = new PWMVictorSPX(RobotMap.leftMotors[1]);
+    private static final PWMVictorSPX motor3 = new PWMVictorSPX(RobotMap.rightMotors[0]);
+    private static final PWMVictorSPX motor4 = new PWMVictorSPX(RobotMap.rightMotors[1]);
+    SpeedControllerGroup leftmotors = new SpeedControllerGroup(motor1, motor2);
+    SpeedControllerGroup rightmotors = new SpeedControllerGroup(motor3, motor4);
+    DifferentialDrive maindrive = new DifferentialDrive(leftmotors, rightmotors);
 
-  @Override
+@Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     setDefaultCommand(new DriveCommand());
   }
-
-  public void driveSystem() {
-    double analogLY = logitech1.getY(Hand.kLeft);
-    double analogLX = logitech1.getX(Hand.kLeft);
-    maindrive.arcadeDrive(analogLY, analogLX, true);
+   public void driveSystem() {
+    double analogLY = controller1.getY(Hand.kLeft);
+    double analogLX = controller1.getX(Hand.kLeft);
+    maindrive.arcadeDrive(analogLX * -1, analogLY, true);
   }
 }

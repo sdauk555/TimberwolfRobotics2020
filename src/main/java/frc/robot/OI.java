@@ -11,13 +11,33 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import frc.robot.commands.ShooterRun;
+import frc.robot.commands.ShooterSlow;
+import frc.robot.commands.ShooterSpeed;
+import frc.robot.commands.ShooterStop;
+
 /**
  * Add your docs here.
  */
 public class OI {
 
     public OI () {
+		//driverButtonA.whenPressed(new LiftCommand());
+		//driverButtonStart.whenPressed(new FeederDeploy());
+		//driverButtonBack.whenPressed(new FeederRetract());
 
+		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
+		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
+		operatorButtonA.whenPressed(new ShooterRun());
+		operatorButtonX.whenPressed(new ShooterStop());
+		//operatorButtonA.whenPressed(new SelectGreen());
+		//operatorButtonB.whenPressed(new SelectRed());
+		//operatorButtonX.whenPressed(new SelectBlue());
+		//operatorButtonY.whenPressed(new SelectYellow());
+		//operatorButtonRightBumper.whenPressed(new ShooterStart());
+		//operatorButtonLeftBumper.whenPressed(new ShooterStop());
+		//operatorButtonStart.whenPressed(new FeederStart());
+		//operatorButtonBack.whenPressed(new FeederStop());
     }
 
     private static final int LEFT_HORIZ_AXIS = 0;
