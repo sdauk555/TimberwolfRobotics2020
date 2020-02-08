@@ -88,7 +88,11 @@ public class ColorSensor extends Subsystem {
     
     }
 
-	public Color getColor() {
+	private double getIR() {
+    return 0;
+  }
+
+  public Color getColor() {
 		return null;
 	}
   }
