@@ -1,0 +1,11 @@
+[
+  {
+    "name": "2020FRCsoftware (in project 2020FRCsoftware)",
+    "file": "/home/lucas/frc2020/TimberwolfRobotics2020/2020FRCsoftware/build/libs/2020FRCsoftware.jar",
+    "extensions": [
+      "/home/lucas/frc2020/TimberwolfRobotics2020/2020FRCsoftware/build/tmp/expandedArchives/halsim_gui-2020.2.2-linuxx86-64.zip_610e45e91d03ab83a3bbd8869a141bce/linux/x86-64/shared/libhalsim_gui.so"
+    ],
+    "librarydir": "/home/lucas/frc2020/TimberwolfRobotics2020/2020FRCsoftware/build/tmp/jniExtractDir",
+    "mainclass": "frc.robot.Main"
+  }
+]
