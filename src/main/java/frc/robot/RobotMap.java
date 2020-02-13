@@ -11,9 +11,9 @@ public class RobotMap {
     public static final int controller2 = 1;
 
     //shooter
-    public static final int shooterMotor = 4;
+    public static final int shooterMotor = 0;
     
     //Feeder
-    public static final int FeederMotor = 5;
+    public static final int FeederMotor = 1;
 
 }
