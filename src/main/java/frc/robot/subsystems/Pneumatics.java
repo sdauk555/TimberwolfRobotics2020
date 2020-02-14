@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SolenoidBase;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -15,23 +16,27 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-//import frc.robot.RobotMap;
-//import edu.wpi.first.wpilibj.GenericHID.Hand;
-//import edu.wpi.first.wpilibj.GenericHID;
+import frc.robot.commands.FeederStart;
 
 
 
 public class Pneumatics extends Subsystem {
     private static final Compressor comp = new Compressor(0);
     private static final XboxController controller1 = new XboxController(RobotMap.controller1);
-    private static final DoubleSolenoid feederSolenoid = new DoubleSolenoid(RobotMap.hammerPneumaticsForward, RobotMap.hammerPneumaticsBackward);
-    private static final DoubleSolenoid armSolenoid = new DoubleSolenoid(RobotMap.armsPneumaticsForward, RobotMap.armsPneumaticsBackward);
-    public static final //PressureSwitch pSwitch = new PressureSwitch(1);
+    //private static final DoubleSolenoid feederSolenoid = new DoubleSolenoid(RobotMap.hammerPneumaticsForward, RobotMap.hammerPneumaticsBackward);
+    //private static final DoubleSolenoid armSolenoid = new DoubleSolenoid(RobotMap.armsPneumaticsForward, RobotMap.armsPneumaticsBackward);
+    //public static final //PressureSwitch pSwitch = new PressureSwitch(1);
 
-    void start() {
+    private static final Solenoid feederA = new Solenoid(0);
+    private static final Solenoid feederB = new Solenoid(1);
+    private static final Solenoid armA = new Solenoid(2);
+    private static final Solenoid armB = new Solenoid(3);
+     
+    
+
+    public void startComp() {
         Pneumatics.comp.start();
-        Pneumatics.comp.getCompressorCurrent();
-        
+
     }
 //runs compressor, Contains Pseudocode. This should be about right however I can't look up the proper syntax as I am currently,
 // in the Colorado maountians for hockey and don't even have service.
@@ -48,7 +53,8 @@ public class Pneumatics extends Subsystem {
         Double triggerL = controller1.getRawAxis(4);
 
         if (triggerL == 1){
-        feederSolenoid.set(DoubleSolenoid.Value.kForward);
+        feederA.set(true);
+        feederB.set(true);
         }
     }
 //moves pistons forward
@@ -58,19 +64,11 @@ public class Pneumatics extends Subsystem {
         Double triggerL = controller1.getRawAxis(4);
 
         if (triggerL == -1){
-        feederSolenoid.set(DoubleSolenoid.Value.kReverse);
+        feederA.set(false);
+        feederB.set(false);
         }
 }
 //moves pistons backward
-
-public void off(){
-    int Pov = controller1.getPOV();
-
-    if(Pov == 270){
-        feederSolenoid.set(Value.kOff);
-    }
-}
-//Stops pistons
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -78,7 +76,8 @@ public void ArmsRaise(){
     Double triggerR = controller1.getRawAxis(5);
 
     if (triggerR == 1) {
-    armSolenoid.set(DoubleSolenoid.Value.kForward);
+    armA.set(true);
+    armB.set(true);
     }
 }
 //Raises arms
@@ -87,20 +86,11 @@ public void ArmsRetract(){
     Double triggerR = controller1.getRawAxis(5);
 
     if (triggerR == -1){
-    armSolenoid.set(DoubleSolenoid.Value.kReverse);
+    armA.set(false);
+    armB.set(false);
     }
 }
 // lowers arms
-
-public void stop(){
-        int Pov = controller1.getPOV();
-    
-        if(Pov == 270){
-            armSolenoid.set(Value.kOff);
-        }
-}
-//Stops pistons
-
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
