@@ -33,9 +33,9 @@ public class Robot extends TimedRobot {
   public static final Drive driveSubsystem = new Drive();
   public static final Shooter shooterSubsystem = new Shooter();
   public static final Feeder feederSubsystem = new Feeder();
+  public static final Pneumatics pneumaticsSubsystem = new Pneumatics();
 
   public static final OI CONTROLLERBINDING = new OI();
-  public static final Pneumatics pneumaticsSubsystem = new Pneumatics();
 
 
   /**

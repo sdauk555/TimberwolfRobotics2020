@@ -11,10 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import frc.robot.commands.ShooterRun;
-import frc.robot.commands.ShooterSlow;
-import frc.robot.commands.ShooterSpeed;
-import frc.robot.commands.ShooterStop;
+import frc.robot.commands.*;
 
 /**
  * Add your docs here.
@@ -30,6 +27,8 @@ public class OI {
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
 		operatorButtonA.whenPressed(new ShooterRun());
 		operatorButtonX.whenPressed(new ShooterStop());
+		operatorButtonY.whenPressed(new FeederDeploy());
+		operatorButtonB.whenPressed(new FeederRetract());
 		//operatorButtonA.whenPressed(new SelectGreen());
 		//operatorButtonB.whenPressed(new SelectRed());
 		//operatorButtonX.whenPressed(new SelectBlue());
