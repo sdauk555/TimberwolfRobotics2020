@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.VisionProcessing;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -30,6 +31,8 @@ public class Robot extends TimedRobot {
 
   public static final Drive driveSubsystem = new Drive();
   public static final Shooter shooterSubsystem = new Shooter();
+  public static final VisionProcessing visionSubsystem = new VisionProcessing();
+
 
   public static final OI CONTROLLERBINDING = new OI();
 

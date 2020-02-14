@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.PrintNetworkTables;
 
 /**
  * Add your docs here.
@@ -22,11 +23,22 @@ public class VisionProcessing extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new PrintNetworkTables());
   }
 
   public void getCameraData() {
     ntinst.getTable("contourPoints").getEntry("area").getDouble(-1);
     ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);
     ntinst.getTable("contourPoints").getEntry("midPointY").getDouble(-1);
+  }
+
+  public void printCameraData() {
+    double area = ntinst.getTable("contourPoints").getEntry("area").getDouble(-1);
+    double midX = ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);
+    double midY = ntinst.getTable("contourPoints").getEntry("midPointY").getDouble(-1);
+
+    System.out.println(area);
+    System.out.println(midX);
+    System.out.println(midY);
   }
 }
