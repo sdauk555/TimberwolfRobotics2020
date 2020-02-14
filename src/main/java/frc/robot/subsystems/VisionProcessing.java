@@ -25,8 +25,8 @@ public class VisionProcessing extends Subsystem {
   }
 
   public void getCameraData() {
-    // ntinst.getTable("contourPoints").getEntry("maxArea").getDouble(maxArea);
-    // ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(maxMidX);
-    // ntinst.getTable("contourPoints").getEntry("midPointY").getDouble(maxMidY);
+    ntinst.getTable("contourPoints").getEntry("area").getDouble(-1);
+    ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);
+    ntinst.getTable("contourPoints").getEntry("midPointY").getDouble(-1);
   }
 }
