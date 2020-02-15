@@ -3,9 +3,9 @@ package frc.robot.commands;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
-public class RunHopperMotor extends InstantCommand {
+public class HopperMotorRun extends InstantCommand {
 
-    public RunHopperMotor(){
+    public HopperMotorRun(){
         requires(Robot.hopperSubsystem);
     }
 

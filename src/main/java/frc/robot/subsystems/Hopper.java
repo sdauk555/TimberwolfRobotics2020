@@ -29,4 +29,8 @@ public class Hopper extends Subsystem {
     motor5.set(ControlMode.PercentOutput, 1);
 
   }
+
+  public void stop(){
+    motor5.set(ControlMode.PercentOutput, 0);
+  }
 }
