@@ -18,16 +18,15 @@ public class FeederStart extends InstantCommand {
    * Add your docs here.
    */
   public FeederStart() {
-    super();
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.feederSubsystem);
+    requires(Robot.feederTestSubsystem);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.feederSubsystem.start();
+    Robot.feederTestSubsystem.feed();
   }
 
 }

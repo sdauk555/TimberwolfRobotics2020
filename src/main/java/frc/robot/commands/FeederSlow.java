@@ -13,21 +13,20 @@ import frc.robot.Robot;
 /**
  * Add your docs here.
  */
-public class FeederRetract extends InstantCommand {
+public class FeederSlow extends InstantCommand {
   /**
    * Add your docs here.
    */
-  public FeederRetract() {
+  public FeederSlow() {
     super();
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.feederSubsystem);
+    requires(Robot.feederTestSubsystem);
   }
 
-  // Called repeatedly when this Command is scheduled to run
+  // Called once when the command executes
   @Override
   protected void execute() {
-    Robot.feederSubsystem.retract();
+    Robot.feederTestSubsystem.speedDown();
   }
-
 }

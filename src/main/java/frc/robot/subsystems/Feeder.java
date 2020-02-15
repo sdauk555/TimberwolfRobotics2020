@@ -22,24 +22,4 @@ public class Feeder extends Subsystem {
     public void initDefaultCommand(){
 
     } 
-    
-    // Starts the roller bar
-    public void start() {
-        FeederMotor.set(ControlMode.PercentOutput, .1);
-
-    }
-    
-    // Stops the roller bar
-    public void stop() {
-        FeederMotor.set(ControlMode.PercentOutput, 0);
-
-    }
-    // Deploys the roller bar
-    public void deploy() {
-
-    }
-    // Retracts the roller bar
-    public void retract() {
-
-    }
 }

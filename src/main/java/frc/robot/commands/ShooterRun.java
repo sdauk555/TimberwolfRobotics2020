@@ -16,19 +16,15 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;;
 
 public class ShooterRun extends InstantCommand {
 
-  private static final WPI_VictorSPX shooterMotor = new WPI_VictorSPX(RobotMap.shooterMotor);
-
   public ShooterRun() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.shooterSubsystem);
+    requires(Robot.shooterTestSubsystem);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.shooterSubsystem.shoot();
-    double speed = shooterMotor.get();
-    System.out.println(speed);
+    Robot.shooterTestSubsystem.shoot();
   }
 }
