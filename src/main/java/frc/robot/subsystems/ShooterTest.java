@@ -56,4 +56,12 @@ public class ShooterTest extends Subsystem {
   public void shooterStop() {
     shooterMotor.set(ControlMode.PercentOutput, 0);
   }
+
+  public void fullSpeed() {
+    shooterMotor.set(ControlMode.PercentOutput, 1);
+  }
+
+  public void fullReverse() {
+    shooterMotor.set(ControlMode.PercentOutput, -1);
+  }
 }

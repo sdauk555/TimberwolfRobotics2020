@@ -16,7 +16,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 public class Feeder extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    private static final WPI_VictorSPX FeederMotor = new WPI_VictorSPX(RobotMap.FeederMotor);
+    private static final WPI_VictorSPX feederMotor = new WPI_VictorSPX(RobotMap.feederMotor);
   
     @Override
     public void initDefaultCommand(){

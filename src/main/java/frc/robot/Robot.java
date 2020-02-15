@@ -30,7 +30,7 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
   public static final Drive driveSubsystem = new Drive();
-  public static final Shooter shooterTestSubsystem = new ShooterTest();
+  public static final ShooterTest shooterTestSubsystem = new ShooterTest();
   public static final FeederTest feederTestSubsystem = new FeederTest();
 
   public static final OI CONTROLLERBINDING = new OI();

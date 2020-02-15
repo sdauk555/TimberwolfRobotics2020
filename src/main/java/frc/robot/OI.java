@@ -10,7 +10,14 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
+import frc.robot.commands.FeederFullForward;
+import frc.robot.commands.FeederFullReverse;
+import frc.robot.commands.FeederSlow;
+import frc.robot.commands.FeederSpeed;
+import frc.robot.commands.FeederStart;
+import frc.robot.commands.FeederStop;
+import frc.robot.commands.ShooterFullForward;
+import frc.robot.commands.ShooterFullReverse;
 import frc.robot.commands.ShooterRun;
 import frc.robot.commands.ShooterSlow;
 import frc.robot.commands.ShooterSpeed;
@@ -22,22 +29,19 @@ import frc.robot.commands.ShooterStop;
 public class OI {
 
     public OI () {
-		//driverButtonA.whenPressed(new LiftCommand());
-		//driverButtonStart.whenPressed(new FeederDeploy());
-		//driverButtonBack.whenPressed(new FeederRetract());
-
+		driverButtonA.whenPressed(new FeederStart());
+		driverButtonB.whenPressed(new FeederFullForward());
+		driverButtonX.whenPressed(new FeederStop());
+		driverButtonY.whenPressed(new FeederFullReverse());
+		driverButtonLeftBumper.whenPressed(new FeederSlow());
+		driverButtonRightBumper.whenPressed(new FeederSpeed());
+		
+		operatorButtonA.whenPressed(new ShooterRun());
+		operatorButtonB.whenPressed(new ShooterFullForward());
+		operatorButtonX.whenPressed(new ShooterStop());
+		operatorButtonY.whenPressed(new ShooterFullReverse());
 		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
-		operatorButtonA.whenPressed(new ShooterRun());
-		operatorButtonX.whenPressed(new ShooterStop());
-		//operatorButtonA.whenPressed(new SelectGreen());
-		//operatorButtonB.whenPressed(new SelectRed());
-		//operatorButtonX.whenPressed(new SelectBlue());
-		//operatorButtonY.whenPressed(new SelectYellow());
-		//operatorButtonRightBumper.whenPressed(new ShooterStart());
-		//operatorButtonLeftBumper.whenPressed(new ShooterStop());
-		//operatorButtonStart.whenPressed(new FeederStart());
-		//operatorButtonBack.whenPressed(new FeederStop());
     }
 
     private static final int LEFT_HORIZ_AXIS = 0;
@@ -51,7 +55,7 @@ public class OI {
 	private static final double STICK_MAX = 0.97;
 
 	// driver controller setup
-	private Joystick driverController = new Joystick(0);
+	private Joystick driverController = new Joystick(RobotMap.driverController);
 	private Button driverButtonA = new JoystickButton(driverController, 1);
 	private Button driverButtonB = new JoystickButton(driverController, 2);
 	private Button driverButtonX = new JoystickButton(driverController, 3);
@@ -64,7 +68,7 @@ public class OI {
 	private Button driverButtonRightAxisPress = new JoystickButton(driverController, 10);
 	
 	// Operator controller setup
-	private Joystick operatorController = new Joystick(0);
+	private Joystick operatorController = new Joystick(RobotMap.operatorController);
 	private Button operatorButtonA = new JoystickButton(operatorController, 1);
 	private Button operatorButtonB = new JoystickButton(operatorController, 2);
 	private Button operatorButtonX = new JoystickButton(operatorController, 3);

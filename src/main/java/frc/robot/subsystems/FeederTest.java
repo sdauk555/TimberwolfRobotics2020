@@ -7,6 +7,11 @@
 
 package frc.robot.subsystems;
 
+import frc.robot.RobotMap;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -15,6 +20,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class FeederTest extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  private static final WPI_VictorSPX feederMotor = new WPI_VictorSPX(RobotMap.feederMotor);
 
   @Override
   public void initDefaultCommand() {
@@ -23,30 +29,38 @@ public class FeederTest extends Subsystem {
   }
 
   public void feed() {
-    FeederMotor.set(ControlMode.PercentOutput, .1);
+    feederMotor.set(ControlMode.PercentOutput, .1);
   }
 
-public void speedUp() {
+  public void speedUp() {
     double speedIncrease = .1;
-    double currentSpeed = FeederMotor.get();
+    double currentSpeed = feederMotor.get();
     double fastSpeed = currentSpeed + speedIncrease;
     if (fastSpeed > 1.0) {
       fastSpeed = 1.0;
     }
-    FeederMotor.set(ControlMode.PercentOutput, fastSpeed);
+    feederMotor.set(ControlMode.PercentOutput, fastSpeed);
   }
 
-public void speedDown() {
+  public void speedDown() {
     double speedDecrease = -.1;
-    double currentSpeed = FeederMotor.get();
+    double currentSpeed = feederMotor.get();
     double slowSpeed = currentSpeed + speedDecrease;
     if (slowSpeed < -1.0) {
       slowSpeed = -1.0;
     }
-    FeederMotor.set(ControlMode.PercentOutput, slowSpeed);
+    feederMotor.set(ControlMode.PercentOutput, slowSpeed);
   }
 
-public void feederStop() {
-    FeederMotor.set(ControlMode.PercentOutput, 0);
+  public void feederStop() {
+    feederMotor.set(ControlMode.PercentOutput, 0);
+  }
+
+  public void fullSpeed() {
+    feederMotor.set(ControlMode.PercentOutput, 1);
+  }
+
+  public void fullReverse() {
+    feederMotor.set(ControlMode.PercentOutput, -1);
   }
 }
