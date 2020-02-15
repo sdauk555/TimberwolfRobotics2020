@@ -24,6 +24,9 @@ public class RobotMap {
     public static final int hammerPneumaticsBackward = 1;
     public static final int armsPneumaticsForward = 2;
     public static final int armsPneumaticsBackward = 3;
+    
+    //Hopper
+	public static final int HopperMotor = 6;
 
     //public static Solenoid hammerPneumaticsForward = new Solenoid(1);
     //public static Solenoid hammerPneumaticsBackward = new Solenoid(2);
