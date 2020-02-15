@@ -40,6 +40,6 @@ public class Drive extends Subsystem {
    public void driveSystem() {
     double analogLY = controller1.getY(Hand.kLeft);
     double analogLX = controller1.getX(Hand.kLeft);
-    maindrive.arcadeDrive(analogLX * -1, analogLY, true);
+    maindrive.arcadeDrive(analogLY, analogLX, true);
   }
 }
