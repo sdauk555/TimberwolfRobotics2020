@@ -8,7 +8,7 @@
 package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
-import frc.robot.commands.FeederStop;
+//import frc.robot.commands.FeederStop;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
@@ -21,7 +21,7 @@ public class Feeder extends Subsystem {
 
     @Override
     public void initDefaultCommand() {
-        setDefaultCommand(new FeederStop());
+        //setDefaultCommand(new FeederStop());
     }
 
     // Starts the roller bar
