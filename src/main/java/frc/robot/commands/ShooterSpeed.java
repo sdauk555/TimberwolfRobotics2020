@@ -15,13 +15,13 @@ public class ShooterSpeed extends InstantCommand {
   public ShooterSpeed() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.shooterSubsystem);
+    requires(Robot.shooterTestSubsystem);
   }
   
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.shooterSubsystem.speedUp();
+    Robot.shooterTestSubsystem.speedUp();
   }
 }
 

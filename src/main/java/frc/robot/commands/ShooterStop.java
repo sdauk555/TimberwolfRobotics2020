@@ -14,12 +14,12 @@ public class ShooterStop extends InstantCommand {
   public ShooterStop() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.shooterSubsystem);
+    requires(Robot.shooterTestSubsystem);
   }
   
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.shooterSubsystem.shooterStop();
+    Robot.shooterTestSubsystem.shooterStop();
   }
 }

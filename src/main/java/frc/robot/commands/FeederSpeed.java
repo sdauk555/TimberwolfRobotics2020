@@ -8,19 +8,24 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
-
 import frc.robot.Robot;
 
-public class ShooterSlow extends InstantCommand {
-  public ShooterSlow() {
+/**
+ * Add your docs here.
+ */
+public class FeederSpeed extends InstantCommand {
+  /**
+   * Add your docs here.
+   */
+  public FeederSpeed() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.shooterTestSubsystem);
+    requires(Robot.feederTestSubsystem);
   }
 
-  // Called repeatedly when this Command is scheduled to run
+  // Called once when the command executes
   @Override
   protected void execute() {
-    Robot.shooterTestSubsystem.speedDown();
+    Robot.feederTestSubsystem.speedUp();
   }
 }

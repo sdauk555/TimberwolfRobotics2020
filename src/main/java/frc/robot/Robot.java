@@ -13,9 +13,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.subsystems.Drive;
-import frc.robot.subsystems.Shooter;
-import frc.robot.subsystems.Feeder;
-import frc.robot.subsystems.Pneumatics;
+import frc.robot.subsystems.ShooterTest;
+import frc.robot.subsystems.FeederTest;
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -30,9 +30,8 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
   public static final Drive driveSubsystem = new Drive();
-  public static final Shooter shooterSubsystem = new Shooter();
-  public static final Feeder feederSubsystem = new Feeder();
-  public static final Pneumatics pneumaticsSubsystem = new Pneumatics();
+  public static final ShooterTest shooterTestSubsystem = new ShooterTest();
+  public static final FeederTest feederTestSubsystem = new FeederTest();
 
   public static final OI CONTROLLERBINDING = new OI();
 
