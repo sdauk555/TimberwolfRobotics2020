@@ -19,7 +19,8 @@ import frc.robot.commands.*;
 public class OI {
 
     public OI () {
-		//driverButtonA.whenPressed(new LiftCommand());
+		driverButtonA.whenPressed(new FeederDeploy());
+		driverButtonB.whenPressed(new FeederRetract());
 		//driverButtonStart.whenPressed(new FeederDeploy());
 		//driverButtonBack.whenPressed(new FeederRetract());
 
