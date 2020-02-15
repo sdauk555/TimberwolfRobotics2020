@@ -9,7 +9,6 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.DefaultCommand;
 import frc.robot.commands.PrintNetTable;
 
 /**
