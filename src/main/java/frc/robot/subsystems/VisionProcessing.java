@@ -31,14 +31,16 @@ public class VisionProcessing extends Subsystem {
     ntinst.getTable("contourPoints").getEntry("area").getDouble(-1);
     ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);
     ntinst.getTable("contourPoints").getEntry("midPointY").getDouble(-1);
+    ntinst.getTable("contourPoints").getEntry("resultsCheck").getBoolean(false);
   }
 
   public void printCameraData() {
     double area = ntinst.getTable("contourPoints").getEntry("area").getDouble(-1);
     double midX = ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);
     double midY = ntinst.getTable("contourPoints").getEntry("midPointY").getDouble(-1);
+    boolean resultsCheck = ntinst.getTable("contourPoints").getEntry("resultsCheck").getBoolean(false);
 
-    if (area > 0 && midX > 0 && midY > 0) {
+    if (resultsCheck == true) {
       System.out.println(area);
       System.out.println(midX);
       System.out.println(midY);
