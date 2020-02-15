@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -17,7 +18,7 @@ import frc.robot.RobotMap;
 public class Hopper extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private static final WPI_VictorSPX motor5 = new WPI_VictorSPX(RobotMap.HopperMotor);
+  private static final PWMVictorSPX motor5 = new PWMVictorSPX(RobotMap.HopperMotor);
 
   @Override
   public void initDefaultCommand() {
@@ -26,11 +27,10 @@ public class Hopper extends Subsystem {
   }
 
   public void run() {
-    motor5.set(ControlMode.PercentOutput, 1);
-
+    motor5.setSpeed(1);
   }
 
   public void stop(){
-    motor5.set(ControlMode.PercentOutput, 0);
-  }
+    motor5.setSpeed(0);
+    }
 }
