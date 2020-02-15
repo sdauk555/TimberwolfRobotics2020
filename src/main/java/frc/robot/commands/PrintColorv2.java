@@ -7,16 +7,18 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.I2C;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.command.InstantCommand;
 import edu.wpi.first.wpilibj.util.Color;
-import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class PrintColorv2 extends Command {
+public class PrintColorv2 extends InstantCommand {
 
+  Color detectedColor;
+
+  public PrintColorv2() {
+    super();
+    requires(Robot.colorSensorSubsystem);
+  }
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {    
@@ -36,43 +38,16 @@ public class PrintColorv2 extends Command {
      * an object is the more light from the surroundings will bleed into the 
      * measurements and make it difficult to accurately determine its color.
      */
-    Color detectedColor = Robot.colorSensorSubsystem.getColor();
+    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    detectedColor = Robot.colorSensorSubsystem.getColor();
+    System.out.println(detectedColor);
     //Robot.driveSubsystem.driveSystem(); becomes the future subsystem.
 
   }
-
-  @Override
-  protected boolean isFinished() {
-    // TODO Auto-generated method stub
-    return false;
-  }
-
-public class ColorSensor extends Command {
-
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-    
-  // Make this return true when this Command no longer needs to run execute()
-  @Override
-  protected boolean isFinished() {
-    return false;
-  }
-
-  // Called once after isFinished returns true
-  @Override
-  protected void end() {
-  }
-
-  // Called when another command which requires one or more of the same
-  // subsystems is scheduled to run
-  @Override
-  protected void interrupted() {
-  }
-}
 }
 
