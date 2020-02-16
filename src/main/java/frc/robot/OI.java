@@ -15,6 +15,7 @@ import frc.robot.commands.ShooterRun;
 import frc.robot.commands.ShooterSlow;
 import frc.robot.commands.ShooterSpeed;
 import frc.robot.commands.ShooterStop;
+import frc.robot.commands.TargetAlign;
 import frc.robot.commands.PrintNetTable;
 
 /**
@@ -27,7 +28,7 @@ public class OI {
 		driverButtonRightBumper.whenPressed(new ShooterSpeed());
 		driverButtonA.whenPressed(new ShooterRun());
 		driverButtonX.whenPressed(new ShooterStop());
-		driverButtonB.whenPressed(new PrintNetTable());
+		driverButtonB.whenPressed(new TargetAlign());
     }
 
     private static final int LEFT_HORIZ_AXIS = 0;
