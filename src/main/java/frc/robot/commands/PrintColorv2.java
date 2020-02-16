@@ -5,6 +5,9 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
+//ATTENTION: PAIRED TO OPERATOR BUTTON B
+
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
