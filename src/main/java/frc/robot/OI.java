@@ -32,6 +32,7 @@ public class OI {
 		operatorButtonY.whenPressed(new ShooterFullReverse());
 		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
+		operatorButtonStart.whenPressed(new ShooterTestSpeed());
     }
 
     private static final int LEFT_HORIZ_AXIS = 0;

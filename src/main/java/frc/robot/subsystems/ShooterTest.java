@@ -21,6 +21,7 @@ public class ShooterTest extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private static final WPI_VictorSPX shooterMotor = new WPI_VictorSPX(RobotMap.shooterMotor);
+  double currentSpeed = 0;
 
   @Override
   public void initDefaultCommand() {
@@ -35,22 +36,26 @@ public class ShooterTest extends Subsystem {
 
   public void speedUp() {
     double speedIncrease = .1;
-    double currentSpeed = shooterMotor.get();
+    //double currentSpeed = shooterMotor.get();
     double fastSpeed = currentSpeed + speedIncrease;
     if (fastSpeed > 1.0) {
       fastSpeed = 1.0;
     }
     shooterMotor.set(ControlMode.PercentOutput, fastSpeed);
+    System.out.println(fastSpeed);
+    currentSpeed = fastSpeed;
   }
 
   public void speedDown() {
     double speedDecrease = -.1;
-    double currentSpeed = shooterMotor.get();
+    //double currentSpeed = shooterMotor.get();
     double slowSpeed = currentSpeed + speedDecrease;
     if (slowSpeed < -1.0) {
       slowSpeed = -1.0;
     }
     shooterMotor.set(ControlMode.PercentOutput, slowSpeed);
+    System.out.println(slowSpeed);
+    currentSpeed = slowSpeed;
   }
 
   public void shooterStop() {
@@ -63,5 +68,9 @@ public class ShooterTest extends Subsystem {
 
   public void fullReverse() {
     shooterMotor.set(ControlMode.PercentOutput, -1);
+  }
+
+  public void testSpeed() {
+    shooterMotor.set(ControlMode.PercentOutput, .8);
   }
 }

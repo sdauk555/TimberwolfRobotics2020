@@ -21,6 +21,7 @@ public class FeederTest extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private static final WPI_VictorSPX feederMotor = new WPI_VictorSPX(RobotMap.feederMotor);
+  double currentSpeed = 0;
 
   @Override
   public void initDefaultCommand() {
@@ -34,22 +35,26 @@ public class FeederTest extends Subsystem {
 
   public void speedUp() {
     double speedIncrease = .1;
-    double currentSpeed = feederMotor.get();
+    //double currentSpeed = feederMotor.get();
     double fastSpeed = currentSpeed + speedIncrease;
     if (fastSpeed > 1.0) {
       fastSpeed = 1.0;
     }
     feederMotor.set(ControlMode.PercentOutput, fastSpeed);
+    System.out.println(fastSpeed);
+    currentSpeed = fastSpeed;
   }
 
   public void speedDown() {
     double speedDecrease = -.1;
-    double currentSpeed = feederMotor.get();
+    //double currentSpeed = feederMotor.get();
     double slowSpeed = currentSpeed + speedDecrease;
     if (slowSpeed < -1.0) {
       slowSpeed = -1.0;
     }
     feederMotor.set(ControlMode.PercentOutput, slowSpeed);
+    System.out.println(slowSpeed);
+    currentSpeed = slowSpeed;
   }
 
   public void feederStop() {
