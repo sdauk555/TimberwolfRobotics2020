@@ -19,6 +19,22 @@ import frc.robot.commands.*;
 public class OI {
 
     public OI () {
+		//test bindings
+		driverButtonA.whenPressed(new FeederStart());
+		driverButtonB.whenPressed(new FeederFullForward());
+		driverButtonX.whenPressed(new FeederStop());
+		driverButtonY.whenPressed(new FeederFullReverse());
+		driverButtonLeftBumper.whenPressed(new FeederSlow());
+		driverButtonRightBumper.whenPressed(new FeederSpeed());
+
+		operatorButtonA.whenPressed(new ShooterRun());
+		operatorButtonB.whenPressed(new ShooterFullForward());
+		operatorButtonX.whenPressed(new ShooterStop());
+		operatorButtonY.whenPressed(new ShooterFullReverse());
+		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
+		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
+
+		//competition bindings
 		//driverButtonLeftBumper.whenPressed(new feederOut());
 		//driverButtonRightBumper.whenPressed(new feederIn());
 		//driverButtonA.whenPressed(new runFeeder());
