@@ -23,16 +23,10 @@ public class ColorSensor extends Subsystem {
   /**
    * Change the I2C port below to match the connection of your color sensor
    */
+  
   public final I2C.Port i2cPort = I2C.Port.kOnboard;
-
-  /**
-   * A Rev Color Sensor V3 object is constructed with an I2C port as a parameter.
-   * The device will be automatically initialized with default parameters.
-   */
+  
   private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
-
-  public ColorSensor(Port i2cPort) {
-  }
 
   @Override
   public void initDefaultCommand() {
@@ -40,23 +34,25 @@ public class ColorSensor extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  public double getIR() {
 
-    double IR = m_colorSensor.getIR();
+  // public double getIR() {
 
-    SmartDashboard.putNumber("IR", IR);
+  //   double IR = m_colorSensor.getIR();
 
-    return IR;
-  }
+  //   SmartDashboard.putNumber("IR", IR);
 
-  public Color getColor() {
+  //   return IR;
+  // }
+
+  public void getColor() {
 
     Color detectedColor = m_colorSensor.getColor();
+    System.out.println(detectedColor);
 
-    SmartDashboard.putNumber("Red", detectedColor.red);
-    SmartDashboard.putNumber("Green", detectedColor.green);
-    SmartDashboard.putNumber("Blue", detectedColor.blue);
+    // SmartDashboard.putNumber("Red", detectedColor.red);
+    // SmartDashboard.putNumber("Green", detectedColor.green);
+    // SmartDashboard.putNumber("Blue", detectedColor.blue);
 
-    return detectedColor;
+    //  return detectedColor;
   }
 }

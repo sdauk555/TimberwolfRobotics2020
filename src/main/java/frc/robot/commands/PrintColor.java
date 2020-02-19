@@ -45,12 +45,7 @@ public class PrintColor extends InstantCommand {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-
-    Color detectedColor = Robot.colorSensorSubsystem.getColor();
-
-    SmartDashboard.putNumber("Red", detectedColor.red);
-    SmartDashboard.putNumber("Green", detectedColor.green);
-    SmartDashboard.putNumber("Blue", detectedColor.blue);
+    Robot.colorSensorSubsystem.getColor();
 
     // Robot.driveSubsystem.driveSystem(); becomes the future subsystem.
 
