@@ -19,24 +19,14 @@ import frc.robot.commands.*;
 public class OI {
 
     public OI () {
-		//driverButtonA.whenPressed(new LiftCommand());
-		//driverButtonStart.whenPressed(new FeederDeploy());
-		//driverButtonBack.whenPressed(new FeederRetract());
+		driverButtonStart.whenPressed(new PneumaticsStart());
+		driverButtonLeftBumper.whenPressed(new FeederOut());
+		driverButtonRightBumper.whenPressed(new FeederIn());
 
 		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
 		operatorButtonA.whenPressed(new ShooterRun());
 		operatorButtonX.whenPressed(new ShooterStop());
-		operatorButtonY.whenPressed(new FeederDeploy());
-		operatorButtonB.whenPressed(new FeederRetract());
-		//operatorButtonA.whenPressed(new SelectGreen());
-		//operatorButtonB.whenPressed(new SelectRed());
-		//operatorButtonX.whenPressed(new SelectBlue());
-		//operatorButtonY.whenPressed(new SelectYellow());
-		//operatorButtonRightBumper.whenPressed(new ShooterStart());
-		//operatorButtonLeftBumper.whenPressed(new ShooterStop());
-		//operatorButtonStart.whenPressed(new FeederStart());
-		//operatorButtonBack.whenPressed(new FeederStop());
     }
 
     private static final int LEFT_HORIZ_AXIS = 0;

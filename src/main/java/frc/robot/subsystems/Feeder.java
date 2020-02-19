@@ -18,7 +18,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 public class Feeder extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    private static final Compressor comp = new Compressor(0);
+    static final Compressor comp = new Compressor(0);
     private static final Solenoid feederA = new Solenoid(0);
     private static final WPI_VictorSPX FeederMotor = new WPI_VictorSPX(RobotMap.FeederMotor);
   
@@ -28,7 +28,7 @@ public class Feeder extends Subsystem {
     } 
 
     public void pneumaticsStart() {
-        Pneumatics.comp.start();
+        Feeder.comp.start();
     }
     
     // Starts the roller bar
@@ -39,15 +39,16 @@ public class Feeder extends Subsystem {
     
     // Stops the roller bar
     public void stop() {
-        FeederMotor.set(ControlMode.PercentOutput, 0);
-
+        FeederMotor.stopMotor();
     }
-    // Deploys the roller bar
-    public void deploy() {
 
+    // moves pistons forward
+    public void feederIn() {
+        feederA.set(true);
     }
-    // Retracts the roller bar
-    public void retract() {
 
+    // moves pistons backward
+    public void feederOut() {
+        feederA.set(false);
     }
 }

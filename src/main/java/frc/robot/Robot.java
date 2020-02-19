@@ -9,14 +9,12 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Feeder;
-import frc.robot.subsystems.Pneumatics;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -33,7 +31,6 @@ public class Robot extends TimedRobot {
   public static final Drive driveSubsystem = new Drive();
   public static final Shooter shooterSubsystem = new Shooter();
   public static final Feeder feederSubsystem = new Feeder();
-  public static final Pneumatics pneumaticsSubsystem = new Pneumatics();
 
   public static final OI CONTROLLERBINDING = new OI();
 

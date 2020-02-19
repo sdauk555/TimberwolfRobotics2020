@@ -6,12 +6,12 @@ import edu.wpi.first.wpilibj.command.InstantCommand;
 public class FeederIn extends InstantCommand {
 
     public FeederIn() {
-        requires(Robot.pneumaticsSubsystem);
+        requires(Robot.feederSubsystem);
     }
 
     @Override
     protected void execute() {
-        Robot.pneumaticsSubsystem.feederIn();
+        Robot.feederSubsystem.feederIn();
     }
 
     @Override

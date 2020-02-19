@@ -5,12 +5,12 @@ import edu.wpi.first.wpilibj.command.InstantCommand;
 
 public class FeederOut extends InstantCommand {
     public FeederOut() {
-        requires(Robot.pneumaticsSubsystem);
+        requires(Robot.feederSubsystem);
     }
 
     @Override
     protected void execute() {
-        Robot.pneumaticsSubsystem.feederOut();
+        Robot.feederSubsystem.feederOut();
     }
 
     @Override
