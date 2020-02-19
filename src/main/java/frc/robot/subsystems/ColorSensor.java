@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 
-//import com.revrobotics.ColorSensorV3;
+import com.revrobotics.ColorSensorV3;
 
 public class ColorSensor extends Subsystem {
   // Put methods for controlling this subsystem
@@ -23,13 +23,13 @@ public class ColorSensor extends Subsystem {
   /**
    * Change the I2C port below to match the connection of your color sensor
    */
-  private final I2C.Port i2cPort = I2C.Port.kOnboard;
+  public final I2C.Port i2cPort = I2C.Port.kOnboard;
 
   /**
    * A Rev Color Sensor V3 object is constructed with an I2C port as a parameter.
    * The device will be automatically initialized with default parameters.
    */
-  private final ColorSensor m_colorSensor = new ColorSensor(i2cPort);
+  private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
 
   public ColorSensor(Port i2cPort) {
   }

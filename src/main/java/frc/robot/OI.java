@@ -64,7 +64,7 @@ public class OI {
 	private Button driverButtonRightAxisPress = new JoystickButton(driverController, 10);
 	
 	// Operator controller setup
-	private Joystick operatorController = new Joystick(0);
+	private Joystick operatorController = new Joystick(RobotMap.controller2);
 	private Button operatorButtonA = new JoystickButton(operatorController, 1);
 	private Button operatorButtonB = new JoystickButton(operatorController, 2);
 	private Button operatorButtonX = new JoystickButton(operatorController, 3);
