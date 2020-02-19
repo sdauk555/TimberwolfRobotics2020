@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -105,5 +106,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void testPeriodic() {
+    final Compressor comp = new Compressor(0);
+    comp.start();
   }
 }
