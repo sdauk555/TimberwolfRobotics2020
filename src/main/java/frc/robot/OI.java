@@ -33,6 +33,7 @@ public class OI {
 		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
 		operatorButtonStart.whenPressed(new ShooterTestSpeed());
+		operatorButtonBack.whileHeld(new AlignRobot());
     }
 
     private static final int LEFT_HORIZ_AXIS = 0;
