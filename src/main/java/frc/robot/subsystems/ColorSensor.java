@@ -31,7 +31,7 @@ public class ColorSensor extends Subsystem {
    */
   private final ColorSensor m_colorSensor = new ColorSensor(i2cPort);
 
-  public ColorSensor(Port i2cPort2) {
+  public ColorSensor(Port i2cPort) {
   }
 
   @Override
