@@ -5,26 +5,30 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems;
+package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.command.InstantCommand;
+
+import frc.robot.Robot;
 
 /**
  * Add your docs here.
  */
-public class Camera extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+public class PrintNetTable extends InstantCommand {
+  /**
+   * Add your docs here.
+   */
+  public PrintNetTable() {
+    super();
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    requires(Robot.visionSubsystem);
+  }
 
+  // Called once when the command executes
   @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+  protected void execute() {
+    Robot.visionSubsystem.printCameraData();
   }
 
-  public void addCamera() {
-    CameraServer camera1 = CameraServer.getInstance();
-    camera1.startAutomaticCapture("cam1", 1);
-  }
 }

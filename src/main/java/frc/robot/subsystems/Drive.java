@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveCommand;
 
@@ -31,6 +32,8 @@ public class Drive extends Subsystem {
     SpeedControllerGroup rightmotors = new SpeedControllerGroup(motor3, motor4);
     DifferentialDrive maindrive = new DifferentialDrive(leftmotors, rightmotors);
 
+    NetworkTableInstance ntinst = NetworkTableInstance.getDefault();
+
 @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
@@ -41,5 +44,29 @@ public class Drive extends Subsystem {
     double analogLY = controller1.getY(Hand.kLeft);
     double analogLX = controller1.getX(Hand.kLeft);
     maindrive.arcadeDrive(analogLY, analogLX, true);
+  }
+  public void visionTarget() {
+    double midX = ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);
+    double midY = ntinst.getTable("contourPoints").getEntry("midPointY").getDouble(-1);
+    boolean resultsCheck = ntinst.getTable("contourPoints").getEntry("resultsCheck").getBoolean(false);
+
+    if (resultsCheck == true) {
+      if (midX < -.1) {
+        maindrive.arcadeDrive(0, .5);
+        if (midX >= -.1) {
+          maindrive.stopMotor();
+          return;
+        }
+        return;
+      }
+      if (midX > .1) {
+        maindrive.arcadeDrive(0, -.5);
+        if (midX <= .1) {
+          maindrive.stopMotor();
+          return;
+        }
+        return;
+      }
+    }
   }
 }

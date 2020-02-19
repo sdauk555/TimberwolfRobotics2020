@@ -8,7 +8,6 @@
 package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
-//import frc.robot.commands.FeederStop;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
