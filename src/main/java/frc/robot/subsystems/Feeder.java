@@ -9,6 +9,8 @@ package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Compressor;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -16,12 +18,18 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 public class Feeder extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    private static final Compressor comp = new Compressor(0);
+    private static final Solenoid feederA = new Solenoid(0);
     private static final WPI_VictorSPX FeederMotor = new WPI_VictorSPX(RobotMap.FeederMotor);
   
     @Override
     public void initDefaultCommand(){
 
     } 
+
+    public void pneumaticsStart() {
+        Pneumatics.comp.start();
+    }
     
     // Starts the roller bar
     public void start() {

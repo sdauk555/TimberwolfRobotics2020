@@ -1,24 +1,20 @@
-
-
 package frc.robot.commands;
 
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
-public class FeederRetract extends InstantCommand {
+public class FeederIn extends InstantCommand {
 
-    public FeederRetract(){
+    public FeederIn() {
         requires(Robot.pneumaticsSubsystem);
     }
 
     @Override
     protected void execute() {
-        Robot.pneumaticsSubsystem.feederRetract();
-    
+        Robot.pneumaticsSubsystem.feederIn();
     }
 
     @Override
-  protected void interrupted() {
-  }
-
+    protected void interrupted() {
+    }
 }

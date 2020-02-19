@@ -12,29 +12,27 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Pneumatics extends Subsystem {
-    private static final Compressor comp = new Compressor(0);
+    static final Compressor comp = new Compressor(0);
     private static final Solenoid feederA = new Solenoid(0);
-
-    public void start() {
-        Pneumatics.comp.start();
-    }
-
-    public void feederDeployment() {
-        feederA.set(true);
-
-    }
-    // moves pistons forward
-
-    public void feederRetract() {
-        feederA.set(false);
-    }
-
-    // moves pistons backward
 
     @Override
     protected void initDefaultCommand() {
 
     }
-    // Necessary override
+
+    public void start() {
+        Pneumatics.comp.start();
+    }
+
+    // moves pistons forward
+    public void feederIn() {
+        feederA.set(true);
+
+    }
+
+    // moves pistons backward
+    public void feederOut() {
+        feederA.set(false);
+    }
 
 }
