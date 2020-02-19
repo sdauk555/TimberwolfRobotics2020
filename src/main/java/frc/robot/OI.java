@@ -10,7 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.PrintColorv2;
+import frc.robot.commands.PrintColor;
 import frc.robot.commands.ShooterRun;
 import frc.robot.commands.ShooterSlow;
 import frc.robot.commands.ShooterSpeed;
@@ -31,7 +31,7 @@ public class OI {
 		operatorButtonA.whenPressed(new ShooterRun());
 		operatorButtonX.whenPressed(new ShooterStop());
 		//operatorButtonA.whenPressed(new SelectGreen());
-		operatorButtonB.whenPressed(new PrintColorv2());
+		operatorButtonB.whenPressed(new PrintColor());
 		//operatorButtonX.whenPressed(new SelectBlue());
 		//operatorButtonY.whenPressed(new SelectYellow());
 		//operatorButtonRightBumper.whenPressed(new ShooterStart());

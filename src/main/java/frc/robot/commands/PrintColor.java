@@ -14,11 +14,11 @@ import edu.wpi.first.wpilibj.command.InstantCommand;
 import edu.wpi.first.wpilibj.util.Color;
 import frc.robot.Robot;
 
-public class PrintColorv2 extends InstantCommand {
+public class PrintColor extends InstantCommand {
 
   Color detectedColor;
 
-  public PrintColorv2() {
+  public PrintColor() {
     super();
     requires(Robot.colorSensorSubsystem);
   }
