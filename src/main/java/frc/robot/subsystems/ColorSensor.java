@@ -47,11 +47,11 @@ public class ColorSensor extends Subsystem {
   public void getColor() {
 
     Color detectedColor = m_colorSensor.getColor();
-    System.out.println(detectedColor);
+    // System.out.println(detectedColor);
 
-    // SmartDashboard.putNumber("Red", detectedColor.red);
-    // SmartDashboard.putNumber("Green", detectedColor.green);
-    // SmartDashboard.putNumber("Blue", detectedColor.blue);
+    SmartDashboard.putNumber("Red", detectedColor.red);
+    SmartDashboard.putNumber("Green", detectedColor.green);
+    SmartDashboard.putNumber("Blue", detectedColor.blue);
 
     //  return detectedColor;
   }
