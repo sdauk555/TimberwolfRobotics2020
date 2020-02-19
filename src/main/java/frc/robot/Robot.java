@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.ShooterTest;
 import frc.robot.subsystems.FeederTest;
+import frc.robot.subsystems.VisionProcessing;
 //import frc.robot.subsystems.Pneumatics;
 
 /**
@@ -33,6 +34,7 @@ public class Robot extends TimedRobot {
   public static final Drive driveSubsystem = new Drive();
   public static final ShooterTest shooterTestSubsystem = new ShooterTest();
   public static final FeederTest feederTestSubsystem = new FeederTest();
+  public static final VisionProcessing visionSubsystem = new VisionProcessing();
   //public static final Pneumatics pneumaticsSubsystem = new Pneumatics();
 
   public static final OI CONTROLLERBINDING = new OI();
