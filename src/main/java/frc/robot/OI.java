@@ -19,31 +19,20 @@ import frc.robot.commands.*;
 public class OI {
 
     public OI () {
-		driverButtonA.whenPressed(new FeederStart());
-		driverButtonB.whenPressed(new FeederFullForward());
-		driverButtonX.whenPressed(new FeederStop());
-		driverButtonY.whenPressed(new FeederFullReverse());
-		driverButtonLeftBumper.whenPressed(new FeederSlow());
-		driverButtonRightBumper.whenPressed(new FeederSpeed());
+		//driverButtonLeftBumper.whenPressed(new feederOut());
+		//driverButtonRightBumper.whenPressed(new feederIn());
+		//driverButtonA.whenPressed(new runFeeder());
+		//driverButtonB.whenPressed(new targetAlign());
 		
-		operatorButtonA.whenPressed(new ShooterRun());
-		operatorButtonB.whenPressed(new ShooterFullForward());
-		operatorButtonX.whenPressed(new ShooterStop());
-		operatorButtonY.whenPressed(new ShooterFullReverse());
-		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
-		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
-		operatorButtonStart.whenPressed(new ShooterTestSpeed());
+		//operatorButtonA.whenPressed(new selectGreen());
+		//operatorButtonB.whenPressed(new selectRed());
+		//operatorButtonX.whenPressed(new selectBlue());
+		//operatorButtonY.whenPressed(new selectYellow());
+		//operatorButtonStart.whenPressed(new panelSpin());
+		//operatorButtonBack.whenPressed(new colorSensorUp());
+		//operatorButtonLeftBumper.whenPressed(new runHopper());
+		//operatorButtonRightBumper.whileHeld(new Shoot());
     }
-
-    private static final int LEFT_HORIZ_AXIS = 0;
-	private static final int LEFT_VERT_AXIS = 1;
-	private static final int RIGHT_HORIZ_AXIS = 4;
-	private static final int RIGHT_VERT_AXIS = 5;
-	private static final int LEFT_Z_AXIS = 3;
-	private static final int RIGHT_Z_AXIS = 2;
-
-	private static final double STICK_DEADZONE = 0.3;
-	private static final double STICK_MAX = 0.97;
 
 	// driver controller setup
 	private Joystick driverController = new Joystick(RobotMap.driverController);
