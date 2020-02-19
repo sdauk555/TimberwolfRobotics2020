@@ -4,53 +4,55 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
-
+//FOUND: https://github.com/REVrobotics/Color-Sensor-v3-Examples/blob/master/Java/Read%20RGB%20Values/src/main/java/frc/robot/Robot.java
 //ATTENTION: PAIRED TO OPERATOR BUTTON B
 
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 import frc.robot.Robot;
 
 public class PrintColor extends InstantCommand {
 
-  Color detectedColor;
-
   public PrintColor() {
     super();
     requires(Robot.colorSensorSubsystem);
   }
+
   // Called just before this Command runs the first time
   @Override
-  protected void initialize() {    
-      /**
-   * A Rev Color Sensor V3 object is constructed with an I2C port as a 
-   * parameter. The device will be automatically initialized with default 
-   * parameters.
-   */
- // private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
+  protected void initialize() {
     /**
-     * The method GetColor() returns a normalized color value from the sensor and can be
-     * useful if outputting the color to an RGB LED or similar. To
-     * read the raw color, use GetRawColor().
-     * 
-     * The color sensor works best when within a few inches from an object in
-     * well lit conditions (the built in LED is a big help here!). The farther
-     * an object is the more light from the surroundings will bleed into the 
-     * measurements and make it difficult to accurately determine its color.
+     * A Rev Color Sensor V3 object is constructed with an I2C port as a parameter.
+     * The device will be automatically initialized with default parameters.
      */
-    
+    // private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
+    /**
+     * The method GetColor() returns a normalized color value from the sensor and
+     * can be useful if outputting the color to an RGB LED or similar. To read the
+     * raw color, use GetRawColor().
+     * 
+     * The color sensor works best when within a few inches from an object in well
+     * lit conditions (the built in LED is a big help here!). The farther an object
+     * is the more light from the surroundings will bleed into the measurements and
+     * make it difficult to accurately determine its color.
+     */
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    detectedColor = Robot.colorSensorSubsystem.getColor();
-    System.out.println(detectedColor);
-    //Robot.driveSubsystem.driveSystem(); becomes the future subsystem.
+
+    Color detectedColor = Robot.colorSensorSubsystem.getColor();
+
+    SmartDashboard.putNumber("Red", detectedColor.red);
+    SmartDashboard.putNumber("Green", detectedColor.green);
+    SmartDashboard.putNumber("Blue", detectedColor.blue);
+
+    // Robot.driveSubsystem.driveSystem(); becomes the future subsystem.
 
   }
 }
-
