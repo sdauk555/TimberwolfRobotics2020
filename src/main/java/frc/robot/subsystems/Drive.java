@@ -47,7 +47,6 @@ public class Drive extends Subsystem {
   }
   public void visionTarget() {
     double midX = ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);
-    double midY = ntinst.getTable("contourPoints").getEntry("midPointY").getDouble(-1);
     boolean resultsCheck = ntinst.getTable("contourPoints").getEntry("resultsCheck").getBoolean(false);
 
     if (resultsCheck == true) {

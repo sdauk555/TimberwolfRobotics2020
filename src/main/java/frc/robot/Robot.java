@@ -44,6 +44,8 @@ public class Robot extends TimedRobot {
 
   public static final OI CONTROLLERBINDING = new OI();
 
+  public static final Compressor comp = new Compressor(RobotMap.Compressor);
+
 
   /**
    * This function is run when the robot is first started up and should be
@@ -108,6 +110,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    comp.start();
   }
 
   /**
@@ -115,7 +118,5 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void testPeriodic() {
-    final Compressor comp = new Compressor(0);
-    comp.start();
   }
 }

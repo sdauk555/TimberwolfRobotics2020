@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class FeederTest extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private static final WPI_VictorSPX feederMotor = new WPI_VictorSPX(RobotMap.feederMotor);
+  private static final WPI_VictorSPX feederMotor = new WPI_VictorSPX(RobotMap.FeederMotor);
   double currentSpeed = 0;
 
   @Override
