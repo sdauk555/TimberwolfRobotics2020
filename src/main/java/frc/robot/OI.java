@@ -26,6 +26,9 @@ public class OI {
 		driverButtonY.whenPressed(new FeederFullReverse());
 		driverButtonLeftBumper.whenPressed(new FeederSlow());
 		driverButtonRightBumper.whenPressed(new FeederSpeed());
+		//driverButtonStart.whenPressed(new PneumaticsStart());
+		driverButtonLeftBumper.whenPressed(new FeederOut());
+		driverButtonRightBumper.whenPressed(new FeederIn());
 
 		operatorButtonA.whenPressed(new ShooterRun());
 		operatorButtonB.whenPressed(new ShooterFullForward());

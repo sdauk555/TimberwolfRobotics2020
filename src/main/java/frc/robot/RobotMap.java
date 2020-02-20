@@ -1,6 +1,5 @@
 package frc.robot;
 
-
 public class RobotMap {
     
     // Drive
@@ -15,6 +14,9 @@ public class RobotMap {
     public static final int shooterMotor = 0;
     
     //Feeder
-    public static final int feederMotor = 1;
+    public static final int FeederMotor = 1;
+    public static final int FeederSolenoid = 5;
 
+    //Compressor
+    public static final int Compressor = 10;
 }
