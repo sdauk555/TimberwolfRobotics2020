@@ -27,14 +27,17 @@ public class OI {
 		//driverButtonLeftBumper.whenPressed(new FeederSlow());
 		//driverButtonRightBumper.whenPressed(new FeederSpeed());
 
-		operatorButtonA.whenPressed(new ShooterRun());
-		operatorButtonB.whenPressed(new ShooterFullForward());
-		operatorButtonX.whenPressed(new ShooterStop());
-		operatorButtonY.whenPressed(new ShooterFullReverse());
+		// operatorButtonA.whenPressed(new ShooterRun());
+		// operatorButtonB.whenPressed(new ShooterFullForward());
+		// operatorButtonX.whenPressed(new ShooterStop());
+		// operatorButtonY.whenPressed(new ShooterFullReverse());
 
 		//competition bindings
 		driverButtonLeftBumper.whenPressed(new FeederContract());
 		driverButtonRightBumper.whenPressed(new FeederExtend());
+		driverButtonStart.whenPressed(new StartCompressor());
+		driverButtonBack.whenPressed(new StopCompressor());
+		driverButtonA.whenPressed(new feederSolenoidOff());
 
 		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());

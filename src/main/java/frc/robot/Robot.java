@@ -7,7 +7,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -17,7 +16,7 @@ import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.ShooterTest;
 import frc.robot.subsystems.FeederTest;
 import frc.robot.subsystems.VisionProcessing;
-//import frc.robot.subsystems.Pneumatics;
+import frc.robot.subsystems.PneumaticsCompressor;
 
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Feeder;
@@ -38,14 +37,11 @@ public class Robot extends TimedRobot {
   public static final ShooterTest shooterTestSubsystem = new ShooterTest();
   public static final FeederTest feederTestSubsystem = new FeederTest();
   public static final VisionProcessing visionSubsystem = new VisionProcessing();
-  //public static final Pneumatics pneumaticsSubsystem = new Pneumatics();
+  public static final PneumaticsCompressor compressorSubsystem = new PneumaticsCompressor();
   public static final Shooter shooterSubsystem = new Shooter();
   public static final Feeder feederSubsystem = new Feeder();
 
   public static final OI CONTROLLERBINDING = new OI();
-
-  public static final Compressor comp = new Compressor(RobotMap.Compressor);
-
 
   /**
    * This function is run when the robot is first started up and should be
@@ -110,7 +106,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    comp.start();
   }
 
   /**
