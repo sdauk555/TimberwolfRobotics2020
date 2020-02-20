@@ -3,15 +3,15 @@ package frc.robot.commands;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
-public class FeederIn extends InstantCommand {
+public class FeederExtend extends InstantCommand {
 
-    public FeederIn() {
+    public FeederExtend() {
         requires(Robot.feederSubsystem);
     }
 
     @Override
     protected void execute() {
-        Robot.feederSubsystem.feederIn();
+        Robot.feederSubsystem.feederExtend();
     }
 
     @Override

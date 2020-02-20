@@ -9,8 +9,9 @@ package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -19,7 +20,7 @@ public class Feeder extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     static final Compressor comp = new Compressor(RobotMap.Compressor);
-    private static final Solenoid feederSolenoid = new Solenoid(RobotMap.FeederSolenoid);
+    private static final DoubleSolenoid feederSolenoid = new DoubleSolenoid(RobotMap.feederExtend, RobotMap.feederContract);
     private static final WPI_VictorSPX FeederMotor = new WPI_VictorSPX(RobotMap.FeederMotor);
   
     @Override
@@ -41,12 +42,12 @@ public class Feeder extends Subsystem {
     }
 
     // moves pistons forward
-    public void feederIn() {
-        feederSolenoid.set(true);
+    public void feederExtend() {
+        feederSolenoid.set(Value.kForward);
     }
 
     // moves pistons backward
-    public void feederOut() {
-        feederSolenoid.set(false);
+    public void feederContract() {
+        feederSolenoid.set(Value.kReverse);
     }
 }

@@ -15,8 +15,9 @@ public class RobotMap {
     
     //Feeder
     public static final int FeederMotor = 1;
-    public static final int FeederSolenoid = 5;
 
-    //Compressor
+    //Pneumatics
     public static final int Compressor = 10;
+    public static final int feederExtend = 0;
+    public static final int feederContract = 1;
 }
