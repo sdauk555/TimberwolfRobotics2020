@@ -47,4 +47,8 @@ public class Drive extends Subsystem {
   public void driveSystem(double speed, double zRotation) {
     maindrive.arcadeDrive(speed, zRotation,  false);
   }
+
+  public void stopDrive() {
+    maindrive.stopMotor();
+  }
 }
