@@ -66,7 +66,6 @@ public class OI {
 		//operatorButtonBack.whenPressed(new colorSensorUp());
 		//operatorButtonLeftBumper.whenPressed(new runHopper());
 		//operatorButtonRightBumper.whileHeld(new Shoot());
-    }
 
 	// driver controller setup
 	private Joystick driverController = new Joystick(RobotMap.driverController);
