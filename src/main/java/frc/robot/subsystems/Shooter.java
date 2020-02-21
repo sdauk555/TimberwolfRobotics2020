@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
 import frc.robot.commands.DefaultCommand;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -17,17 +17,10 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 /**
  * Add your docs here.
  */
-public class Shooter extends Subsystem {
+public class Shooter extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private static final WPI_VictorSPX shooterMotor = new WPI_VictorSPX(RobotMap.shooterMotor);
-
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new DefaultCommand());
-  }
 
   public void shoot() {
     shooterMotor.set(ControlMode.PercentOutput, .1);

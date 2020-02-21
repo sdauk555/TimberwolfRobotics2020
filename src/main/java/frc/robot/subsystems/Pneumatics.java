@@ -9,9 +9,9 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Pneumatics extends Subsystem {
+public class Pneumatics extends SubsystemBase {
     private static final Compressor comp = new Compressor(0);
     private static final Solenoid feederA = new Solenoid(0);
 
@@ -30,11 +30,5 @@ public class Pneumatics extends Subsystem {
     }
 
     // moves pistons backward
-
-    @Override
-    protected void initDefaultCommand() {
-
-    }
-    // Necessary override
 
 }

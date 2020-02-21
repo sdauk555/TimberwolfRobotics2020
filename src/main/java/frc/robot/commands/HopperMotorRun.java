@@ -1,7 +1,7 @@
 package frc.robot.commands;
 
 import frc.robot.Robot;
-import edu.wpi.first.wpilibj.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj.Timer;
 
 
@@ -11,11 +11,11 @@ public class HopperMotorRun extends InstantCommand {
     private final Timer m_timer = new Timer();
     
     public HopperMotorRun() {
-        requires(Robot.hopperSubsystem);
+        addRequirements(Robot.hopperSubsystem);
     }
 
     @Override
-    protected void execute() {  
+    public void execute() {  
         m_timer.reset();
         m_timer.start(); 
         if (m_timer.get() < 2.0) {
@@ -26,7 +26,7 @@ public class HopperMotorRun extends InstantCommand {
     }
     
     @Override
-    protected void interrupted() {
+    public void end(boolean interrupted) {
     }
 
 }

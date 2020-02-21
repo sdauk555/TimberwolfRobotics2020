@@ -7,19 +7,19 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Robot;
 
 public class ShooterStop extends InstantCommand {
   public ShooterStop() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.shooterSubsystem);
+    addRequirements(Robot.shooterSubsystem);
   }
   
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() {
+  public void execute() {
     Robot.shooterSubsystem.shooterStop();
   }
 }

@@ -1,22 +1,22 @@
 package frc.robot.commands;
 
 import frc.robot.Robot;
-import edu.wpi.first.wpilibj.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 public class HopperMotorStop extends InstantCommand {
 
     public HopperMotorStop(){
-        requires(Robot.hopperSubsystem);
+        addRequirements(Robot.hopperSubsystem);
     }
 
     @Override
-    protected void execute() {
+    public void execute() {
         Robot.hopperSubsystem.stop();
     
     }
 
     @Override
-  protected void interrupted() {
+  public void end(boolean interrupted) {
   }
 
 }
