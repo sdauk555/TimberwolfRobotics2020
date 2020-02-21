@@ -31,10 +31,7 @@ public class Drive extends SubsystemBase {
   SpeedControllerGroup rightmotors = new SpeedControllerGroup(motor3, motor4);
   DifferentialDrive maindrive = new DifferentialDrive(leftmotors, rightmotors);
 
-  public Drive() {
-    super();
-    setDefaultCommand(new DriveCommand());
-  }
+  
 
   public void driveSystem() {
     double analogLY = controller1.getY(Hand.kLeft);

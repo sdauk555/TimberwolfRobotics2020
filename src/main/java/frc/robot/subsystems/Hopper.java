@@ -12,17 +12,11 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
-import frc.robot.commands.HopperMotorRun;;
 
 public class Hopper extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private static final WPI_VictorSPX motor5 = new WPI_VictorSPX(RobotMap.HopperMotor);
-
-  public Hopper() {
-    super();
-    setDefaultCommand(new HopperMotorRun());
-  }
 
   public void run() {
     motor5.set(ControlMode.PercentOutput, 1);

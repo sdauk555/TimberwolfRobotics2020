@@ -13,11 +13,8 @@ import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import frc.robot.subsystems.Drive;
-import frc.robot.subsystems.Shooter;
-import frc.robot.subsystems.Feeder;
-import frc.robot.subsystems.Hopper;
-import frc.robot.subsystems.Pneumatics;
+import frc.robot.subsystems.*;
+import frc.robot.commands.*;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -49,6 +46,10 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+    
+    hopperSubsystem.setDefaultCommand(new HopperMotorStop());
+    driveSubsystem.setDefaultCommand(new DriveCommand());
+    
   }
 
   /**
