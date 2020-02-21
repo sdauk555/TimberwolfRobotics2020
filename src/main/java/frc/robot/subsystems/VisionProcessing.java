@@ -24,7 +24,6 @@ public class VisionProcessing extends Subsystem {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     setDefaultCommand(new DefaultCommand());
-
   }
 
   public void getCameraData() {

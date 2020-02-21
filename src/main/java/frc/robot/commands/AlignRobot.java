@@ -45,6 +45,5 @@ public class AlignRobot extends InstantCommand {
       if (midX > -0.1 && midX < 0.1) {
     
     }
-
   }
 }
