@@ -43,4 +43,20 @@ public class VisionProcessing extends Subsystem {
       System.out.println(midY);
     }
   }
+
+  public double getArea() {
+    return ntinst.getTable("contourPoints").getEntry("area").getDouble(-1); 
+  }
+
+  public double getMidPointX() {
+    return ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);
+  }
+
+  public double getMidPointY() {
+    return ntinst.getTable("contourPoints").getEntry("midPointY").getDouble(-1);
+  }
+
+  public boolean getResultsCheck() {
+    return ntinst.getTable("contourPoints").getEntry("resultsCheck").getBoolean(false);
+  }
 }

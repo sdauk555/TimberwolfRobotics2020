@@ -33,14 +33,24 @@ public class OI {
 		// operatorButtonY.whenPressed(new ShooterFullReverse());
 
 		//competition bindings
-		driverButtonLeftBumper.whenPressed(new FeederContract());
-		driverButtonRightBumper.whenPressed(new FeederExtend());
-		driverButtonStart.whenPressed(new StartCompressor());
-		driverButtonBack.whenPressed(new StopCompressor());
-		driverButtonA.whenPressed(new feederSolenoidOff());
+		// driverButtonLeftBumper.whenPressed(new FeederContract());
+		// driverButtonRightBumper.whenPressed(new FeederExtend());
+		// driverButtonStart.whenPressed(new StartCompressor());
+		// driverButtonBack.whenPressed(new StopCompressor());
+		// driverButtonA.whenPressed(new feederSolenoidOff());
 
 		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
+		operatorButtonStart.whenPressed(new ShooterTestSpeed());
+		operatorButtonBack.whileHeld(new AlignRobot());
+    }
+
+    private static final int LEFT_HORIZ_AXIS = 0;
+	private static final int LEFT_VERT_AXIS = 1;
+	private static final int RIGHT_HORIZ_AXIS = 4;
+	private static final int RIGHT_VERT_AXIS = 5;
+	private static final int LEFT_Z_AXIS = 3;
+	private static final int RIGHT_Z_AXIS = 2;
 
 		//competition bindings (possible)
 		//driverButtonLeftBumper.whenPressed(new feederOut());

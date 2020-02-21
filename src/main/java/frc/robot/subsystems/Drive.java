@@ -40,11 +40,20 @@ public class Drive extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
     setDefaultCommand(new DriveCommand());
   }
+
    public void driveSystem() {
     double analogLY = controller1.getY(Hand.kLeft);
     double analogLX = controller1.getX(Hand.kLeft);
     maindrive.arcadeDrive(analogLY, analogLX, true);
   }
+
+    public void driveSystem(double speed, double zRotation) {
+      maindrive.arcadeDrive(speed, zRotation,  false);
+
+    }
+
+
+
   public void visionTarget() {
     double midX = ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);
     boolean resultsCheck = ntinst.getTable("contourPoints").getEntry("resultsCheck").getBoolean(false);
