@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
+import frc.robot.commands.DefaultCommand;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
@@ -22,6 +23,7 @@ public class Feeder extends Subsystem {
   
     @Override
     public void initDefaultCommand(){
+        setDefaultCommand(new DefaultCommand());
     } 
 
     // Starts the roller bar
