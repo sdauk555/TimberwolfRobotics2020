@@ -10,13 +10,14 @@ public class HopperMotorRun extends InstantCommand {
     
     private final Timer m_timer = new Timer();
     
-    public HopperMotorRun(){
+    public HopperMotorRun() {
         requires(Robot.hopperSubsystem);
     }
 
     @Override
-    protected void execute() {
-        m_timer.start();
+    protected void execute() {  
+        m_timer.reset();
+        m_timer.start(); 
         if (m_timer.get() < 2.0) {
                 Robot.hopperSubsystem.run(); 
             } else {

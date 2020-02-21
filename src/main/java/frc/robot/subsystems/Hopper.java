@@ -7,14 +7,12 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.PWMVictorSPX;
-import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.HopperMotorStop;
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.commands.HopperMotorRun;;
 
 public class Hopper extends Subsystem {
   // Put methods for controlling this subsystem
@@ -25,7 +23,7 @@ public class Hopper extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new HopperMotorStop());
+    setDefaultCommand(new HopperMotorRun());
 
   }
 
