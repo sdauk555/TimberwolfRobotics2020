@@ -21,16 +21,12 @@ public class OI {
     public OI () {
 		//test bindings
 		driverButtonA.whenPressed(new FeederStart());
-		driverButtonB.whenPressed(new FeederFullForward());
 		driverButtonX.whenPressed(new FeederStop());
-		driverButtonY.whenPressed(new FeederFullReverse());
 		//driverButtonLeftBumper.whenPressed(new FeederSlow());
 		//driverButtonRightBumper.whenPressed(new FeederSpeed());
 
 		// operatorButtonA.whenPressed(new ShooterRun());
-		// operatorButtonB.whenPressed(new ShooterFullForward());
 		// operatorButtonX.whenPressed(new ShooterStop());
-		// operatorButtonY.whenPressed(new ShooterFullReverse());
 
 		//competition bindings
 		// driverButtonLeftBumper.whenPressed(new FeederContract());
@@ -41,7 +37,6 @@ public class OI {
 
 		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
-		operatorButtonStart.whenPressed(new ShooterTestSpeed());
 		operatorButtonBack.whileHeld(new AlignRobot());
     }
 

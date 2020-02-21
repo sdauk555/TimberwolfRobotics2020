@@ -63,12 +63,4 @@ public class FeederTest extends Subsystem {
   public void feederStop() {
     feederMotor.set(ControlMode.PercentOutput, 0);
   }
-
-  public void fullSpeed() {
-    feederMotor.set(ControlMode.PercentOutput, 1);
-  }
-
-  public void fullReverse() {
-    feederMotor.set(ControlMode.PercentOutput, -1);
-  }
 }
