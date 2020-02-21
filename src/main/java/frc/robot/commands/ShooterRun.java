@@ -8,11 +8,8 @@
 package frc.robot.commands;
 
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
-
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;;
 
 public class ShooterRun extends InstantCommand {
 
