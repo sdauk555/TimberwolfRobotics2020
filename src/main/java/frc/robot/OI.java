@@ -19,21 +19,9 @@ import frc.robot.commands.*;
 public class OI {
 
     public OI () {
-		//test bindings
 		driverButtonA.whenPressed(new FeederStart());
 		driverButtonX.whenPressed(new FeederStop());
-		//driverButtonLeftBumper.whenPressed(new FeederSlow());
-		//driverButtonRightBumper.whenPressed(new FeederSpeed());
 
-		// operatorButtonA.whenPressed(new ShooterRun());
-		// operatorButtonX.whenPressed(new ShooterStop());
-
-		//competition bindings
-		// driverButtonLeftBumper.whenPressed(new FeederContract());
-		// driverButtonRightBumper.whenPressed(new FeederExtend());
-		// driverButtonStart.whenPressed(new StartCompressor());
-		// driverButtonBack.whenPressed(new StopCompressor());
-		// driverButtonA.whenPressed(new feederSolenoidOff());
 
 		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
@@ -42,31 +30,7 @@ public class OI {
 		operatorButtonA.whenPressed(new ShooterRun());
 		operatorButtonX.whenPressed(new ShooterStop());
 		operatorButtonY.whenPressed(new HopperMotorRun());
-		
-		//operatorButtonA.whenPressed(new SelectGreen());
-		//operatorButtonB.whenPressed(new SelectRed());
-		//operatorButtonX.whenPressed(new SelectBlue());
-		//operatorButtonY.whenPressed(new SelectYellow());
-		//operatorButtonRightBumper.whenPressed(new ShooterStart());
-		//operatorButtonLeftBumper.whenPressed(new ShooterStop());
-		//operatorButtonStart.whenPressed(new FeederStart());
-		//operatorButtonBack.whenPressed(new FeederStop());
     }
-
-		//competition bindings (possible)
-		//driverButtonLeftBumper.whenPressed(new feederOut());
-		//driverButtonRightBumper.whenPressed(new feederIn());
-		//driverButtonA.whenPressed(new runFeeder());
-		//driverButtonB.whenPressed(new targetAlign());
-		
-		//operatorButtonA.whenPressed(new selectGreen());
-		//operatorButtonB.whenPressed(new selectRed());
-		//operatorButtonX.whenPressed(new selectBlue());
-		//operatorButtonY.whenPressed(new selectYellow());
-		//operatorButtonStart.whenPressed(new panelSpin());
-		//operatorButtonBack.whenPressed(new colorSensorUp());
-		//operatorButtonLeftBumper.whenPressed(new runHopper());
-		//operatorButtonRightBumper.whileHeld(new Shoot());
 
 	// driver controller setup
 	private Joystick driverController = new Joystick(RobotMap.driverController);
