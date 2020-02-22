@@ -29,7 +29,16 @@ public class OI {
 
 		operatorButtonA.whenPressed(new ShooterRun());
 		operatorButtonX.whenPressed(new ShooterStop());
-		operatorButtonY.whenPressed(new HopperMotorRun());
+		operatorButtonY.whileHeld(new HopperSequential());
+		
+		//operatorButtonA.whenPressed(new SelectGreen());
+		//operatorButtonB.whenPressed(new SelectRed());
+		//operatorButtonX.whenPressed(new SelectBlue());
+		//operatorButtonY.whenPressed(new SelectYellow());
+		//operatorButtonRightBumper.whenPressed(new ShooterStart());
+		//operatorButtonLeftBumper.whenPressed(new ShooterStop());
+		//operatorButtonStart.whenPressed(new FeederStart());
+		//operatorButtonBack.whenPressed(new FeederStop());
     }
 
 	// driver controller setup
