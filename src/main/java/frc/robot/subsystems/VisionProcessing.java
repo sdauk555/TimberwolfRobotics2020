@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
+/* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
@@ -7,25 +7,25 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.DefaultCommand;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-/**
- * Add your docs here.
- */
-public class VisionProcessing extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+import edu.wpi.first.networktables.NetworkTableInstance;
+
+public class VisionProcessing extends SubsystemBase {
+  /**
+   * Creates a new VisionProcessing.
+   */
   NetworkTableInstance ntinst = NetworkTableInstance.getDefault();
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new DefaultCommand());
+  public VisionProcessing() {
+
   }
 
+  @Override
+  public void periodic() {
+    // This method will be called once per scheduler run
+  }
+  
   public void getCameraData() {
     ntinst.getTable("contourPoints").getEntry("area").getDouble(-1);
     ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);

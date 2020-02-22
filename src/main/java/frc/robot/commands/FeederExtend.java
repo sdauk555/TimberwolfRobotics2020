@@ -6,13 +6,12 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 public class FeederExtend extends InstantCommand {
 
     public void FeederDeploy() {
-        addRequirements(Robot.pneumaticsSubsystem);
+        addRequirements(Robot.feederSubsystem);
     }
 
     @Override
     public void execute() {
-        Robot.pneumaticsSubsystem.feederDeployment();
-
+        Robot.feederSubsystem.feederExtend();
     }
 
     @Override

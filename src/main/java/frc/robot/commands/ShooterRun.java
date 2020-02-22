@@ -23,7 +23,5 @@ public class ShooterRun extends InstantCommand {
   @Override
   public void execute() {
     Robot.shooterSubsystem.shoot();
-    double speed = shooterMotor.get();
-    System.out.println(speed);
   }
 }
