@@ -23,7 +23,7 @@ public class Shooter extends SubsystemBase {
   private static final WPI_VictorSPX shooterMotor = new WPI_VictorSPX(RobotMap.shooterMotor);
 
   public void shoot() {
-    shooterMotor.set(ControlMode.PercentOutput, .1);
+    shooterMotor.set(ControlMode.PercentOutput, 1);
   }
 
   public void shooterStop() {
