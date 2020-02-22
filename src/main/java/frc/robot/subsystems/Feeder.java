@@ -18,7 +18,7 @@ public class Feeder extends SubsystemBase {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     private static final DoubleSolenoid feederSolenoid = new DoubleSolenoid(10, RobotMap.feederExtend, RobotMap.feederContract);
-    private static final WPI_VictorSPX FeederMotor = new WPI_VictorSPX(RobotMap.FeederMotor);
+    private static final WPI_VictorSPX FeederMotor = new WPI_VictorSPX(RobotMap.feederMotor);
   
     // Starts the roller bar
     public void start() {

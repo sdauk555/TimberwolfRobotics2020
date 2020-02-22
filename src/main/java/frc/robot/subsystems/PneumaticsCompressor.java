@@ -16,7 +16,7 @@ public class PneumaticsCompressor extends SubsystemBase {
   /**
    * Creates a new PneumaticsCompressor.
    */
-  public static final Compressor comp = new Compressor(RobotMap.Compressor);
+  public static final Compressor comp = new Compressor(RobotMap.compressor);
 
   public PneumaticsCompressor() {
 
