@@ -8,7 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
-import frc.robot.Robot; 
+import frc.robot.Robot;
 
 public class AlignRobot extends InstantCommand {
   /**
@@ -30,20 +30,17 @@ public class AlignRobot extends InstantCommand {
   public void execute() {
     double midX = Robot.visionSubsystem.getMidPointX();
     boolean resultscheck = Robot.visionSubsystem.getResultsCheck();
-    if (resultscheck== false) {
-      return;
-    }
-    else 
-      if (midX < -0.1 ) {
-        Robot.driveSubsystem.driveSystem(0, 0.1);
-    }
-    else
-     if (midX > 0.1) {
+    System.out.println(midX);
+    System.out.println(resultscheck);
+    if (resultscheck == false) {
+      Robot.driveSubsystem.driveSystem(0, 0);
+    } else if (midX < -0.1) {
+      Robot.driveSubsystem.driveSystem(0, 0.1);
+    } else if (midX > 0.1) {
       Robot.driveSubsystem.driveSystem(0, -0.1);
-    }
-    else 
-      if (midX > -0.1 && midX < 0.1) {
-    
+    } else if (midX > -0.1 && midX < 0.1) {
+      Robot.driveSubsystem.driveSystem(0, 0);
+
     }
   }
 }
