@@ -28,7 +28,7 @@ public class OI {
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
 		operatorButtonA.whenPressed(new ShooterRun());
 		operatorButtonX.whenPressed(new ShooterStop());
-		operatorButtonY.whenPressed(new HopperMotorRun());
+		operatorButtonY.whileHeld(new HopperSequential());
 		
 		//operatorButtonA.whenPressed(new SelectGreen());
 		//operatorButtonB.whenPressed(new SelectRed());
