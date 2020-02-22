@@ -19,13 +19,14 @@ import frc.robot.commands.*;
 public class OI {
 
     public OI () {
-		driverButtonA.whenPressed(new FeederDeploy());
-		driverButtonB.whenPressed(new FeederRetract());
-		//driverButtonStart.whenPressed(new FeederDeploy());
-		//driverButtonBack.whenPressed(new FeederRetract());
+		driverButtonA.whenPressed(new FeederStart());
+		driverButtonX.whenPressed(new FeederStop());
+
 
 		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
+		//operatorButtonBack.whileHeld(new AlignRobot());
+
 		operatorButtonA.whenPressed(new ShooterRun());
 		operatorButtonX.whenPressed(new ShooterStop());
 		operatorButtonY.whileHeld(new HopperSequential());
@@ -40,18 +41,8 @@ public class OI {
 		//operatorButtonBack.whenPressed(new FeederStop());
     }
 
-    private static final int LEFT_HORIZ_AXIS = 0;
-	private static final int LEFT_VERT_AXIS = 1;
-	private static final int RIGHT_HORIZ_AXIS = 4;
-	private static final int RIGHT_VERT_AXIS = 5;
-	private static final int LEFT_Z_AXIS = 3;
-	private static final int RIGHT_Z_AXIS = 2;
-
-	private static final double STICK_DEADZONE = 0.3;
-	private static final double STICK_MAX = 0.97;
-
 	// driver controller setup
-	private Joystick driverController = new Joystick(0);
+	private Joystick driverController = new Joystick(RobotMap.driverController);
 	private Button driverButtonA = new JoystickButton(driverController, 1);
 	private Button driverButtonB = new JoystickButton(driverController, 2);
 	private Button driverButtonX = new JoystickButton(driverController, 3);
@@ -64,7 +55,7 @@ public class OI {
 	private Button driverButtonRightAxisPress = new JoystickButton(driverController, 10);
 	
 	// Operator controller setup
-	private Joystick operatorController = new Joystick(0);
+	private Joystick operatorController = new Joystick(RobotMap.operatorController);
 	private Button operatorButtonA = new JoystickButton(operatorController, 1);
 	private Button operatorButtonB = new JoystickButton(operatorController, 2);
 	private Button operatorButtonX = new JoystickButton(operatorController, 3);

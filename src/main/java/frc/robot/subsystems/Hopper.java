@@ -16,13 +16,13 @@ import frc.robot.RobotMap;
 public class Hopper extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private static final WPI_VictorSPX motor5 = new WPI_VictorSPX(RobotMap.HopperMotor);
+  private static final WPI_VictorSPX hopperMotor = new WPI_VictorSPX(RobotMap.hopperMotor);
 
   public void run() {
-    motor5.set(ControlMode.PercentOutput, 1);
+    hopperMotor.set(ControlMode.PercentOutput, 1);
   }
 
   public void stop() {
-    motor5.set(ControlMode.PercentOutput, 0);
+    hopperMotor.set(ControlMode.PercentOutput, 0);
   }
 }

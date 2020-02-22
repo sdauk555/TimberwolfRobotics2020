@@ -18,7 +18,6 @@ public class FeederStop extends InstantCommand {
    * Add your docs here.
    */
   public FeederStop() {
-    super();
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     addRequirements(Robot.feederSubsystem);
@@ -29,5 +28,4 @@ public class FeederStop extends InstantCommand {
   public void execute() {
     Robot.feederSubsystem.stop();
   }
-
 }

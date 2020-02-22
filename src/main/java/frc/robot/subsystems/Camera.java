@@ -19,6 +19,6 @@ public class Camera extends SubsystemBase {
 
   public void addCamera() {
     CameraServer camera1 = CameraServer.getInstance();
-    camera1.startAutomaticCapture("cam1", 0);
+    camera1.startAutomaticCapture("cam1", 1);
   }
 }

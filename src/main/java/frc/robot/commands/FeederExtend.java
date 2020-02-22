@@ -1,23 +1,20 @@
-
 package frc.robot.commands;
 
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 
-public class FeederDeploy extends InstantCommand {
+public class FeederExtend extends InstantCommand {
 
-    public FeederDeploy() {
-        addRequirements(Robot.pneumaticsSubsystem);
+    public void FeederDeploy() {
+        addRequirements(Robot.feederSubsystem);
     }
 
     @Override
     public void execute() {
-        Robot.pneumaticsSubsystem.feederDeployment();
-
+        Robot.feederSubsystem.feederExtend();
     }
 
     @Override
     public void end(boolean interrupted) {
     }
-
 }
