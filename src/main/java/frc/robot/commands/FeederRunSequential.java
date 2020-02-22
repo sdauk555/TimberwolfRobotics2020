@@ -7,22 +7,18 @@
 
 package frc.robot.commands;
 
-import frc.robot.Robot;
-
-import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class FeederSolenoidOff extends InstantCommand {
-  public FeederSolenoidOff() {
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.feederSubsystem);
-  }
-
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
-    Robot.feederSubsystem.feederSolenoidOff();
-  }
+public class FeederRunSequential extends SequentialCommandGroup {
+  /**
+   * Creates a new FeederSequential.
+   */
+  public FeederRunSequential() {
+    // Add your commands in the super() call, e.g.
+    // super(new FooCommand(), new BarCommand());
+    addCommands(new FeederExtend().withTimeout(2), new FeederStart());
+  } 
 }

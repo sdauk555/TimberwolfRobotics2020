@@ -51,6 +51,7 @@ public class Robot extends TimedRobot {
     shooterSubsystem.setDefaultCommand(new ShooterStop());
     visionSubsystem.setDefaultCommand(new DefaultCommand());
     compressorSubsystem.setDefaultCommand(new DefaultCommand());
+    feederSubsystem.setDefaultCommand(new FeederStop());
     
   }
 

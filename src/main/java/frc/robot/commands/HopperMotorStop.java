@@ -12,11 +12,9 @@ public class HopperMotorStop extends CommandBase {
     @Override
     public void execute() {
         Robot.hopperSubsystem.stop();
-    
     }
 
     @Override
-  public void end(boolean interrupted) {
-  }
-
+    public void end(boolean interrupted) {
+    }
 }
