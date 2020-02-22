@@ -23,9 +23,11 @@ public class OI {
 		driverButtonRightBumper.whenPressed(new FeederStart());
 		driverButtonLeftBumper.whenPressed(new FeederStop());
 		driverButtonA.whenPressed(new AlignRobot());
-
+		driverButtonB.whenPressed(new ControlPanelMotorStart());
+		driverButtonY.whenPressed(new ControlPanelMotorStop());
+		
 		operatorButtonRightBumper.whileHeld(new HopperMotorRun());
-		operatorButtonLeftBumper.whileHeld(new ShooterRun());
+		operatorButtonRightBumper.whileHeld(new ShooterRun());
 		
 		//operatorButtonA.whenPressed(new SelectGreen());
 		//operatorButtonB.whenPressed(new SelectRed());
