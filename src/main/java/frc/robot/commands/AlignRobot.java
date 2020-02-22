@@ -28,7 +28,7 @@ public class AlignRobot extends InstantCommand {
     public void execute() {
         double midX = Robot.visionSubsystem.getMidPointX();
         boolean resultscheck = Robot.visionSubsystem.getResultsCheck();
-        
+
         if (resultscheck == false) {
             return;
         } else if (midX < -0.1) {

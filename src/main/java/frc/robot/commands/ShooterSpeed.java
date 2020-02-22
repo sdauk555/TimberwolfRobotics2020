@@ -17,11 +17,10 @@ public class ShooterSpeed extends InstantCommand {
     // eg. requires(chassis);
     addRequirements(Robot.shooterSubsystem);
   }
-  
+
   // Called repeatedly when this Command is scheduled to run
   @Override
   public void execute() {
     Robot.shooterSubsystem.speedUp();
   }
 }
-
