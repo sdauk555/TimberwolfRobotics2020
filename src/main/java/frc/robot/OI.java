@@ -19,20 +19,22 @@ import frc.robot.commands.*;
 public class OI {
 
     public OI () {
-		driverButtonA.whenPressed(new FeederStart());
-		driverButtonX.whenPressed(new FeederStop());
+		
+		//driver
+		driverButtonRightBumper.whenPressed(new FeederRunSequential());
+		driverButtonLeftBumper.whenPressed(new FeederStopSequential());
+		driverButtonA.whenPressed(new AlignRobot());
 		driverButtonB.whileHeld(new ControlPanelMotorStart());
+
+		operatorButtonRightBumper.whileHeld(new HopperSequential());
+		operatorButtonRightBumper.whileHeld(new ShooterRun());
 		
-
-
-		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
-		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
-		//operatorButtonBack.whileHeld(new AlignRobot());
-
-		operatorButtonA.whenPressed(new ShooterRun());
-		operatorButtonX.whenPressed(new ShooterStop());
-		operatorButtonY.whenPressed(new HopperMotorRun());
-		
+		//operatorButtonA.whenPressed(new SelectGreen());
+		//operatorButtonB.whenPressed(new SelectRed());
+		//operatorButtonX.whenPressed(new SelectBlue());
+		//operatorButtonY.whenPressed(new SelectYellow());
+		//operatorButtonRightBumper.whenPressed(new ShooterStart());
+		//operatorButtonLeftBumper.whenPressed(new ShooterStop());
     }
 
 	// driver controller setup

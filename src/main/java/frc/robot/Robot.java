@@ -48,7 +48,8 @@ public class Robot extends TimedRobot {
     
     hopperSubsystem.setDefaultCommand(new HopperMotorStop());
     driveSubsystem.setDefaultCommand(new DriveCommand());
-    
+    shooterSubsystem.setDefaultCommand(new ShooterStop());
+    feederSubsystem.setDefaultCommand(new FeederStop());
   }
 
   /**
