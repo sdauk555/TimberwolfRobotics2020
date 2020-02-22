@@ -7,7 +7,7 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Robot;
 
 /**
@@ -20,13 +20,12 @@ public class FeederStart extends InstantCommand {
   public FeederStart() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.feederTestSubsystem);
+    addRequirements(Robot.feederSubsystem);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() {
-    Robot.feederTestSubsystem.feed();
+  public void execute() {
+    Robot.feederSubsystem.start();
   }
-
 }

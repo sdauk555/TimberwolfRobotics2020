@@ -20,4 +20,17 @@ public class RobotMap {
     public static final int Compressor = 10;
     public static final int feederExtend = 0;
     public static final int feederContract = 1;
+    public static final int hammerPneumaticsForward = 0;
+    public static final int hammerPneumaticsBackward = 1;
+    public static final int armsPneumaticsForward = 2;
+    public static final int armsPneumaticsBackward = 3;
+    
+    //Hopper
+	public static final int HopperMotor = 6;
+
+    //public static Solenoid hammerPneumaticsForward = new Solenoid(1);
+    //public static Solenoid hammerPneumaticsBackward = new Solenoid(2);
+    //public static Solenoid armsPneumaticsForward = new Solenoid(3);
+    //public static Solenoid armsPneumaticsBackward = new Solenoid(4);
+
 }

@@ -8,8 +8,8 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.Button;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 import frc.robot.commands.*;
 
@@ -38,6 +38,23 @@ public class OI {
 		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
 		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
 		operatorButtonBack.whileHeld(new AlignRobot());
+		driverButtonA.whenPressed(new FeederDeploy());
+		driverButtonB.whenPressed(new FeederRetract());
+		//driverButtonStart.whenPressed(new FeederDeploy());
+		//driverButtonBack.whenPressed(new FeederRetract());
+
+		operatorButtonA.whenPressed(new ShooterRun());
+		operatorButtonX.whenPressed(new ShooterStop());
+		operatorButtonY.whenPressed(new HopperMotorRun());
+		
+		//operatorButtonA.whenPressed(new SelectGreen());
+		//operatorButtonB.whenPressed(new SelectRed());
+		//operatorButtonX.whenPressed(new SelectBlue());
+		//operatorButtonY.whenPressed(new SelectYellow());
+		//operatorButtonRightBumper.whenPressed(new ShooterStart());
+		//operatorButtonLeftBumper.whenPressed(new ShooterStop());
+		//operatorButtonStart.whenPressed(new FeederStart());
+		//operatorButtonBack.whenPressed(new FeederStop());
     }
 
     private static final int LEFT_HORIZ_AXIS = 0;

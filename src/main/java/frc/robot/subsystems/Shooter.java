@@ -7,18 +7,42 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
+import frc.robot.commands.DefaultCommand;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
  * Add your docs here.
  */
-public class Shooter extends Subsystem {
+public class Shooter extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+  public void shoot() {
+    shooterMotor.set(ControlMode.PercentOutput, .1);
+  }
+
+  public void speedUp() {
+    double speedIncrease = .1;
+    double currentSpeed = shooterMotor.get();
+    double fastSpeed = currentSpeed + speedIncrease;
+    if (fastSpeed > 1.0) {
+      fastSpeed = 1.0;
+    }
+    shooterMotor.set(ControlMode.PercentOutput, fastSpeed);
+  }
+
+  public void speedDown() {
+    double speedDecrease = -.1;
+    double currentSpeed = shooterMotor.get();
+    double slowSpeed = currentSpeed + speedDecrease;
+    if (slowSpeed < -1.0) {
+      slowSpeed = -1.0;
+    }
+    shooterMotor.set(ControlMode.PercentOutput, slowSpeed);
+  }
+
+  public void shooterStop() {
+    shooterMotor.set(ControlMode.PercentOutput, 0);
   }
 }

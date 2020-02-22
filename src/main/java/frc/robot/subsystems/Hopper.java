@@ -7,18 +7,22 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.cameraserver.CameraServer;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
-/**
- * Add your docs here.
- */
-public class Camera extends SubsystemBase {
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.RobotMap;
+
+public class Hopper extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  private static final WPI_VictorSPX motor5 = new WPI_VictorSPX(RobotMap.HopperMotor);
 
-  public void addCamera() {
-    CameraServer camera1 = CameraServer.getInstance();
-    camera1.startAutomaticCapture("cam1", 1);
+  public void run() {
+    motor5.set(ControlMode.PercentOutput, 1);
+  }
+
+  public void stop() {
+    motor5.set(ControlMode.PercentOutput, 0);
   }
 }

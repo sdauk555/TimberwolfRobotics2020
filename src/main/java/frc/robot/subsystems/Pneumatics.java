@@ -7,18 +7,28 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.cameraserver.CameraServer;
 
-/**
- * Add your docs here.
- */
-public class Camera extends SubsystemBase {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+public class Pneumatics extends SubsystemBase {
+    private static final Compressor comp = new Compressor(0);
+    private static final Solenoid feederA = new Solenoid(0);
 
-  public void addCamera() {
-    CameraServer camera1 = CameraServer.getInstance();
-    camera1.startAutomaticCapture("cam1", 1);
-  }
+    public void start() {
+        Pneumatics.comp.start();
+    }
+
+    public void feederDeployment() {
+        feederA.set(true);
+
+    }
+    // moves pistons forward
+
+    public void feederRetract() {
+        feederA.set(false);
+    }
+
+    // moves pistons backward
+
 }

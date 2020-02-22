@@ -9,19 +9,21 @@ package frc.robot.commands;
 
 import frc.robot.Robot;
 
-import edu.wpi.first.wpilibj.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 public class ShooterRun extends InstantCommand {
 
   public ShooterRun() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.shooterTestSubsystem);
+    addRequirements(Robot.shooterSubsystem);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() {
-    Robot.shooterTestSubsystem.shoot();
+  public void execute() {
+    Robot.shooterSubsystem.shoot();
+    double speed = shooterMotor.get();
+    System.out.println(speed);
   }
 }

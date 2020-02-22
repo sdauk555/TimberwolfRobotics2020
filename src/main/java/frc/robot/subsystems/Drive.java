@@ -7,7 +7,7 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
@@ -17,28 +17,23 @@ import frc.robot.RobotMap;
 import frc.robot.commands.DriveCommand;
 
 /**
-* Add your docs here.
-*/
-public class Drive extends Subsystem {
+ * Add your docs here.
+ */
+public class Drive extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private static final XboxController controller1 = new XboxController(RobotMap.driverController);
-    private static final PWMVictorSPX motor1 = new PWMVictorSPX(RobotMap.leftMotors[0]);
-    private static final PWMVictorSPX motor2 = new PWMVictorSPX(RobotMap.leftMotors[1]);
-    private static final PWMVictorSPX motor3 = new PWMVictorSPX(RobotMap.rightMotors[0]);
-    private static final PWMVictorSPX motor4 = new PWMVictorSPX(RobotMap.rightMotors[1]);
-    SpeedControllerGroup leftmotors = new SpeedControllerGroup(motor1, motor2);
-    SpeedControllerGroup rightmotors = new SpeedControllerGroup(motor3, motor4);
-    DifferentialDrive maindrive = new DifferentialDrive(leftmotors, rightmotors);
+  private static final PWMVictorSPX motor1 = new PWMVictorSPX(RobotMap.leftMotors[0]);
+  private static final PWMVictorSPX motor2 = new PWMVictorSPX(RobotMap.leftMotors[1]);
+  private static final PWMVictorSPX motor3 = new PWMVictorSPX(RobotMap.rightMotors[0]);
+  private static final PWMVictorSPX motor4 = new PWMVictorSPX(RobotMap.rightMotors[1]);
+  SpeedControllerGroup leftmotors = new SpeedControllerGroup(motor1, motor2);
+  SpeedControllerGroup rightmotors = new SpeedControllerGroup(motor3, motor4);
+  DifferentialDrive maindrive = new DifferentialDrive(leftmotors, rightmotors);
 
-@Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new DriveCommand());
-  }
+  
 
-   public void driveSystem() {
+  public void driveSystem() {
     double analogLY = controller1.getY(Hand.kLeft);
     double analogLX = controller1.getX(Hand.kLeft);
     maindrive.arcadeDrive(analogLY, analogLX, true);
