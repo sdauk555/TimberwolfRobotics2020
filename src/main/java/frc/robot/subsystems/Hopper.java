@@ -19,7 +19,7 @@ public class Hopper extends SubsystemBase {
   private static final WPI_VictorSPX hopperMotor = new WPI_VictorSPX(RobotMap.hopperMotor);
 
   public void run() {
-    hopperMotor.set(ControlMode.PercentOutput, 1);
+    hopperMotor.set(ControlMode.PercentOutput, -.7);
   }
 
   public void stop() {

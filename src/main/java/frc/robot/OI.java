@@ -25,7 +25,7 @@ public class OI {
 		driverButtonA.whenPressed(new AlignRobot());
 
 		operatorButtonRightBumper.whileHeld(new HopperSequential());
-		operatorButtonRightBumper.whileHeld(new ShooterRun());
+		operatorButtonLeftBumper.whileHeld(new ShooterRun());
 		
 		//operatorButtonA.whenPressed(new SelectGreen());
 		//operatorButtonB.whenPressed(new SelectRed());
