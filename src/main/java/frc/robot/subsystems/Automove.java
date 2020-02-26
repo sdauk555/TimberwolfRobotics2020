@@ -45,4 +45,8 @@ public class Automove extends SubsystemBase {
     maindrive.tankDrive(1,-1);	
   }
 
+  public void stop() {
+    maindrive.stopMotor();
+  }
+
 }

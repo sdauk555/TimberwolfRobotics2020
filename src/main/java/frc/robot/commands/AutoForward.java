@@ -9,11 +9,29 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.subsystems.*;
 
 public class AutoForward extends CommandBase {
-  public AutoForward() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    addRequirements(Robot.automoveSubsystem);
+
+  public AutoForward(){
+    addRequirements(Robot.autoMoveSubsystem);
+
   }
+
+  @Override
+    public void initialize() {
+   }  
+
+  @Override
+    public void execute(){
+      Robot.autoMoveSubsystem.Forward();
+    }
+
+  @Override
+  public boolean isFinished() {
+    return false;
+  }
+
+  @Override
+  public void end(boolean interrupted) {
+  }
+}

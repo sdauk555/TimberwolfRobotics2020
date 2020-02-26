@@ -9,11 +9,29 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.subsystems.*;
 
 public class AutoRight extends CommandBase {
-  public AutoRight() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    addRequirements(Robot.automoveSubsystem);
+
+  public AutoRight(){
+    addRequirements(Robot.autoMoveSubsystem);
+
   }
+
+  @Override
+    public void initialize() {
+   }  
+
+  @Override
+    public void execute(){
+      Robot.autoMoveSubsystem.rightTurn();
+    }
+
+  @Override
+  public boolean isFinished() {
+    return false;
+  }
+
+  @Override
+  public void end(boolean interrupted) {
+  }
+}
