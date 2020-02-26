@@ -1,0 +1,48 @@
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
+
+package frc.robot.subsystems;
+
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj.PWMVictorSPX;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import frc.robot.RobotMap;
+
+/**
+ * Add your docs here.
+ */
+public class Automove extends SubsystemBase {
+  
+  private static final PWMVictorSPX motor1 = new PWMVictorSPX(RobotMap.leftMotors[0]);
+  private static final PWMVictorSPX motor2 = new PWMVictorSPX(RobotMap.leftMotors[1]);
+  private static final PWMVictorSPX motor3 = new PWMVictorSPX(RobotMap.rightMotors[0]);
+  private static final PWMVictorSPX motor4 = new PWMVictorSPX(RobotMap.rightMotors[1]);
+  SpeedControllerGroup leftmotors = new SpeedControllerGroup(motor1, motor2);
+  SpeedControllerGroup rightmotors = new SpeedControllerGroup(motor3, motor4);
+  DifferentialDrive maindrive = new DifferentialDrive(leftmotors, rightmotors);
+
+  
+
+  public void Forward(){
+    maindrive.tankDrive(1,1);	
+
+  }
+
+  public void Backward(){
+    maindrive.tankDrive(-1,-1);	
+  }
+
+  public void leftTurn(){
+    maindrive.tankDrive(-1,1);	
+  }
+
+  public void rightTurn(){
+    maindrive.tankDrive(1,-1);	
+  }
+
+}
