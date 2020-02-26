@@ -13,7 +13,7 @@ import frc.robot.Robot;
 public class AutoBack extends CommandBase {
 
   public AutoBack(){
-    addRequirements(Robot.autoMoveSubsystem);
+    addRequirements(Robot.driveSubsystem);
 
   }
 
@@ -23,7 +23,7 @@ public class AutoBack extends CommandBase {
 
   @Override
     public void execute(){
-      Robot.autoMoveSubsystem.Backward();
+      Robot.driveSubsystem.driveSystem(-1, 0);
     }
 
   @Override
