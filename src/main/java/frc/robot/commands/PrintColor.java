@@ -9,21 +9,19 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.InstantCommand;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.util.Color;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Robot;
 
 public class PrintColor extends InstantCommand {
 
   public PrintColor() {
     super();
-    requires(Robot.colorSensorSubsystem);
+    addRequirements(Robot.colorSensorSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
-  protected void initialize() {
+  public void initialize() {
     /**
      * A Rev Color Sensor V3 object is constructed with an I2C port as a parameter.
      * The device will be automatically initialized with default parameters.
@@ -44,7 +42,7 @@ public class PrintColor extends InstantCommand {
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() {
+  public void execute() {
     Robot.colorSensorSubsystem.getColor();
 
     // Robot.driveSubsystem.driveSystem(); becomes the future subsystem.

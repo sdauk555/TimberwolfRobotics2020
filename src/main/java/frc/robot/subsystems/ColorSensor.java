@@ -9,15 +9,14 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.I2C.Port;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 
 import com.revrobotics.ColorSensorV3;
 
-public class ColorSensor extends Subsystem {
+public class ColorSensor extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   /**
@@ -27,13 +26,6 @@ public class ColorSensor extends Subsystem {
   public final I2C.Port i2cPort = I2C.Port.kOnboard;
   
   private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
-
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-  }
-
 
   // public double getIR() {
 
