@@ -33,7 +33,6 @@ public class Robot extends TimedRobot {
   public static final Shooter shooterSubsystem = new Shooter();
   public static final Feeder feederSubsystem = new Feeder();
   public static final Hopper hopperSubsystem = new Hopper();
-  public static final Automove autoMoveSubsystem = new Automove();
 
   public static final OI CONTROLLERBINDING = new OI();
 
