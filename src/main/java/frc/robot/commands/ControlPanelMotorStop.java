@@ -1,25 +1,35 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-/**
- * Add your docs here.
- */
-public class ControlPanelMotorStop extends InstantCommand {
-  /**
-   * Add your docs here.
-   */
+public class ControlPanelMotorStop extends CommandBase {
+  
   public ControlPanelMotorStop() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+    // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.controlpanelSubsystem);
   }
 
-  // Called repeatedly when this Command is scheduled to run
+  // Called when the command is initially scheduled.
+  @Override
+  public void initialize() {
+  }
+
+  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     Robot.controlpanelSubsystem.stop();
+  }
+
+  // Called once the command ends or is interrupted.
+  @Override
+  public void end(boolean interrupted) {
+  }
+ 
+  // Returns true when the command should end.
+  @Override
+  public boolean isFinished() {
+    return false;
   }
 }
 
