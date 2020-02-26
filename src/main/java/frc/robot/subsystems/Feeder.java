@@ -40,7 +40,7 @@ public class Feeder extends SubsystemBase {
         feederSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 
-    public void feederSolenoidOff() {
+    public void FeederSolenoidOff() {
         feederSolenoid.set(DoubleSolenoid.Value.kOff);
     }
 }
