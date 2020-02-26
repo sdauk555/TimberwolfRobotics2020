@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
 public class controlpanelSolenoidOff extends InstantCommand {
   public controlpanelSolenoidOff() {
-    // Use addRequirements() here to declare subsystem dependencies.
+       // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.controlpanelSubsystem);
   }
 

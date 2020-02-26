@@ -26,6 +26,6 @@ public class RobotMap {
     public static final int compressor = 10;
     public static final int feederExtend = 0;
     public static final int feederContract = 1;
-    public static final int controlpanelExtend = 0;
-    public static final int controlpanelContract = 1; 
+    public static final int controlpanelExtend = 2;
+    public static final int controlpanelContract = 3; 
 }
