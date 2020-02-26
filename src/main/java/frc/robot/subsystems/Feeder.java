@@ -39,4 +39,8 @@ public class Feeder extends SubsystemBase {
     public void feederContract() {
         feederSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
+
+    public void FeederSolenoidOff() {
+        feederSolenoid.set(DoubleSolenoid.Value.kOff);
+    }
 }

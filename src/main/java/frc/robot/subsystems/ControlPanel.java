@@ -41,7 +41,7 @@ public class ControlPanel extends SubsystemBase {
       ControlPanelSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 
-    public void controlpanelSolenoidOff() {
+    public void ControlPanelSolenoidOff() {
       ControlPanelSolenoid.set(DoubleSolenoid.Value.kOff);
     }
 }
