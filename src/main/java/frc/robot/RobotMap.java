@@ -7,13 +7,20 @@ public class RobotMap {
     public static final int[] rightMotors = {2, 3};
     
     //Controllers
-    public static final int controller1 = 0;
-    public static final int controller2 = 1;
+    public static final int driverController = 0;
+    public static final int operatorController = 1;
 
     //shooter
-    public static final int shooterMotor = 4;
+    public static final int shooterMotor = 0;
     
     //Feeder
-    public static final int FeederMotor = 5;
+    public static final int feederMotor = 1;
 
+    //Hopper
+    public static final int hopperMotor = 2;
+    
+    //Pneumatics
+    public static final int compressor = 10;
+    public static final int feederExtend = 0;
+    public static final int feederContract = 1;
 }

@@ -8,27 +8,20 @@
 package frc.robot.commands;
 
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.command.InstantCommand;
-
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 public class ShooterRun extends InstantCommand {
-
-  private static final WPI_VictorSPX shooterMotor = new WPI_VictorSPX(RobotMap.shooterMotor);
 
   public ShooterRun() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.shooterSubsystem);
+    addRequirements(Robot.shooterSubsystem);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() {
+  public void execute() {
     Robot.shooterSubsystem.shoot();
-    double speed = shooterMotor.get();
-    System.out.println(speed);
   }
 }

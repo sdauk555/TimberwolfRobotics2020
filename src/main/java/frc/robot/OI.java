@@ -8,13 +8,10 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.PrintColor;
-import frc.robot.commands.ShooterRun;
-import frc.robot.commands.ShooterSlow;
-import frc.robot.commands.ShooterSpeed;
-import frc.robot.commands.ShooterStop;
+import edu.wpi.first.wpilibj2.command.button.Button;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+
+import frc.robot.commands.*;
 
 /**
  * Add your docs here.
@@ -22,36 +19,24 @@ import frc.robot.commands.ShooterStop;
 public class OI {
 
     public OI () {
-		//driverButtonA.whenPressed(new LiftCommand());
-		//driverButtonStart.whenPressed(new FeederDeploy());
-		//driverButtonBack.whenPressed(new FeederRetract());
+		//driver
+		driverButtonRightBumper.whenPressed(new FeederRunSequential());
+		driverButtonLeftBumper.whenPressed(new FeederStopSequential());
+		driverButtonA.whenPressed(new AlignRobot());
 
-		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
-		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
-		operatorButtonA.whenPressed(new ShooterRun());
-		operatorButtonX.whenPressed(new ShooterStop());
+		operatorButtonRightBumper.whileHeld(new HopperSequential());
+		operatorButtonLeftBumper.whileHeld(new ShooterRun());
+		
 		//operatorButtonA.whenPressed(new SelectGreen());
 		operatorButtonB.whenPressed(new PrintColor());
 		//operatorButtonX.whenPressed(new SelectBlue());
 		//operatorButtonY.whenPressed(new SelectYellow());
 		//operatorButtonRightBumper.whenPressed(new ShooterStart());
 		//operatorButtonLeftBumper.whenPressed(new ShooterStop());
-		//operatorButtonStart.whenPressed(new FeederStart());
-		//operatorButtonBack.whenPressed(new FeederStop());
     }
 
-    private static final int LEFT_HORIZ_AXIS = 0;
-	private static final int LEFT_VERT_AXIS = 1;
-	private static final int RIGHT_HORIZ_AXIS = 4;
-	private static final int RIGHT_VERT_AXIS = 5;
-	private static final int LEFT_Z_AXIS = 3;
-	private static final int RIGHT_Z_AXIS = 2;
-
-	private static final double STICK_DEADZONE = 0.3;
-	private static final double STICK_MAX = 0.97;
-
 	// driver controller setup
-	private Joystick driverController = new Joystick(0);
+	private Joystick driverController = new Joystick(RobotMap.driverController);
 	private Button driverButtonA = new JoystickButton(driverController, 1);
 	private Button driverButtonB = new JoystickButton(driverController, 2);
 	private Button driverButtonX = new JoystickButton(driverController, 3);
@@ -64,7 +49,7 @@ public class OI {
 	private Button driverButtonRightAxisPress = new JoystickButton(driverController, 10);
 	
 	// Operator controller setup
-	private Joystick operatorController = new Joystick(RobotMap.controller2);
+	private Joystick operatorController = new Joystick(RobotMap.operatorController);
 	private Button operatorButtonA = new JoystickButton(operatorController, 1);
 	private Button operatorButtonB = new JoystickButton(operatorController, 2);
 	private Button operatorButtonX = new JoystickButton(operatorController, 3);
