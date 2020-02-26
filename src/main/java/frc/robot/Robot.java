@@ -34,8 +34,11 @@ public class Robot extends TimedRobot {
   public static final Shooter shooterSubsystem = new Shooter();
   public static final Feeder feederSubsystem = new Feeder();
   public static final Hopper hopperSubsystem = new Hopper();
-
+  
   public static final OI CONTROLLERBINDING = new OI();
+
+  public AutoMid autoPos2;
+
 
   /**
    * This function is run when the robot is first started up and should be
@@ -80,6 +83,7 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
+    autoPos2 = new AutoMid();
     System.out.println("Auto selected: " + m_autoSelected);
   }
 
@@ -95,7 +99,7 @@ public class Robot extends TimedRobot {
       case kDefaultAuto:
       default:
         // Put default auto code here
-        new AutoMid();
+        autoPos2.execute();
         break;
     }
   }

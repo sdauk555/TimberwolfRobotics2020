@@ -19,6 +19,6 @@ public class AutoMid extends SequentialCommandGroup {
   public AutoMid() {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());
-    addCommands(new AutoShoot().withTimeout(5), new AutoBackward().withTimeout(1));
+    addCommands(new AutoShoot().withTimeout(5), new AutoBackward().withTimeout(3));
   }
 }
