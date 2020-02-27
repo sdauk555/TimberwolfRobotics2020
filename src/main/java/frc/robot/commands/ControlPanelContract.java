@@ -13,15 +13,15 @@ import frc.robot.Robot;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class FeederSolenoidOff extends InstantCommand {
-  public FeederSolenoidOff() {
+public class ControlPanelContract extends InstantCommand {
+  public ControlPanelContract() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.feederSubsystem);
+    addRequirements(Robot.controlpanelSubsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Robot.feederSubsystem.FeederSolenoidOff();
+    Robot.controlpanelSubsystem.controlpanelContract();
   }
 }

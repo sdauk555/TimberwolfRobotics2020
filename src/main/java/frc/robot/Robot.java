@@ -33,7 +33,7 @@ public class Robot extends TimedRobot {
   public static final Shooter shooterSubsystem = new Shooter();
   public static final Feeder feederSubsystem = new Feeder();
   public static final Hopper hopperSubsystem = new Hopper();
-
+  public static final ControlPanel controlpanelSubsystem = new ControlPanel(); 
   public static final OI CONTROLLERBINDING = new OI();
 
   /**
@@ -50,6 +50,7 @@ public class Robot extends TimedRobot {
     driveSubsystem.setDefaultCommand(new DriveCommand());
     shooterSubsystem.setDefaultCommand(new ShooterStop());
     feederSubsystem.setDefaultCommand(new FeederStop());
+    controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
   }
 
   /**

@@ -18,9 +18,14 @@ public class RobotMap {
 
     //Hopper
     public static final int hopperMotor = 2;
+
+    //ControlPanel
+    public static final int controlpanelMotor = 3; 
     
     //Pneumatics
     public static final int compressor = 10;
     public static final int feederExtend = 0;
     public static final int feederContract = 1;
+    public static final int controlpanelExtend = 2;
+    public static final int controlpanelContract = 3; 
 }

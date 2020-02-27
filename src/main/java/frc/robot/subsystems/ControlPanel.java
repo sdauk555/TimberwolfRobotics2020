@@ -14,33 +14,34 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
-public class Feeder extends SubsystemBase {
+public class ControlPanel extends SubsystemBase {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    private static final DoubleSolenoid feederSolenoid = new DoubleSolenoid(10, RobotMap.feederExtend, RobotMap.feederContract);
-    private static final WPI_VictorSPX feederMotor = new WPI_VictorSPX(RobotMap.feederMotor);
+    private static final DoubleSolenoid ControlPanelSolenoid = new DoubleSolenoid(10, RobotMap.controlpanelExtend,
+      RobotMap.controlpanelContract);
+    private static final WPI_VictorSPX ControlPanelMotor = new WPI_VictorSPX(RobotMap.controlpanelMotor);
   
     // Starts the roller bar
     public void start() {
-        feederMotor.set(ControlMode.PercentOutput, .5);
+      ControlPanelMotor.set(ControlMode.PercentOutput, .1);
     }
     
     // Stops the roller bar
     public void stop() {
-        feederMotor.stopMotor();
+      ControlPanelMotor.stopMotor();
     }
 
     // moves pistons forward
-    public void feederExtend() {
-        feederSolenoid.set(DoubleSolenoid.Value.kForward);
+    public void controlpanelExtend() {
+      ControlPanelSolenoid.set(DoubleSolenoid.Value.kForward);
     }
 
     // moves pistons backward
-    public void feederContract() {
-        feederSolenoid.set(DoubleSolenoid.Value.kReverse);
+    public void controlpanelContract() {
+      ControlPanelSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 
-    public void FeederSolenoidOff() {
-        feederSolenoid.set(DoubleSolenoid.Value.kOff);
+    public void ControlPanelSolenoidOff() {
+      ControlPanelSolenoid.set(DoubleSolenoid.Value.kOff);
     }
 }

@@ -10,18 +10,23 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Robot;
 
-// NOTE:  Consider using this command inline, rather than writing a subclass.  For more
-// information, see:
-// https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class FeederSolenoidOff extends InstantCommand {
-  public FeederSolenoidOff() {
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.feederSubsystem);
+/**
+ * Add your docs here.
+ */
+public class ControlPanelMotorStart extends InstantCommand {
+  /**
+   * Add your docs here.
+   */
+  public ControlPanelMotorStart() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    addRequirements(Robot.controlpanelSubsystem);
   }
 
-  // Called when the command is initially scheduled.
+  // Called repeatedly when this Command is scheduled to run
   @Override
-  public void initialize() {
-    Robot.feederSubsystem.FeederSolenoidOff();
+  public void execute() {
+    Robot.controlpanelSubsystem.start();
   }
 }
+
