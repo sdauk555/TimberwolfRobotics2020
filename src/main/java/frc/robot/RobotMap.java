@@ -13,14 +13,11 @@ public class RobotMap {
     //shooter
     public static final int shooterMotor = 0;
     
-    //Feeder
+    //Control Panel
     public static final int controlPanelMotor = 1;
 
     //Hopper
-    public static final int hopperMotor = 2;
-
-    //ControlPanel
-    public static final int controlpanelMotor = 3; 
+    public static final int hopperMotor = 2; 
     
     //Pneumatics
     public static final int compressor = 10;

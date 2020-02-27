@@ -19,7 +19,7 @@ public class ControlPanel extends SubsystemBase {
     // here. Call these from Commands.
     private static final DoubleSolenoid ControlPanelSolenoid = new DoubleSolenoid(10, RobotMap.controlpanelExtend,
       RobotMap.controlpanelContract);
-    private static final WPI_VictorSPX ControlPanelMotor = new WPI_VictorSPX(RobotMap.controlpanelMotor);
+    private static final WPI_VictorSPX ControlPanelMotor = new WPI_VictorSPX(RobotMap.controlPanelMotor);
   
     // Starts the roller bar
     public void start() {
