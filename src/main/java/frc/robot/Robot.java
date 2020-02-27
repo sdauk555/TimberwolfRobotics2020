@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
   
   public static final OI CONTROLLERBINDING = new OI();
 
-  public AutoMid autoPos2;
+  public AutoShoot autoPos2;
 
 
   /**
@@ -83,7 +83,7 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
-    autoPos2 = new AutoMid();
+    autoPos2 = new AutoShoot();
     autoPos2.schedule();
     System.out.println("Auto selected: " + m_autoSelected);
   }

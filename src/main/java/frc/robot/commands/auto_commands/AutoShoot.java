@@ -23,6 +23,6 @@ public class AutoShoot extends ParallelCommandGroup {
   public AutoShoot() {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());super();
-    addCommands(new ShooterRun(), new WaitCommand(1).andThen(new HopperMotorRun()));
+    addCommands(new ShooterRun(), new WaitCommand(1).andThen(new HopperMotorRun()), new WaitCommand(6).andThen(new AutoBackward()));
   }
 }
