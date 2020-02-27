@@ -28,7 +28,7 @@ public class OI {
 		driverButtonY.whenPressed(new ControlPanelMotorStop());
 		
 		operatorButtonRightBumper.whileHeld(new HopperMotorRun());
-		operatorButtonRightBumper.whileHeld(new ShooterRun());
+		operatorButtonLeftBumper.whileHeld(new ShooterRun());
 		
 		//operatorButtonA.whenPressed(new SelectGreen());
 		//operatorButtonB.whenPressed(new SelectRed());
