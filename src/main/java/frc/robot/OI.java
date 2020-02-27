@@ -21,8 +21,6 @@ public class OI {
     public OI () {
 		
 		//driver
-		driverButtonRightBumper.whenPressed(new FeederStart());
-		driverButtonLeftBumper.whenPressed(new FeederStop());
 		driverButtonA.whenPressed(new AlignRobot());
 		driverButtonB.whenPressed(new ControlPanelMotorStart());
 		driverButtonY.whenPressed(new ControlPanelMotorStop());
@@ -34,9 +32,6 @@ public class OI {
 		//operatorButtonB.whenPressed(new SelectRed());
 		//operatorButtonX.whenPressed(new SelectBlue());
 		//operatorButtonY.whenPressed(new SelectYellow());
-		//operatorButtonRightBumper.whenPressed(new ShooterStart());
-		//operatorButtonLeftBumper.whenPressed(new ShooterStop());
-
     }
 
 	// driver controller setup
