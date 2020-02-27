@@ -84,6 +84,7 @@ public class Robot extends TimedRobot {
     m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     autoPos2 = new AutoMid();
+    autoPos2.schedule();
     System.out.println("Auto selected: " + m_autoSelected);
   }
 
@@ -99,9 +100,14 @@ public class Robot extends TimedRobot {
       case kDefaultAuto:
       default:
         // Put default auto code here
-        autoPos2.initialize();
+        CommandScheduler.getInstance().run();
         break;
     }
+  }
+
+  @Override
+  public void teleopInit() {
+    autoPos2.cancel();
   }
 
   /**
