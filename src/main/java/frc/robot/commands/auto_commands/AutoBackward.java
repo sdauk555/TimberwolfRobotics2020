@@ -21,6 +21,6 @@ public class AutoBackward extends InstantCommand {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Robot.driveSubsystem.driveSystem(-.5, 0);
+    Robot.driveSubsystem.driveSystem(-0.5, 0);
   }
 }
