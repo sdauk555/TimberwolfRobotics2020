@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
   public static final VisionProcessing visionSubsystem = new VisionProcessing();
   public static final PneumaticsCompressor compressorSubsystem = new PneumaticsCompressor();
   public static final Shooter shooterSubsystem = new Shooter();
-  public static final Feeder feederSubsystem = new Feeder();
+  //public static final Feeder feederSubsystem = new Feeder();
   public static final Hopper hopperSubsystem = new Hopper();
   public static final ControlPanel controlpanelSubsystem = new ControlPanel(); 
   public static final OI CONTROLLERBINDING = new OI();
@@ -50,7 +50,7 @@ public class Robot extends TimedRobot {
     hopperSubsystem.setDefaultCommand(new HopperMotorStop());
     driveSubsystem.setDefaultCommand(new DriveCommand());
     shooterSubsystem.setDefaultCommand(new ShooterStop());
-    feederSubsystem.setDefaultCommand(new FeederStop());
+    //feederSubsystem.setDefaultCommand(new FeederStop());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
   }
 
@@ -107,8 +107,8 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     CommandScheduler.getInstance().run();
     
-    CameraServer camera1 = CameraServer.getInstance();
-    camera1.startAutomaticCapture("cam1", 0);
+    //CameraServer camera1 = CameraServer.getInstance();
+    //camera1.startAutomaticCapture("cam1", 0);
   }
 
   /**
