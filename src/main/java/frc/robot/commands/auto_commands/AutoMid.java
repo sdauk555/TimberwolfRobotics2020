@@ -7,6 +7,7 @@
 
 package frc.robot.commands.auto_commands;
 
+import edu.wpi.first.wpilibj2.command.PerpetualCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
@@ -19,6 +20,6 @@ public class AutoMid extends SequentialCommandGroup {
   public AutoMid() {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());
-    addCommands(new AutoShoot().withTimeout(5), new AutoBackward().withTimeout(3));
+    addCommands(new AutoShoot().withTimeout(5), new AutoBackward().withTimeout(1));
   }
 }
