@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -31,10 +32,12 @@ public class Robot extends TimedRobot {
   public static final VisionProcessing visionSubsystem = new VisionProcessing();
   public static final PneumaticsCompressor compressorSubsystem = new PneumaticsCompressor();
   public static final Shooter shooterSubsystem = new Shooter();
-  public static final Feeder feederSubsystem = new Feeder();
+  //feeder disabled due to not being added to the robot
+  //public static final Feeder feederSubsystem = new Feeder();
   public static final Hopper hopperSubsystem = new Hopper();
   public static final ColorSensor colorSensorSubsystem = new ColorSensor();
 
+  public static final ControlPanel controlpanelSubsystem = new ControlPanel(); 
   public static final OI CONTROLLERBINDING = new OI();
 
   /**
@@ -50,7 +53,8 @@ public class Robot extends TimedRobot {
     hopperSubsystem.setDefaultCommand(new HopperMotorStop());
     driveSubsystem.setDefaultCommand(new DriveCommand());
     shooterSubsystem.setDefaultCommand(new ShooterStop());
-    feederSubsystem.setDefaultCommand(new FeederStop());
+    //feederSubsystem.setDefaultCommand(new FeederStop());
+    controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
   }
 
   /**
@@ -105,6 +109,9 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     CommandScheduler.getInstance().run();
+    
+    //CameraServer camera1 = CameraServer.getInstance();
+    //camera1.startAutomaticCapture("cam1", 0);
   }
 
   /**
