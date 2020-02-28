@@ -31,7 +31,7 @@ public class OI {
 		operatorButtonLeftBumper.whileHeld(new ShooterRun());
 		
 		//operatorButtonA.whenPressed(new SelectGreen());
-		//operatorButtonB.whenPressed(new SelectRed());
+		operatorButtonB.whenPressed(new PrintColor());
 		//operatorButtonX.whenPressed(new SelectBlue());
 		//operatorButtonY.whenPressed(new SelectYellow());
 		//operatorButtonRightBumper.whenPressed(new ShooterStart());

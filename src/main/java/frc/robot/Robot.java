@@ -35,6 +35,8 @@ public class Robot extends TimedRobot {
   //feeder disabled due to not being added to the robot
   //public static final Feeder feederSubsystem = new Feeder();
   public static final Hopper hopperSubsystem = new Hopper();
+  public static final ColorSensor colorSensorSubsystem = new ColorSensor();
+
   public static final ControlPanel controlpanelSubsystem = new ControlPanel(); 
   public static final OI CONTROLLERBINDING = new OI();
 
