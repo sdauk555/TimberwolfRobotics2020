@@ -56,6 +56,8 @@ public class Robot extends TimedRobot {
     shooterSubsystem.setDefaultCommand(new ShooterStop());
     feederSubsystem.setDefaultCommand(new FeederStop());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
+
+    autoPos2 = new AutoMid();
   }
 
   /**
@@ -85,7 +87,6 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
-    autoPos2 = new AutoMid();
     autoPos2.schedule();
     System.out.println("Auto selected: " + m_autoSelected);
   }
