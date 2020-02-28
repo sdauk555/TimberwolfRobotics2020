@@ -33,7 +33,7 @@ public class SetColorCommand extends CommandBase {
 
   @Override
   public void execute() {
-    controlPanel.spinWheel();
+    controlPanel.start();
   }
 
   @Override
@@ -46,7 +46,7 @@ public class SetColorCommand extends CommandBase {
 
   @Override
   public void end(boolean interrupted) {
-    controlPanel.stopWheel();
+    controlPanel.stop();
   }
 
 }

@@ -29,7 +29,7 @@ public class RotateWheelCommand extends CommandBase {
 
   @Override
   public void execute() {
-    controlPanel.spinWheel();
+    controlPanel.start();
     boolean isCurrentInitial = controlPanel.getColor().equals(initialColor);
     controlPanel.getColor();
     if (!wasLastInitial && isCurrentInitial) {
@@ -45,7 +45,7 @@ public class RotateWheelCommand extends CommandBase {
 
   @Override
   public void end(boolean interrupted) {
-    controlPanel.stopWheel();
+    controlPanel.stop();
   }
 
 }
