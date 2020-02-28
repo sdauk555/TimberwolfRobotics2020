@@ -55,6 +55,9 @@ public class Robot extends TimedRobot {
     shooterSubsystem.setDefaultCommand(new ShooterStop());
     //feederSubsystem.setDefaultCommand(new FeederStop());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
+
+    CameraServer camera1 = CameraServer.getInstance();
+    camera1.startAutomaticCapture("cam1", 0);
   }
 
   /**
@@ -109,9 +112,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     CommandScheduler.getInstance().run();
-    
-    //CameraServer camera1 = CameraServer.getInstance();
-    //camera1.startAutomaticCapture("cam1", 0);
   }
 
   /**
