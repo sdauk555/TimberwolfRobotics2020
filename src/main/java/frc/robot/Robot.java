@@ -119,8 +119,8 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     CommandScheduler.getInstance().run();
     
-    CameraServer camera1 = CameraServer.getInstance();
-    camera1.startAutomaticCapture("cam1", 0);
+    //CameraServer camera1 = CameraServer.getInstance();
+    //camera1.startAutomaticCapture("cam1", 0);
   }
 
   /**
