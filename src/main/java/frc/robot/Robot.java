@@ -32,6 +32,7 @@ public class Robot extends TimedRobot {
   public static final VisionProcessing visionSubsystem = new VisionProcessing();
   public static final PneumaticsCompressor compressorSubsystem = new PneumaticsCompressor();
   public static final Shooter shooterSubsystem = new Shooter();
+  //feeder disabled due to not being added to the robot
   //public static final Feeder feederSubsystem = new Feeder();
   public static final Hopper hopperSubsystem = new Hopper();
   public static final ControlPanel controlpanelSubsystem = new ControlPanel(); 
