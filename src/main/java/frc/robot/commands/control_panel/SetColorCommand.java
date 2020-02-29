@@ -1,6 +1,6 @@
 //Found: https://github.com/STMARobotics/frc-7028-2020/blob/9cbe4d4594168554d8071f844c2e7cd5451bd47f/src/main/java/frc/robot/commands/SetColorCommand.java
 
-package frc.robot.commands;
+package frc.robot.commands.control_panel;
 
 import java.util.Collections;
 import java.util.Map;

@@ -14,7 +14,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.subsystems.*;
-import frc.robot.commands.*;
+import frc.robot.commands.agitator.AgitatorStop;
+import frc.robot.commands.auto_commands.*;
+import frc.robot.commands.control_panel.ControlPanelMotorStop;
+import frc.robot.commands.drive.DriveCommand;
+import frc.robot.commands.hopper.HopperMotorStop;
+import frc.robot.commands.shooter.ShooterStop;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -38,7 +43,13 @@ public class Robot extends TimedRobot {
   public static final ColorSensor colorSensorSubsystem = new ColorSensor();
 
   public static final ControlPanel controlpanelSubsystem = new ControlPanel(); 
+  public static final Agitator agitatorSubsystem =new Agitator();
   public static final OI CONTROLLERBINDING = new OI();
+
+  public AutoMid autoPos2;
+  public PositionOne autoPos1;
+  public PositionThree autoPos3;
+
 
   /**
    * This function is run when the robot is first started up and should be
@@ -58,6 +69,11 @@ public class Robot extends TimedRobot {
 
     CameraServer camera1 = CameraServer.getInstance();
     camera1.startAutomaticCapture("cam1", 0);
+    
+    agitatorSubsystem.setDefaultCommand(new AgitatorStop());
+    autoPos2 = new AutoMid();
+    autoPos1 = new PositionOne();
+    autoPos3 = new PositionThree();
   }
 
   /**
@@ -87,6 +103,10 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
+    autoPos2.schedule();
+    //autoPos1.schedule();
+    //autoPos3.schedule();
+
     System.out.println("Auto selected: " + m_autoSelected);
   }
 
@@ -102,8 +122,16 @@ public class Robot extends TimedRobot {
       case kDefaultAuto:
       default:
         // Put default auto code here
+        CommandScheduler.getInstance().run();
         break;
     }
+  }
+
+  @Override
+  public void teleopInit() {
+    autoPos2.cancel();
+    autoPos1.cancel();
+    autoPos3.cancel();
   }
 
   /**
