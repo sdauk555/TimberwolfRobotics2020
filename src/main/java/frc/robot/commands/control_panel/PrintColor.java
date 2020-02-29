@@ -7,7 +7,7 @@
 //FOUND: https://github.com/REVrobotics/Color-Sensor-v3-Examples/blob/master/Java/Read%20RGB%20Values/src/main/java/frc/robot/Robot.java
 //ATTENTION: PAIRED TO OPERATOR BUTTON B
 
-package frc.robot.commands;
+package frc.robot.commands.control_panel;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Robot;

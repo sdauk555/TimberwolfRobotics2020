@@ -10,8 +10,8 @@ package frc.robot.commands.auto_commands;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 
-import frc.robot.commands.HopperMotorRun;
-import frc.robot.commands.ShooterRun;
+import frc.robot.commands.hopper.HopperMotorRun;
+import frc.robot.commands.shooter.ShooterRun;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
