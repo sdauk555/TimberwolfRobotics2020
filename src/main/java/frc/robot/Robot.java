@@ -17,6 +17,7 @@ import frc.robot.subsystems.*;
 import frc.robot.commands.auto_commands.*;
 import frc.robot.commands.control_panel.ControlPanelMotorStop;
 import frc.robot.commands.drive.DriveCommand;
+import frc.robot.commands.feeder.FeederStop;
 import frc.robot.commands.hopper.AgitatorStop;
 import frc.robot.commands.hopper.HopperMotorStop;
 import frc.robot.commands.shooter.ShooterStop;
@@ -44,7 +45,7 @@ public class Robot extends TimedRobot {
   public static final ControlPanel controlpanelSubsystem = new ControlPanel();
   public static final Agitator agitatorSubsystem = new Agitator();
   public static final Autonomous autonomousSubsystem = new Autonomous();
-  // public static final Feeder feederSubsystem = new Feeder();
+  public static final Feeder feederSubsystem = new Feeder();
 
   public static final OI CONTROLLERBINDING = new OI();
 
@@ -67,7 +68,7 @@ public class Robot extends TimedRobot {
     driveSubsystem.setDefaultCommand(new DriveCommand());
     shooterSubsystem.setDefaultCommand(new ShooterStop());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
-    // feederSubsystem.setDefaultCommand(new FeederStop());
+    feederSubsystem.setDefaultCommand(new FeederStop());
 
     CameraServer camera1 = CameraServer.getInstance();
     camera1.startAutomaticCapture("cam1", 0);
