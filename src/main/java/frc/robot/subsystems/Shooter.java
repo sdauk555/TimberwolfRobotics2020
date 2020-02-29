@@ -29,8 +29,8 @@ public class Shooter extends SubsystemBase {
   private static final WPI_VictorSPX shooterMotor = new WPI_VictorSPX(RobotMap.shooterMotor);
   double defaultSpeed = -0.7;
 
-  private ShuffleboardTab shooterTab = Shuffleboard.getTab("Testing");
-  private NetworkTableEntry shooter = shooterTab.add("Shooter", defaultSpeed).withWidget(BuiltInWidgets.kNumberSlider)
+  private ShuffleboardTab testingTab = Shuffleboard.getTab("Testing");
+  private NetworkTableEntry shooter = testingTab.add("Shooter", defaultSpeed).withWidget(BuiltInWidgets.kNumberSlider)
       .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   public void shoot() {
