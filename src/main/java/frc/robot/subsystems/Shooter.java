@@ -9,9 +9,15 @@ package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
 
+import java.util.Map;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
@@ -22,8 +28,12 @@ public class Shooter extends SubsystemBase {
   // here. Call these from Commands.
   private static final WPI_VictorSPX shooterMotor = new WPI_VictorSPX(RobotMap.shooterMotor);
 
+  private ShuffleboardTab shooterTab = Shuffleboard.getTab("Shooter");
+  private NetworkTableEntry shooterSpeed = shooterTab.add("shooterSpeed", -.7).withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 1)).getEntry();
+
   public void shoot() {
-    shooterMotor.set(ControlMode.PercentOutput, -.7);
+    double shootSpeed = shooterSpeed.getDouble(-.7);
+    shooterMotor.set(ControlMode.PercentOutput, shootSpeed);
   }
 
   public void shooterStop() {
