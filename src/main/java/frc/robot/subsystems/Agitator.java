@@ -16,8 +16,8 @@ public class Agitator extends SubsystemBase {
   private static final WPI_VictorSPX agitatorMotor = new WPI_VictorSPX(RobotMap.agitatorMotor);
   double defaultSpeed = 1.0;
 
-  private ShuffleboardTab agitatorTab = Shuffleboard.getTab("Testing");
-  private NetworkTableEntry agitator = agitatorTab.add("Agitator", defaultSpeed).withWidget(BuiltInWidgets.kNumberSlider)
+  private ShuffleboardTab testingTab = Shuffleboard.getTab("Testing");
+  private NetworkTableEntry agitator = testingTab.add("Agitator", defaultSpeed).withWidget(BuiltInWidgets.kNumberSlider)
       .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   public void run() {
