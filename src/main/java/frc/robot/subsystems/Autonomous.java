@@ -22,19 +22,19 @@ public class Autonomous extends SubsystemBase {
    */
   private ShuffleboardTab autoForwardTab = Shuffleboard.getTab("Autonomous");
   private NetworkTableEntry forward = autoForwardTab.add("Forward", 0.5).withWidget(BuiltInWidgets.kNumberSlider)
-      .withProperties(Map.of("min", 0, "max", 1)).getEntry();
+      .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   private ShuffleboardTab autoBackwardTab = Shuffleboard.getTab("Autonomous");
   private NetworkTableEntry backward = autoBackwardTab.add("Backward", -0.5).withWidget(BuiltInWidgets.kNumberSlider)
-      .withProperties(Map.of("min", -1, "max", 0)).getEntry();
+      .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   private ShuffleboardTab autoRightTab = Shuffleboard.getTab("Autonomous");
   private NetworkTableEntry right = autoRightTab.add("Right", 0.5).withWidget(BuiltInWidgets.kNumberSlider)
-      .withProperties(Map.of("min", 0, "max", 1)).getEntry();
+      .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   private ShuffleboardTab autoLeftTab = Shuffleboard.getTab("Autonomous");
   private NetworkTableEntry left = autoLeftTab.add("Left", -0.5).withWidget(BuiltInWidgets.kNumberSlider)
-      .withProperties(Map.of("min", -1, "max", 0)).getEntry();
+      .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   public Autonomous() {
   }
