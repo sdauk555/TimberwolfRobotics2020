@@ -39,6 +39,7 @@ public class Robot extends TimedRobot {
   public static final OI CONTROLLERBINDING = new OI();
 
   public AutoMid autoPos2;
+  public PositionOne autoPos1;
 
 
   /**
@@ -58,6 +59,7 @@ public class Robot extends TimedRobot {
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
 
     autoPos2 = new AutoMid();
+    autoPos1 = new PositionOne();
   }
 
   /**
@@ -88,6 +90,7 @@ public class Robot extends TimedRobot {
     m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     autoPos2.schedule();
+    autoPos1.schedule();
     System.out.println("Auto selected: " + m_autoSelected);
   }
 
@@ -111,6 +114,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {
     autoPos2.cancel();
+    autoPos1.cancel();
   }
 
   /**

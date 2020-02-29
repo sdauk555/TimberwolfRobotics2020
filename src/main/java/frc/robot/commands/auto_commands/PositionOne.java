@@ -1,12 +1,13 @@
-package frc.robot.commands;
+package frc.robot.commands.auto_commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.commands.*;
 
 public class PositionOne extends SequentialCommandGroup {
 
     public PositionOne() {
         addCommands(
-            new AutoBack().withTimeout(3), 
+            new AutoBackward().withTimeout(3), 
             new AutoRight().withTimeout(3), 
             new AutoForward().withTimeout(3),
             new AutoLeft().withTimeout(3), 

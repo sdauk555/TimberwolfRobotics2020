@@ -5,14 +5,14 @@
 // /* the project.                                                               */
 // /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.commands.auto_commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class AutoForward extends CommandBase {
+public class AutoLeft extends CommandBase {
 
-  public AutoForward(){
+  public AutoLeft(){
     addRequirements(Robot.driveSubsystem);
 
   }
@@ -23,7 +23,7 @@ public class AutoForward extends CommandBase {
 
   @Override
     public void execute(){
-      Robot.driveSubsystem.driveSystem(1, 0);
+      Robot.driveSubsystem.driveSystem(0, -1);
     }
 
   @Override
