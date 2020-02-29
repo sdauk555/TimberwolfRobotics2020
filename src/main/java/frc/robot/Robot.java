@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.subsystems.*;
 import frc.robot.commands.*;
+import frc.robot.commands.auto_commands.*;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -40,6 +41,10 @@ public class Robot extends TimedRobot {
   public static final ControlPanel controlpanelSubsystem = new ControlPanel(); 
   public static final OI CONTROLLERBINDING = new OI();
 
+  public AutoMid autoPos2;
+  public PositionOne autoPos1;
+
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -55,6 +60,9 @@ public class Robot extends TimedRobot {
     shooterSubsystem.setDefaultCommand(new ShooterStop());
     //feederSubsystem.setDefaultCommand(new FeederStop());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
+
+    autoPos2 = new AutoMid();
+    autoPos1 = new PositionOne();
   }
 
   /**
@@ -84,6 +92,8 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
+    autoPos2.schedule();
+    autoPos1.schedule();
     System.out.println("Auto selected: " + m_autoSelected);
   }
 
@@ -99,8 +109,15 @@ public class Robot extends TimedRobot {
       case kDefaultAuto:
       default:
         // Put default auto code here
+        CommandScheduler.getInstance().run();
         break;
     }
+  }
+
+  @Override
+  public void teleopInit() {
+    autoPos2.cancel();
+    autoPos1.cancel();
   }
 
   /**
