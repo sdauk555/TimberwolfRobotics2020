@@ -13,7 +13,7 @@ public class Agitator extends SubsystemBase{
     private static final WPI_VictorSPX agitatorMotor = new WPI_VictorSPX(RobotMap.agitatorMotor);
 
     public void run() {
-    agitatorMotor.set(ControlMode.PercentOutput, 1.0);
+    agitatorMotor.set(ControlMode.PercentOutput, .5);
   }
 
   public void stop() {

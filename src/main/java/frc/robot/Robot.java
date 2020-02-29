@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -67,6 +68,10 @@ public class Robot extends TimedRobot {
     shooterSubsystem.setDefaultCommand(new ShooterStop());
     //feederSubsystem.setDefaultCommand(new FeederStop());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
+
+    CameraServer camera1 = CameraServer.getInstance();
+    camera1.startAutomaticCapture("cam1", 0);
+    
     agitatorSubsystem.setDefaultCommand(new AgitatorStop());
     autoPos2 = new PositionTwo();
     autoPos1 = new PositionOne();
@@ -138,9 +143,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     CommandScheduler.getInstance().run();
-    
-    //CameraServer camera1 = CameraServer.getInstance();
-    //camera1.startAutomaticCapture("cam1", 0);
   }
 
   /**
