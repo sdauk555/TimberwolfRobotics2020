@@ -43,6 +43,7 @@ public class Robot extends TimedRobot {
   public static final ColorSensor colorSensorSubsystem = new ColorSensor();
 
   public static final ControlPanel controlpanelSubsystem = new ControlPanel(); 
+  public static final Agitator agitatorSubsystem =new Agitator();
   public static final OI CONTROLLERBINDING = new OI();
 
   public AutoMid autoPos2;
@@ -65,7 +66,7 @@ public class Robot extends TimedRobot {
     shooterSubsystem.setDefaultCommand(new ShooterStop());
     //feederSubsystem.setDefaultCommand(new FeederStop());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
-
+    agitatorSubsystem.setDefaultCommand(new AgitatorStop());
     autoPos2 = new AutoMid();
     autoPos1 = new PositionOne();
     autoPos3 = new PositionThree();
