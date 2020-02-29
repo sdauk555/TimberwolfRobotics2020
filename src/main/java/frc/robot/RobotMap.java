@@ -19,6 +19,9 @@ public class RobotMap {
     //Hopper
     public static final int hopperMotor = 2; 
     
+    // Agitator
+    public static final int agitatorMotor = 3;
+    
     //Pneumatics
     public static final int compressor = 10;
     public static final int feederExtend = 0;
