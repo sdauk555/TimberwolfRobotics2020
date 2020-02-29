@@ -25,8 +25,8 @@ public class Hopper extends SubsystemBase {
   private static final WPI_VictorSPX hopperMotor = new WPI_VictorSPX(RobotMap.hopperMotor);
   double defaultSpeed = -0.7;
 
-  private ShuffleboardTab hopperTab = Shuffleboard.getTab("Testing");
-  private NetworkTableEntry hopper = hopperTab.add("Hopper", defaultSpeed).withWidget(BuiltInWidgets.kNumberSlider)
+  private ShuffleboardTab testingTab = Shuffleboard.getTab("Testing");
+  private NetworkTableEntry hopper = testingTab.add("Hopper", defaultSpeed).withWidget(BuiltInWidgets.kNumberSlider)
       .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   public void run() {
