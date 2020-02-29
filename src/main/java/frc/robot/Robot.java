@@ -27,8 +27,9 @@ import frc.robot.commands.shooter.ShooterStop;
  * project.
  */
 public class Robot extends TimedRobot {
-  private static final String kDefaultAuto = "Default";
-  private static final String kCustomAuto = "My Auto";
+  private static final String kLeft= "Position1";
+  private static final String kMid = "Position2";
+  private static final String kRight = "Position3";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
@@ -56,8 +57,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
-    m_chooser.addOption("My Auto", kCustomAuto);
+    m_chooser.setDefaultOption("Position1", kLeft);
+    m_chooser.addOption("Position2", kMid);
+    m_chooser.addOption("Position3", kRight);
     SmartDashboard.putData("Auto choices", m_chooser);
     
     hopperSubsystem.setDefaultCommand(new HopperMotorStop());
@@ -96,11 +98,23 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
+    CommandScheduler.getInstance().cancelAll();
     m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
-    autoPos2.schedule();
-    //autoPos1.schedule();
-    //autoPos3.schedule();
+    switch (m_autoSelected) {
+      case kMid:
+        autoPos2.schedule();
+        break;
+      case kLeft:
+      default:
+        // Put default auto code here
+        autoPos1.schedule();
+        break;
+      case kRight:
+        autoPos3.schedule();
+        break;
+    }
+
 
     System.out.println("Auto selected: " + m_autoSelected);
   }
@@ -110,23 +124,12 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    switch (m_autoSelected) {
-      case kCustomAuto:
-        // Put custom auto code here
-        break;
-      case kDefaultAuto:
-      default:
-        // Put default auto code here
-        CommandScheduler.getInstance().run();
-        break;
+    CommandScheduler.getInstance().run();  
     }
-  }
 
   @Override
   public void teleopInit() {
-    autoPos2.cancel();
-    autoPos1.cancel();
-    autoPos3.cancel();
+    CommandScheduler.getInstance().cancelAll();
   }
 
   /**
