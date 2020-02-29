@@ -1,4 +1,4 @@
-package frc.robot.commands;
+package frc.robot.commands.hopper;
 
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -12,11 +12,9 @@ public class HopperMotorStop extends CommandBase {
     @Override
     public void execute() {
         Robot.hopperSubsystem.stop();
-    
     }
 
     @Override
-  public void end(boolean interrupted) {
-  }
-
+    public void end(boolean interrupted) {
+    }
 }

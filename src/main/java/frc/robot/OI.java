@@ -11,7 +11,10 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
-import frc.robot.commands.*;
+import frc.robot.commands.control_panel.*;
+import frc.robot.commands.hopper.*;
+import frc.robot.commands.shooter.*;
+import frc.robot.commands.auto_commands.AlignRobot;
 
 /**
  * Add your docs here.
@@ -19,26 +22,22 @@ import frc.robot.commands.*;
 public class OI {
 
     public OI () {
-		driverButtonA.whenPressed(new FeederStart());
-		driverButtonX.whenPressed(new FeederStop());
-
-
-		operatorButtonLeftBumper.whenPressed(new ShooterSlow());
-		operatorButtonRightBumper.whenPressed(new ShooterSpeed());
-		//operatorButtonBack.whileHeld(new AlignRobot());
-
-		operatorButtonA.whenPressed(new ShooterRun());
-		operatorButtonX.whenPressed(new ShooterStop());
-		operatorButtonY.whileHeld(new HopperSequential());
+		
+		//driver
+		driverButtonA.whenPressed(new AlignRobot());
+		driverButtonB.whenPressed(new ControlPanelMotorStart());
+		driverButtonY.whenPressed(new ControlPanelMotorStop());
+		
+		operatorButtonRightBumper.whileHeld(new ActivateHopper());
+		operatorButtonLeftBumper.whileHeld(new ShooterRun());
 		
 		//operatorButtonA.whenPressed(new SelectGreen());
-		//operatorButtonB.whenPressed(new SelectRed());
+		operatorButtonB.whenPressed(new PrintColor());
 		//operatorButtonX.whenPressed(new SelectBlue());
 		//operatorButtonY.whenPressed(new SelectYellow());
 		//operatorButtonRightBumper.whenPressed(new ShooterStart());
 		//operatorButtonLeftBumper.whenPressed(new ShooterStop());
-		//operatorButtonStart.whenPressed(new FeederStart());
-		//operatorButtonBack.whenPressed(new FeederStop());
+
     }
 
 	// driver controller setup

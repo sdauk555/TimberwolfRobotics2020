@@ -5,23 +5,20 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.commands.auto_commands;
 
-import edu.wpi.first.wpilibj2.command.InstantCommand;
-import frc.robot.Robot;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class StartCompressor extends InstantCommand {
-  public StartCompressor() {
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.compressorSubsystem);
-  }
-
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
-    Robot.compressorSubsystem.CompressorStart();
+public class PositionTwo extends SequentialCommandGroup {
+  /**
+   * Creates a new AutoMid.
+   */
+  public PositionTwo() {
+    // Add your commands in the super() call, e.g.
+    // super(new FooCommand(), new BarCommand());
+    addCommands(new AutoShoot().withTimeout(5), new AutoBackward().withTimeout(1));
   }
 }

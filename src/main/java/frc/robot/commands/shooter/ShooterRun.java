@@ -5,21 +5,23 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.commands.shooter;
 
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Robot;
 
-public class ShooterStop extends InstantCommand {
-  public ShooterStop() {
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+
+public class ShooterRun extends InstantCommand {
+
+  public ShooterRun() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     addRequirements(Robot.shooterSubsystem);
   }
-  
+
   // Called repeatedly when this Command is scheduled to run
   @Override
   public void execute() {
-    Robot.shooterSubsystem.shooterStop();
+    Robot.shooterSubsystem.shoot();
   }
 }

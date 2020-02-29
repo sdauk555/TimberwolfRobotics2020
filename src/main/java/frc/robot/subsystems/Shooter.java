@@ -23,27 +23,7 @@ public class Shooter extends SubsystemBase {
   private static final WPI_VictorSPX shooterMotor = new WPI_VictorSPX(RobotMap.shooterMotor);
 
   public void shoot() {
-    shooterMotor.set(ControlMode.PercentOutput, .1);
-  }
-
-  public void speedUp() {
-    double speedIncrease = .1;
-    double currentSpeed = shooterMotor.get();
-    double fastSpeed = currentSpeed + speedIncrease;
-    if (fastSpeed > 1.0) {
-      fastSpeed = 1.0;
-    }
-    shooterMotor.set(ControlMode.PercentOutput, fastSpeed);
-  }
-
-  public void speedDown() {
-    double speedDecrease = -.1;
-    double currentSpeed = shooterMotor.get();
-    double slowSpeed = currentSpeed + speedDecrease;
-    if (slowSpeed < -1.0) {
-      slowSpeed = -1.0;
-    }
-    shooterMotor.set(ControlMode.PercentOutput, slowSpeed);
+    shooterMotor.set(ControlMode.PercentOutput, -.7);
   }
 
   public void shooterStop() {
