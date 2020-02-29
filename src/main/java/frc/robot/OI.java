@@ -14,8 +14,6 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.control_panel.*;
 import frc.robot.commands.hopper.*;
 import frc.robot.commands.shooter.*;
-import frc.robot.commands.agitator.AgitatorRun;
-import frc.robot.commands.agitator.AgitatorStop;
 import frc.robot.commands.auto_commands.AlignRobot;
 
 /**
@@ -29,10 +27,8 @@ public class OI {
 		driverButtonA.whenPressed(new AlignRobot());
 		driverButtonB.whenPressed(new ControlPanelMotorStart());
 		driverButtonY.whenPressed(new ControlPanelMotorStop());
-		driverButtonLeftBumper.whenPressed(new AgitatorRun());
-		driverButtonRightBumper.whenPressed(new AgitatorStop());
 		
-		operatorButtonRightBumper.whileHeld(new HopperMotorRun());
+		operatorButtonRightBumper.whileHeld(new HopperSequential());
 		operatorButtonLeftBumper.whileHeld(new ShooterRun());
 		
 		//operatorButtonA.whenPressed(new SelectGreen());
