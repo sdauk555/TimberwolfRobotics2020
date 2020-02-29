@@ -1,6 +1,6 @@
 //2020*1*25
 
-package frc.robot.commands;
+package frc.robot.commands.control_panel;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot; 

@@ -16,6 +16,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
 import frc.robot.commands.*;
 import frc.robot.commands.auto_commands.*;
+import frc.robot.commands.control_panel.ControlPanelMotorStop;
+import frc.robot.commands.hopper.HopperMotorStop;
+import frc.robot.commands.shooter.ShooterStop;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot

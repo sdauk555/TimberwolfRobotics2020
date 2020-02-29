@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
+import frc.robot.commands.control_panel.*;
+import frc.robot.commands.hopper.*;
+import frc.robot.commands.shooter.*;
 import frc.robot.commands.*;
 
 /**
