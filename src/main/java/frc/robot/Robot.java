@@ -43,6 +43,7 @@ public class Robot extends TimedRobot {
 
   public AutoMid autoPos2;
   public PositionOne autoPos1;
+  public PositionThree autoPos3;
 
 
   /**
@@ -63,6 +64,7 @@ public class Robot extends TimedRobot {
 
     autoPos2 = new AutoMid();
     autoPos1 = new PositionOne();
+    autoPos3 = new PositionThree();
   }
 
   /**
@@ -94,6 +96,8 @@ public class Robot extends TimedRobot {
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     autoPos2.schedule();
     autoPos1.schedule();
+    autoPos3.schedule();
+
     System.out.println("Auto selected: " + m_autoSelected);
   }
 
@@ -118,6 +122,7 @@ public class Robot extends TimedRobot {
   public void teleopInit() {
     autoPos2.cancel();
     autoPos1.cancel();
+    autoPos3.cancel();
   }
 
   /**
