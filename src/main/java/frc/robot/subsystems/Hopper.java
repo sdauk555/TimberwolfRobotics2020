@@ -7,9 +7,15 @@
 
 package frc.robot.subsystems;
 
+import java.util.Map;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
@@ -17,9 +23,15 @@ public class Hopper extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private static final WPI_VictorSPX hopperMotor = new WPI_VictorSPX(RobotMap.hopperMotor);
+  double defaultSpeed = -0.7;
+
+  private ShuffleboardTab testingTab = Shuffleboard.getTab("Testing");
+  private NetworkTableEntry hopper = testingTab.add("Hopper", defaultSpeed).withWidget(BuiltInWidgets.kNumberSlider)
+      .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   public void run() {
-    hopperMotor.set(ControlMode.PercentOutput, -.7);
+    double hopperSpeed = hopper.getDouble(defaultSpeed);
+    hopperMotor.set(ControlMode.PercentOutput, hopperSpeed);
   }
 
   public void stop() {
