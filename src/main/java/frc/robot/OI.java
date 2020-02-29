@@ -15,6 +15,7 @@ import frc.robot.commands.control_panel.*;
 import frc.robot.commands.hopper.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.commands.*;
+import frc.robot.commands.auto_commands.AlignRobot;
 
 /**
  * Add your docs here.
