@@ -98,11 +98,23 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
+    CommandScheduler.getInstance().cancelAll();
     m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
-    autoPos2.schedule();
-    //autoPos1.schedule();
-    //autoPos3.schedule();
+    switch (m_autoSelected) {
+      case kMid:
+        autoPos2.schedule();
+        break;
+      case kLeft:
+      default:
+        // Put default auto code here
+        autoPos1.schedule();
+        break;
+      case kRight:
+        autoPos3.schedule();
+        break;
+    }
+
 
     System.out.println("Auto selected: " + m_autoSelected);
   }
@@ -112,26 +124,12 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    switch (m_autoSelected) {
-      case kMid:
-        // Put custom auto code here
-        break;
-      case kLeft:
-      default:
-        // Put default auto code here
-        CommandScheduler.getInstance().run();
-        break;
-      case kRight:
-        // Put default auto code here
-        break;
+    CommandScheduler.getInstance().run();  
     }
-  }
 
   @Override
   public void teleopInit() {
-    autoPos2.cancel();
-    autoPos1.cancel();
-    autoPos3.cancel();
+    CommandScheduler.getInstance().cancelAll();
   }
 
   /**
