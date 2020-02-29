@@ -20,20 +20,23 @@ public class Autonomous extends SubsystemBase {
   /**
    * Creates a new Autonomous.
    */
-  private ShuffleboardTab autoForwardTab = Shuffleboard.getTab("Autonomous");
-  private NetworkTableEntry forward = autoForwardTab.add("Forward", 0.5).withWidget(BuiltInWidgets.kNumberSlider)
+  double defaultForward = 0.5;
+  double defaultBackward = -0.5;
+  double defaultRight = 0.5;
+  double defaultLeft = -0.5;
+
+  private ShuffleboardTab autonomousTab = Shuffleboard.getTab("Autonomous");
+
+  private NetworkTableEntry forward = autonomousTab.add("Forward", defaultForward).withWidget(BuiltInWidgets.kNumberSlider)
       .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
-  private ShuffleboardTab autoBackwardTab = Shuffleboard.getTab("Autonomous");
-  private NetworkTableEntry backward = autoBackwardTab.add("Backward", -0.5).withWidget(BuiltInWidgets.kNumberSlider)
+  private NetworkTableEntry backward = autonomousTab.add("Backward", defaultBackward).withWidget(BuiltInWidgets.kNumberSlider)
       .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
-  private ShuffleboardTab autoRightTab = Shuffleboard.getTab("Autonomous");
-  private NetworkTableEntry right = autoRightTab.add("Right", 0.5).withWidget(BuiltInWidgets.kNumberSlider)
+  private NetworkTableEntry right = autonomousTab.add("Right", defaultRight).withWidget(BuiltInWidgets.kNumberSlider)
       .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
-  private ShuffleboardTab autoLeftTab = Shuffleboard.getTab("Autonomous");
-  private NetworkTableEntry left = autoLeftTab.add("Left", -0.5).withWidget(BuiltInWidgets.kNumberSlider)
+  private NetworkTableEntry left = autonomousTab.add("Left", defaultLeft).withWidget(BuiltInWidgets.kNumberSlider)
       .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   public Autonomous() {
@@ -45,22 +48,22 @@ public class Autonomous extends SubsystemBase {
   }
 
   public void autoForward() {
-    double forwardSpeed = forward.getDouble(0.5);
+    double forwardSpeed = forward.getDouble(defaultForward);
     Robot.driveSubsystem.driveSystem(forwardSpeed, 0);
   }
 
   public void autoBackward() {
-    double backwardSpeed = backward.getDouble(-0.5);
+    double backwardSpeed = backward.getDouble(defaultBackward);
     Robot.driveSubsystem.driveSystem(backwardSpeed, 0);
   }
 
   public void autoRight() {
-    double rightSpeed = right.getDouble(0.5);
+    double rightSpeed = right.getDouble(defaultRight);
     Robot.driveSubsystem.driveSystem(0, rightSpeed);
   }
 
   public void autoLeft() {
-    double leftSpeed = left.getDouble(-0.5);
+    double leftSpeed = left.getDouble(defaultLeft);
     Robot.driveSubsystem.driveSystem(0, leftSpeed);
   }
 
