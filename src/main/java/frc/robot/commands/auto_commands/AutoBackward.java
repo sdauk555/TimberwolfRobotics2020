@@ -27,7 +27,7 @@ public class AutoBackward extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.driveSubsystem.driveSystem(-0.5, 0);
+    Robot.driveSubsystem.driveSystem(0.5, 0);
   }
 
   // Called once the command ends or is interrupted.
