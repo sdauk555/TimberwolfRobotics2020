@@ -23,12 +23,14 @@ public class Hopper extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private static final WPI_VictorSPX hopperMotor = new WPI_VictorSPX(RobotMap.hopperMotor);
+  double defaultSpeed = -0.7;
+
   private ShuffleboardTab hopperTab = Shuffleboard.getTab("Testing");
-  private NetworkTableEntry hopper = hopperTab.add("Hopper", -.7).withWidget(BuiltInWidgets.kNumberSlider)
+  private NetworkTableEntry hopper = hopperTab.add("Hopper", defaultSpeed).withWidget(BuiltInWidgets.kNumberSlider)
       .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   public void run() {
-    double hopperSpeed = hopper.getDouble(-.7);
+    double hopperSpeed = hopper.getDouble(defaultSpeed);
     hopperMotor.set(ControlMode.PercentOutput, hopperSpeed);
   }
 
