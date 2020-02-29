@@ -1,17 +1,17 @@
-package frc.robot.commands;
+package frc.robot.commands.hopper;
 
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class HopperMotorStop extends CommandBase {
+public class HopperMotorRun extends CommandBase {
 
-    public HopperMotorStop() {
+    public HopperMotorRun() {
         addRequirements(Robot.hopperSubsystem);
     }
 
     @Override
     public void execute() {
-        Robot.hopperSubsystem.stop();
+        Robot.hopperSubsystem.run();
     }
 
     @Override

@@ -5,29 +5,29 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.commands.auto_commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class ShooterStop extends CommandBase {
+public class AutoBackward extends CommandBase {
   /**
-   * Creates a new ShooterStop.
+   * Creates a new AutoBackward.
    */
-  public ShooterStop() {
+  public AutoBackward() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.shooterSubsystem);
+    addRequirements(Robot.driveSubsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
   }
-  
+
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.shooterSubsystem.shooterStop();
+    Robot.driveSubsystem.driveSystem(0.5, 0);
   }
 
   // Called once the command ends or is interrupted.
