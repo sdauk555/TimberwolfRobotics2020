@@ -45,7 +45,7 @@ public class Robot extends TimedRobot {
   public static final Agitator agitatorSubsystem =new Agitator();
   public static final OI CONTROLLERBINDING = new OI();
 
-  public AutoMid autoPos2;
+  public PositionTwo autoPos2;
   public PositionOne autoPos1;
   public PositionThree autoPos3;
 
@@ -66,7 +66,7 @@ public class Robot extends TimedRobot {
     //feederSubsystem.setDefaultCommand(new FeederStop());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
     agitatorSubsystem.setDefaultCommand(new AgitatorStop());
-    autoPos2 = new AutoMid();
+    autoPos2 = new PositionTwo();
     autoPos1 = new PositionOne();
     autoPos3 = new PositionThree();
   }
