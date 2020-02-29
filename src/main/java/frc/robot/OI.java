@@ -23,8 +23,6 @@ public class OI {
 		driverButtonRightBumper.whenPressed(new FeederRunSequential());
 		driverButtonLeftBumper.whenPressed(new FeederStopSequential());
 		driverButtonA.whenPressed(new AlignRobot());
-		
-		driverButtonB.whenPressed(new PositionOne());
 
 		operatorButtonRightBumper.whileHeld(new HopperSequential());
 		operatorButtonLeftBumper.whileHeld(new ShooterRun());
@@ -35,7 +33,8 @@ public class OI {
 		//operatorButtonY.whenPressed(new SelectYellow());
 		//operatorButtonRightBumper.whenPressed(new ShooterStart());
 		//operatorButtonLeftBumper.whenPressed(new ShooterStop());
-    }
+		
+	}
 
 	// driver controller setup
 	private Joystick driverController = new Joystick(RobotMap.driverController);
