@@ -1,7 +1,6 @@
 package frc.robot.commands.auto_commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.*;
 import frc.robot.commands.hopper.HopperMotorRun;
 import frc.robot.commands.shooter.ShooterRun;
 
