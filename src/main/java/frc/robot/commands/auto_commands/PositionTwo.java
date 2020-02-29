@@ -12,11 +12,11 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class AutoMid extends SequentialCommandGroup {
+public class PositionTwo extends SequentialCommandGroup {
   /**
    * Creates a new AutoMid.
    */
-  public AutoMid() {
+  public PositionTwo() {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());
     addCommands(new AutoShoot().withTimeout(5), new AutoBackward().withTimeout(1));
