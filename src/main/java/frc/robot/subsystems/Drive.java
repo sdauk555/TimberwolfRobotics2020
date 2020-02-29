@@ -14,8 +14,7 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 /**
  * Add your docs here.
@@ -43,11 +42,6 @@ public class Drive extends SubsystemBase {
   public void driveSystem(double speed, double zRotation) {
     maindrive.arcadeDrive(speed, zRotation,  false);
   }
-  
-  protected void execute() {
-    SmartDashboard.putBoolean("Bridge Limit", bridge);
-  }
-    boolean bridge = true;
 
   public void stopDrive() {
     maindrive.stopMotor();
