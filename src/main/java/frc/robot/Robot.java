@@ -23,8 +23,9 @@ import frc.robot.commands.*;
  * project.
  */
 public class Robot extends TimedRobot {
-  private static final String kDefaultAuto = "Default";
-  private static final String kCustomAuto = "My Auto";
+  private static final String kLeft= "Position1";
+  private static final String kMid = "Position2";
+  private static final String kRight = "Position3";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
@@ -43,8 +44,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
-    m_chooser.addOption("My Auto", kCustomAuto);
+    m_chooser.setDefaultOption("Position1", kLeft);
+    m_chooser.addOption("Position2", kMid);
+    m_chooser.addOption("Position3", kRight);
     SmartDashboard.putData("Auto choices", m_chooser);
     
     hopperSubsystem.setDefaultCommand(new HopperMotorStop());
@@ -90,11 +92,14 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousPeriodic() {
     switch (m_autoSelected) {
-      case kCustomAuto:
+      case kMid:
         // Put custom auto code here
         break;
-      case kDefaultAuto:
+      case kLeft:
       default:
+        // Put default auto code here
+        break;
+      case kRight:
         // Put default auto code here
         break;
     }
