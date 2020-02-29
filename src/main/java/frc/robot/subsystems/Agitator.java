@@ -15,7 +15,7 @@ import frc.robot.RobotMap;
 public class Agitator extends SubsystemBase {
   private static final WPI_VictorSPX agitatorMotor = new WPI_VictorSPX(RobotMap.agitatorMotor);
   private ShuffleboardTab agitatorTab = Shuffleboard.getTab("Testing");
-  private NetworkTableEntry agitator = agitatorTab.add("Agitator", -.7).withWidget(BuiltInWidgets.kNumberSlider)
+  private NetworkTableEntry agitator = agitatorTab.add("Agitator", 1.0).withWidget(BuiltInWidgets.kNumberSlider)
       .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   public void run() {
