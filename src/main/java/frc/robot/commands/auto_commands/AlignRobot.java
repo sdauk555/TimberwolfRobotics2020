@@ -26,19 +26,6 @@ public class AlignRobot extends InstantCommand {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        double midX = Robot.visionSubsystem.getMidPointX();
-        boolean resultscheck = Robot.visionSubsystem.getResultsCheck();
-
-        Robot.visionSubsystem.printCameraData();
-
-        if (resultscheck == false) {
-            return;
-        } else if (midX < -0.1) {
-            Robot.driveSubsystem.driveSystem(0, 0.1);
-        } else if (midX > 0.1) {
-            Robot.driveSubsystem.driveSystem(0, -0.1);
-        } else if (midX > -0.1 && midX < 0.1) {
-            Robot.driveSubsystem.driveSystem(0, 0);
-        }
+        Robot.autonomousSubsystem.visionAlign();
     }
 }

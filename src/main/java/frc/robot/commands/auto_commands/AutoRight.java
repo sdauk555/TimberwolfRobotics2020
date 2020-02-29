@@ -13,7 +13,7 @@ import frc.robot.Robot;
 public class AutoRight extends CommandBase {
 
   public AutoRight(){
-    addRequirements(Robot.driveSubsystem);
+    addRequirements(Robot.autonomousSubsystem);
 
   }
 
@@ -23,7 +23,7 @@ public class AutoRight extends CommandBase {
 
   @Override
     public void execute(){
-      Robot.driveSubsystem.driveSystem(0, 1);
+      Robot.autonomousSubsystem.autoRight();
     }
 
   @Override
