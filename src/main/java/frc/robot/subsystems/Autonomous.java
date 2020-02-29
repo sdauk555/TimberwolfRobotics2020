@@ -30,34 +30,34 @@ public class Autonomous extends SubsystemBase {
 
   private ShuffleboardTab autonomousTab = Shuffleboard.getTab("Autonomous");
 
-  private NetworkTableEntry forward = autonomousTab.add("Forward", defaultForward)
+  private NetworkTableEntry forward = autonomousTab.add("Forward", defaultForward).withPosition(0, 0)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
-  private NetworkTableEntry backward = autonomousTab.add("Backward", defaultBackward)
+  private NetworkTableEntry backward = autonomousTab.add("Backward", defaultBackward).withPosition(1, 0)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
-  private NetworkTableEntry right = autonomousTab.add("Right", defaultRight).withWidget(BuiltInWidgets.kNumberSlider)
+  private NetworkTableEntry right = autonomousTab.add("Right", defaultRight).withPosition(2, 0).withWidget(BuiltInWidgets.kNumberSlider)
       .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
-  private NetworkTableEntry left = autonomousTab.add("Left", defaultLeft).withWidget(BuiltInWidgets.kNumberSlider)
+  private NetworkTableEntry left = autonomousTab.add("Left", defaultLeft).withPosition(3, 0).withWidget(BuiltInWidgets.kNumberSlider)
       .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
-  private NetworkTableEntry waitShoot = autonomousTab.add("Shooter Run Time", defaultShootTime)
+  private NetworkTableEntry waitShoot = autonomousTab.add("Shooter Run Time", defaultShootTime).withPosition(0, 1)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
   
-  private NetworkTableEntry waitForward = autonomousTab.add("Forward Run Time", defaultDriveTime)
+  private NetworkTableEntry waitForward = autonomousTab.add("Forward Run Time", defaultDriveTime).withPosition(1, 1)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
 
-  private NetworkTableEntry waitBackward = autonomousTab.add("Backward Run Time", defaultDriveTime)
+  private NetworkTableEntry waitBackward = autonomousTab.add("Backward Run Time", defaultDriveTime).withPosition(2, 1)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
 
-  private NetworkTableEntry waitRight = autonomousTab.add("Right Run Time", defaultDriveTime)
+  private NetworkTableEntry waitRight = autonomousTab.add("Right Run Time", defaultDriveTime).withPosition(3, 1)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
 
-  private NetworkTableEntry waitLeft = autonomousTab.add("Left Run Time", defaultDriveTime)
+  private NetworkTableEntry waitLeft = autonomousTab.add("Left Run Time", defaultDriveTime).withPosition(4, 1)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
   
-  private NetworkTableEntry waitAlign = autonomousTab.add("Vision Align Run Time", defaultAlignTime)
+  private NetworkTableEntry waitAlign = autonomousTab.add("Vision Align Run Time", defaultAlignTime).withPosition(5, 1)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
 
 
