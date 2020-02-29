@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.subsystems.*;
 import frc.robot.commands.*;
+import frc.robot.commands.agitator.AgitatorStop;
 import frc.robot.commands.auto_commands.*;
 import frc.robot.commands.control_panel.ControlPanelMotorStop;
 import frc.robot.commands.drive.DriveCommand;
