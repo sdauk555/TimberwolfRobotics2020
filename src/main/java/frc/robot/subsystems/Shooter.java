@@ -28,12 +28,12 @@ public class Shooter extends SubsystemBase {
   // here. Call these from Commands.
   private static final WPI_VictorSPX shooterMotor = new WPI_VictorSPX(RobotMap.shooterMotor);
 
-  private ShuffleboardTab shooterTab = Shuffleboard.getTab("Shooter");
-  private NetworkTableEntry shooterSpeed = shooterTab.add("shooterSpeed", -.7).withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 1)).getEntry();
+  private ShuffleboardTab shooterTab = Shuffleboard.getTab("Testing");
+  private NetworkTableEntry shooter = shooterTab.add("Shooter", -.7).withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   public void shoot() {
-    double shootSpeed = shooterSpeed.getDouble(-.7);
-    shooterMotor.set(ControlMode.PercentOutput, shootSpeed);
+    double shooterSpeed = shooter.getDouble(-.7);
+    shooterMotor.set(ControlMode.PercentOutput, shooterSpeed);
   }
 
   public void shooterStop() {
