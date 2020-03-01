@@ -21,6 +21,9 @@ public class RobotMap {
     
     // Agitator
     public static final int agitatorMotor = 3;
+
+    //feeder
+    public static final int feederMotor = 4;
     
     //Pneumatics
     public static final int compressor = 10;

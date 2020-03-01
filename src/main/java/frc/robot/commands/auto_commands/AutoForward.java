@@ -13,7 +13,7 @@ import frc.robot.Robot;
 public class AutoForward extends CommandBase {
 
   public AutoForward(){
-    addRequirements(Robot.driveSubsystem);
+    addRequirements(Robot.autonomousSubsystem);
 
   }
 
@@ -23,7 +23,7 @@ public class AutoForward extends CommandBase {
 
   @Override
     public void execute(){
-      Robot.driveSubsystem.driveSystem(1, 0);
+      Robot.autonomousSubsystem.autoForward();
     }
 
   @Override
