@@ -20,6 +20,10 @@ public class Autonomous extends SubsystemBase {
   /**
    * Creates a new Autonomous.
    */
+  private final static int MAXCOUNT = 50;
+  private double holdMidX;
+  private int count = MAXCOUNT;
+
   double defaultForward = 0.5;
   double defaultBackward = -0.5;
   double defaultRight = 0.5;
@@ -36,15 +40,15 @@ public class Autonomous extends SubsystemBase {
   private NetworkTableEntry backward = autonomousTab.add("Backward Speed", defaultBackward).withPosition(2, 0)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 0)).getEntry();
 
-  private NetworkTableEntry right = autonomousTab.add("Right Speed", defaultRight).withPosition(4, 0).withWidget(BuiltInWidgets.kNumberSlider)
-      .withProperties(Map.of("min", 0, "max", 1)).getEntry();
+  private NetworkTableEntry right = autonomousTab.add("Right Speed", defaultRight).withPosition(4, 0)
+      .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 1)).getEntry();
 
-  private NetworkTableEntry left = autonomousTab.add("Left Speed", defaultLeft).withPosition(6, 0).withWidget(BuiltInWidgets.kNumberSlider)
-      .withProperties(Map.of("min", -1, "max", 0)).getEntry();
+  private NetworkTableEntry left = autonomousTab.add("Left Speed", defaultLeft).withPosition(6, 0)
+      .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 0)).getEntry();
 
   private NetworkTableEntry waitShoot = autonomousTab.add("Shooter Run Time", defaultShootTime).withPosition(0, 1)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
-  
+
   private NetworkTableEntry waitForward = autonomousTab.add("Forward Run Time", defaultDriveTime).withPosition(2, 1)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
 
@@ -56,10 +60,9 @@ public class Autonomous extends SubsystemBase {
 
   private NetworkTableEntry waitLeft = autonomousTab.add("Left Run Time", defaultDriveTime).withPosition(0, 2)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
-  
+
   private NetworkTableEntry waitAlign = autonomousTab.add("Vision Align Run Time", defaultAlignTime).withPosition(2, 2)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
-
 
   public double shootRun = waitShoot.getDouble(defaultShootTime);
   public double forwardRun = waitForward.getDouble(defaultDriveTime);
@@ -101,8 +104,19 @@ public class Autonomous extends SubsystemBase {
     boolean resultscheck = Robot.visionSubsystem.getResultsCheck();
 
     if (resultscheck == false) {
-      return;
-    } else if (midX < -0.1) {
+      if (count < MAXCOUNT) {
+        midX = holdMidX;
+        count = count + 1;
+      } else {
+        Robot.driveSubsystem.driveSystem(0, 0);
+        return;
+      }
+    } else {
+      holdMidX = midX;
+      count = 0;
+    }
+
+    if (midX < -0.1) {
       Robot.driveSubsystem.driveSystem(0, 0.1);
     } else if (midX > 0.1) {
       Robot.driveSubsystem.driveSystem(0, -0.1);
