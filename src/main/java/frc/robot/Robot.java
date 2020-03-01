@@ -14,12 +14,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.subsystems.*;
-import frc.robot.commands.*;
 import frc.robot.commands.auto_commands.*;
 import frc.robot.commands.control_panel.ControlPanelMotorStop;
 import frc.robot.commands.drive.DriveCommand;
+import frc.robot.commands.feeder.FeederStop;
+import frc.robot.commands.hopper.AgitatorStop;
 import frc.robot.commands.hopper.HopperMotorStop;
 import frc.robot.commands.shooter.ShooterStop;
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -28,8 +30,9 @@ import frc.robot.commands.shooter.ShooterStop;
  * project.
  */
 public class Robot extends TimedRobot {
-  private static final String kDefaultAuto = "Default";
-  private static final String kCustomAuto = "My Auto";
+  private static final String kLeft = "Position1";
+  private static final String kMid = "Position2";
+  private static final String kRight = "Position3";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
@@ -37,47 +40,53 @@ public class Robot extends TimedRobot {
   public static final VisionProcessing visionSubsystem = new VisionProcessing();
   public static final PneumaticsCompressor compressorSubsystem = new PneumaticsCompressor();
   public static final Shooter shooterSubsystem = new Shooter();
-  //feeder disabled due to not being added to the robot
-  //public static final Feeder feederSubsystem = new Feeder();
   public static final Hopper hopperSubsystem = new Hopper();
   public static final ColorSensor colorSensorSubsystem = new ColorSensor();
+  public static final ControlPanel controlpanelSubsystem = new ControlPanel();
+  public static final Agitator agitatorSubsystem = new Agitator();
+  public static final Autonomous autonomousSubsystem = new Autonomous();
+  public static final Feeder feederSubsystem = new Feeder();
 
-  public static final ControlPanel controlpanelSubsystem = new ControlPanel(); 
   public static final OI CONTROLLERBINDING = new OI();
 
-  public AutoMid autoPos2;
+  public PositionTwo autoPos2;
   public PositionOne autoPos1;
   public PositionThree autoPos3;
 
-
   /**
-   * This function is run when the robot is first started up and should be
-   * used for any initialization code.
+   * This function is run when the robot is first started up and should be used
+   * for any initialization code.
    */
   @Override
   public void robotInit() {
-    m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
-    m_chooser.addOption("My Auto", kCustomAuto);
+    m_chooser.setDefaultOption("Position1", kLeft);
+    m_chooser.addOption("Position2", kMid);
+    m_chooser.addOption("Position3", kRight);
     SmartDashboard.putData("Auto choices", m_chooser);
-    
+
     hopperSubsystem.setDefaultCommand(new HopperMotorStop());
     driveSubsystem.setDefaultCommand(new DriveCommand());
     shooterSubsystem.setDefaultCommand(new ShooterStop());
-    //feederSubsystem.setDefaultCommand(new FeederStop());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
+    feederSubsystem.setDefaultCommand(new FeederStop());
 
-    autoPos2 = new AutoMid();
+    CameraServer camera1 = CameraServer.getInstance();
+    camera1.startAutomaticCapture("cam1", 0);
+
+    agitatorSubsystem.setDefaultCommand(new AgitatorStop());
+    autoPos2 = new PositionTwo();
     autoPos1 = new PositionOne();
     autoPos3 = new PositionThree();
   }
 
   /**
-   * This function is called every robot packet, no matter the mode. Use
-   * this for items like diagnostics that you want ran during disabled,
-   * autonomous, teleoperated and test.
+   * This function is called every robot packet, no matter the mode. Use this for
+   * items like diagnostics that you want ran during disabled, autonomous,
+   * teleoperated and test.
    *
-   * <p>This runs after the mode specific periodic functions, but before
-   * LiveWindow and SmartDashboard integrated updating.
+   * <p>
+   * This runs after the mode specific periodic functions, but before LiveWindow
+   * and SmartDashboard integrated updating.
    */
   @Override
   public void robotPeriodic() {
@@ -85,22 +94,34 @@ public class Robot extends TimedRobot {
 
   /**
    * This autonomous (along with the chooser code above) shows how to select
-   * between different autonomous modes using the dashboard. The sendable
-   * chooser code works with the Java SmartDashboard. If you prefer the
-   * LabVIEW Dashboard, remove all of the chooser code and uncomment the
-   * getString line to get the auto name from the text box below the Gyro
+   * between different autonomous modes using the dashboard. The sendable chooser
+   * code works with the Java SmartDashboard. If you prefer the LabVIEW Dashboard,
+   * remove all of the chooser code and uncomment the getString line to get the
+   * auto name from the text box below the Gyro
    *
-   * <p>You can add additional auto modes by adding additional comparisons to
-   * the switch structure below with additional strings. If using the
-   * SendableChooser make sure to add them to the chooser code above as well.
+   * <p>
+   * You can add additional auto modes by adding additional comparisons to the
+   * switch structure below with additional strings. If using the SendableChooser
+   * make sure to add them to the chooser code above as well.
    */
   @Override
   public void autonomousInit() {
+    CommandScheduler.getInstance().cancelAll();
     m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
-    autoPos2.schedule();
-    autoPos1.schedule();
-    autoPos3.schedule();
+    switch (m_autoSelected) {
+    case kMid:
+      autoPos2.schedule();
+      break;
+    case kLeft:
+    default:
+      // Put default auto code here
+      autoPos1.schedule();
+      break;
+    case kRight:
+      autoPos3.schedule();
+      break;
+    }
 
     System.out.println("Auto selected: " + m_autoSelected);
   }
@@ -110,23 +131,12 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    switch (m_autoSelected) {
-      case kCustomAuto:
-        // Put custom auto code here
-        break;
-      case kDefaultAuto:
-      default:
-        // Put default auto code here
-        CommandScheduler.getInstance().run();
-        break;
-    }
+    CommandScheduler.getInstance().run();
   }
 
   @Override
   public void teleopInit() {
-    autoPos2.cancel();
-    autoPos1.cancel();
-    autoPos3.cancel();
+    CommandScheduler.getInstance().cancelAll();
   }
 
   /**
@@ -135,9 +145,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     CommandScheduler.getInstance().run();
-    
-    //CameraServer camera1 = CameraServer.getInstance();
-    //camera1.startAutomaticCapture("cam1", 0);
   }
 
   /**

@@ -7,8 +7,8 @@
 
 package frc.robot.commands.auto_commands;
 
-import edu.wpi.first.wpilibj2.command.PerpetualCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.Robot;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -20,6 +20,7 @@ public class PositionThree extends SequentialCommandGroup {
   public PositionThree() {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());
-    addCommands(new AutoShoot().withTimeout(5), new AutoBackward().withTimeout(1));
+    addCommands(new AutoShoot().withTimeout(Robot.autonomousSubsystem.shootRun),
+        new AutoBackward().withTimeout(Robot.autonomousSubsystem.backwardRun));
   }
 }

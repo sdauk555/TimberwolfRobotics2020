@@ -1,21 +1,17 @@
 package frc.robot.commands.auto_commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.*;
-import frc.robot.commands.hopper.HopperMotorRun;
-import frc.robot.commands.shooter.ShooterRun;
+import frc.robot.Robot;
 
 public class PositionOne extends SequentialCommandGroup {
 
     public PositionOne() {
-        addCommands(
-            new AutoBackward().withTimeout(3), 
-            new AutoRight().withTimeout(3), 
-            new AutoForward().withTimeout(3),
-            new AutoLeft().withTimeout(3), 
-            new AlignRobot().withTimeout(3));
-        addCommands(
-            new HopperMotorRun().alongWith(new ShooterRun()));
+        addCommands(new AutoBackward().withTimeout(Robot.autonomousSubsystem.backwardRun),
+                new AutoRight().withTimeout(Robot.autonomousSubsystem.rightRun),
+                new AutoForward().withTimeout(Robot.autonomousSubsystem.forwardRun),
+                new AutoLeft().withTimeout(Robot.autonomousSubsystem.leftRun),
+                new AlignRobot().withTimeout(Robot.autonomousSubsystem.alignRun),
+                new AutoShoot().withTimeout(Robot.autonomousSubsystem.shootRun),
+                new AutoBackward().withTimeout(Robot.autonomousSubsystem.backwardRun));
     }
 }
-//

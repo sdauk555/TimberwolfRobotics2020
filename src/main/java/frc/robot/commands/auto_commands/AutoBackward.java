@@ -16,7 +16,7 @@ public class AutoBackward extends CommandBase {
    */
   public AutoBackward() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.driveSubsystem);
+    addRequirements(Robot.autonomousSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -27,7 +27,7 @@ public class AutoBackward extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.driveSubsystem.driveSystem(-0.5, 0);
+    Robot.autonomousSubsystem.autoBackward();
   }
 
   // Called once the command ends or is interrupted.

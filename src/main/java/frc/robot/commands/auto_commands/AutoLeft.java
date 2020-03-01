@@ -13,7 +13,7 @@ import frc.robot.Robot;
 public class AutoLeft extends CommandBase {
 
   public AutoLeft(){
-    addRequirements(Robot.driveSubsystem);
+    addRequirements(Robot.autonomousSubsystem);
 
   }
 
@@ -23,7 +23,7 @@ public class AutoLeft extends CommandBase {
 
   @Override
     public void execute(){
-      Robot.driveSubsystem.driveSystem(0, -1);
+      Robot.autonomousSubsystem.autoLeft();
     }
 
   @Override
