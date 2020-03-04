@@ -15,7 +15,6 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
 
-
 /**
  * Add your docs here.
  */
@@ -31,8 +30,6 @@ public class Drive extends SubsystemBase {
   SpeedControllerGroup rightmotors = new SpeedControllerGroup(motor3, motor4);
   DifferentialDrive maindrive = new DifferentialDrive(leftmotors, rightmotors);
 
-  
-
   public void driveSystem() {
     double analogLY = controller1.getY(Hand.kLeft);
     double analogLX = controller1.getX(Hand.kLeft);
@@ -40,12 +37,11 @@ public class Drive extends SubsystemBase {
   }
 
   public void driveSystem(double speed, double zRotation) {
-    maindrive.arcadeDrive(speed, zRotation,  false);
+    maindrive.arcadeDrive(speed, zRotation, false);
   }
 
   public void stopDrive() {
     maindrive.stopMotor();
   }
 
-  
 }

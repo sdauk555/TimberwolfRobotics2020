@@ -21,16 +21,16 @@ public class PneumaticsCompressor extends SubsystemBase {
   public PneumaticsCompressor() {
 
   }
-  
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
   }
-  
+
   public void CompressorStart() {
     comp.start();
   }
-        
+
   public void CompressorStop() {
     comp.stop();
   }
