@@ -11,7 +11,16 @@ import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
+import java.util.Map;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 public class Feeder extends SubsystemBase {
@@ -21,9 +30,17 @@ public class Feeder extends SubsystemBase {
             RobotMap.feederContract);
     private static final WPI_VictorSPX feederMotor = new WPI_VictorSPX(RobotMap.feederMotor);
 
+    double defaultValueA = 0;
+
+    private ShuffleboardTab HopperTab = Shuffleboard.getTab("Testing");
+
+    private NetworkTableEntry ValueA = HopperTab.add("Forward Speed", defaultValueA).withPosition(0, 0)
+            .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 1)).getEntry();
+
     // Starts the roller bar
     public void start() {
-        feederMotor.set(ControlMode.PercentOutput, .5);
+        Double ValueAD = ValueA.getDouble(defaultValueA);
+        feederMotor.set(ControlMode.PercentOutput, ValueAD);
     }
 
     // Stops the roller bar
