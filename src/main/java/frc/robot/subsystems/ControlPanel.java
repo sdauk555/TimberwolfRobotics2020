@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
+import frc.robot.commands.control_panel.ControlPanelMotorStart;
+import edu.wpi.first.wpilibj.Timer;
 
 public class ControlPanel extends SubsystemBase {
   private final ColorSensorV3 colorSensor = new ColorSensorV3(I2C.Port.kOnboard);
@@ -69,5 +71,10 @@ public class ControlPanel extends SubsystemBase {
 
   public void controlpanelContract() {
     ControlPanelSolenoid.set(DoubleSolenoid.Value.kReverse);
+  }
+  public void ControlPanelStageOne(){
+    ControlPanelMotor.set(ControlMode.PercentOutput, .1);
+    Timer.delay(3.0);
+    ControlPanelMotor.stopMotor();
   }
 }
