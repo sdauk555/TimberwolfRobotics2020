@@ -8,7 +8,7 @@ import frc.robot.Robot;
 public class ControlPanelStageOne extends SequentialCommandGroup {
     public ControlPanelStageOne(){
     addCommands(new ControlPanelExtend(), new ControlPanelMotorStart(), new WaitCommand(3.0), 
-    new ControlPanelMotorStop(), new ControlPanelContract());
+    new ControlPanelMotorStop(), new ControlPanelContract().withTimeout(30));
     }
 }
 
