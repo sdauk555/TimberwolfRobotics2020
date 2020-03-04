@@ -38,24 +38,24 @@ public class ControlPanel extends SubsystemBase {
     Color detectedColor = colorSensor.getColor();
     ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
 
-    if (match.color == kBlueTarget) {
-      colorString = "Blue";
-    } else if (match.color == kRedTarget) {
-      colorString = "Red";
-    } else if (match.color == kGreenTarget) {
-      colorString = "Green";
-    } else if (match.color == kYellowTarget) {
-      colorString = "Yellow";
-    } else {
-      colorString = "Unknown";
+    // if (match.color == kBlueTarget) {
+    // } else if (match.color == kRedTarget) {
+    //   colorString = "Red";
+    // } else if (match.color == kGreenTarget) {
+    //   colorString = "Green";
+    // } else if (match.color == kYellowTarget) {
+    //   colorString = "Yellow";
+    // } else {
+    //   colorString = "Unknown";
+    // }
     }
-  }
 
   public String getColor() {
     return colorString;
   }
 
   public void start() {
+
     ControlPanelMotor.set(ControlMode.PercentOutput, .1);
   }
 
