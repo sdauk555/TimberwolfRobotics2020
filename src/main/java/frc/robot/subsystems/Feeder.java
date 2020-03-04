@@ -30,22 +30,12 @@ public class Feeder extends SubsystemBase {
             RobotMap.feederContract);
     private static final WPI_VictorSPX feederMotor = new WPI_VictorSPX(RobotMap.feederMotor);
 
-
-    
-
-    //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     double defaultValueA = 0;
-  
 
     private ShuffleboardTab HopperTab = Shuffleboard.getTab("Testing");
 
-  private NetworkTableEntry ValueA = HopperTab.add("Forward Speed", defaultValueA).withPosition(0, 0)
-      .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 1)).getEntry();
-
-    //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-
-
+    private NetworkTableEntry ValueA = HopperTab.add("Forward Speed", defaultValueA).withPosition(0, 0)
+            .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
     // Starts the roller bar
     public void start() {
