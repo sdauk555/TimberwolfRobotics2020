@@ -33,10 +33,10 @@ public class OI {
 		operatorButtonLeftBumper.whileHeld(new ShooterRun());
 
 		//operatorButtonStart.whenPressed(new SpinControlPanel());
-		//operatorButtonA.whenPressed(new SelectGreen());
-		//operatorButtonB.whenPressed(new selectRed());
-		//operatorButtonX.whenPressed(new SelectBlue());
-		//operatorButtonY.whenPressed(new SelectYellow());
+		operatorButtonA.whenPressed(new SectorGreen());
+		operatorButtonB.whenPressed(new SectorRed());
+		operatorButtonX.whenPressed(new SectorBlue());
+		operatorButtonY.whenPressed(new SectorYellow());
     }
 
 	// driver controller setup

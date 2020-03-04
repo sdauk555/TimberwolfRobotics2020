@@ -6,13 +6,11 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands.control_panel;
-import frc.robot.Robot;
 
+import frc.robot.Robot;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import com.revrobotics.ColorMatch;
-import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorSensorV3;
-
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.util.Color;
 
@@ -33,8 +31,6 @@ public class SectorBlue extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Color detectedColor = colorSensor.getColor();
-    ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
     m_colorMatcher.addColorMatch(kBlueTarget);
   
   }
