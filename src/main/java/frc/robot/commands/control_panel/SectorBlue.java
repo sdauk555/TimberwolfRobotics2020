@@ -10,13 +10,12 @@ package frc.robot.commands.control_panel;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import com.revrobotics.ColorMatch;
-import com.revrobotics.ColorSensorV3;
-import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.util.Color;
+
+// NOTE: NEED TO MATCH WITH ANOTHER COLOR TO ACTUALLY WORK, 2 COLORS AWAY FROM TARGET COLOR, SO THE CONTROL PANEL CAN CORRECTLY SENSE.
 
 public class SectorBlue extends CommandBase {
 
-  private final ColorSensorV3 colorSensor = new ColorSensorV3(I2C.Port.kOnboard);
   private final ColorMatch m_colorMatcher = new ColorMatch();
   private final Color kBlueTarget = ColorMatch.makeColor(0.143, 0.427, 0.429);
   
@@ -32,27 +31,27 @@ public class SectorBlue extends CommandBase {
   @Override
   public void initialize() {
     m_colorMatcher.addColorMatch(kBlueTarget);
-  
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.controlpanelSubsystem.getColor();
     Robot.controlpanelSubsystem.start();
-    if ( colorSensor.getColor() == kBlueTarget)
-    Robot.controlpanelSubsystem.stop();
-
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    Robot.controlpanelSubsystem.stop();
+
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    Color detectedColor = Robot.controlpanelSubsystem.getColor();
+    if (m_colorMatcher.matchColor(detectedColor).confidence > 0.6)
+    return true;
+    else return false;
   }
 }

@@ -50,8 +50,8 @@ public class ControlPanel extends SubsystemBase {
     // }
     }
 
-  public String getColor() {
-    return colorString;
+  public Color getColor() {
+    return colorSensor.getColor();
   }
 
   public void start() {
