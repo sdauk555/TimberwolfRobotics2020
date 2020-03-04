@@ -32,7 +32,8 @@ public class OI {
 		operatorButtonRightBumper.whileHeld(new ActivateHopper());
 		operatorButtonLeftBumper.whileHeld(new ShooterRun());
 
-		//operatorButtonStart.whenPressed(new SpinControlPanel());
+		//operatorButtonStart.whenPressed(new ExtendControlPanel();
+		//operatorButtonBack.whenPressed(new ContractControlPanel();
 		//operatorButtonA.whenPressed(new SelectGreen());
 		//operatorButtonB.whenPressed(new selectRed());
 		//operatorButtonX.whenPressed(new SelectBlue());
