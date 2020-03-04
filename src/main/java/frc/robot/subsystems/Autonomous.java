@@ -27,6 +27,7 @@ public class Autonomous extends SubsystemBase {
   double defaultDriveTime = 0.5;
   double defaultShootTime = 5;
   double defaultAlignTime = 3;
+  double defaultTurnAround = 1.5;
 
   private ShuffleboardTab autonomousTab = Shuffleboard.getTab("Autonomous");
 
@@ -60,12 +61,16 @@ public class Autonomous extends SubsystemBase {
   private NetworkTableEntry waitAlign = autonomousTab.add("Vision Align Run Time", defaultAlignTime).withPosition(2, 2)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
 
+  private NetworkTableEntry waitTurnAround = autonomousTab.add("Turn Around Run Time", defaultTurnAround).withPosition(8, 0)
+      .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
+
   public double shootRun = waitShoot.getDouble(defaultShootTime);
   public double forwardRun = waitForward.getDouble(defaultDriveTime);
   public double backwardRun = waitBackward.getDouble(defaultDriveTime);
   public double rightRun = waitRight.getDouble(defaultDriveTime);
   public double leftRun = waitLeft.getDouble(defaultDriveTime);
   public double alignRun = waitAlign.getDouble(defaultAlignTime);
+  public double turnAround = waitTurnAround.getDouble(defaultTurnAround);
 
   public Autonomous() {
   }

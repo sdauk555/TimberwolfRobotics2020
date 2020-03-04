@@ -13,5 +13,6 @@ public class PositionOne extends SequentialCommandGroup {
                 new AlignRobot().withTimeout(Robot.autonomousSubsystem.alignRun),
                 new AutoShoot().withTimeout(Robot.autonomousSubsystem.shootRun),
                 new AutoBackward().withTimeout(Robot.autonomousSubsystem.backwardRun));
+                new AutoRight().withTimeout(Robot.autonomousSubsystem.rightRun);
     }
 }
