@@ -20,7 +20,7 @@ public class Shoot extends ConditionalCommand {
    */
   public Shoot() {
     // Use addRequirements() here to declare subsystem dependencies.
-    super(new AutoShoot(), new ShooterStop(), new BooleanSupplier() {
+    super(new RumbleShoot(), new ShooterStop(), new BooleanSupplier() {
 
       @Override
       public boolean getAsBoolean() {

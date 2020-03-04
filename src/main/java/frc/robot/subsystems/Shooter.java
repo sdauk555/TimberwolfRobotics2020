@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 import java.util.Map;
@@ -15,6 +16,8 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
@@ -40,5 +43,10 @@ public class Shooter extends SubsystemBase {
 
   public void shooterStop() {
     shooterMotor.set(ControlMode.PercentOutput, 0);
+  }
+
+  public void shooterRumble() {
+    Joystick controller = Robot.CONTROLLERBINDING.operatorController;
+    controller.setRumble(GenericHID.RumbleType.kRightRumble, 0.2);
   }
 }
