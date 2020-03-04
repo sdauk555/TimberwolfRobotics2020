@@ -19,6 +19,6 @@ public class RumbleShoot extends ParallelCommandGroup {
   public RumbleShoot() {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());super();
-    addCommands(new AutoShoot(), new Rumble());
+    addCommands(new AutoShoot(), new RumbleRun());
   }
 }

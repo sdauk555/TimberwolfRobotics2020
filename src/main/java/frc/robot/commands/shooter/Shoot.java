@@ -9,23 +9,24 @@ package frc.robot.commands.shooter;
 
 import java.util.function.BooleanSupplier;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.ConditionalCommand;
-import frc.robot.Robot;
+import frc.robot.RobotMap;
+
 public class Shoot extends ConditionalCommand {
   /**
    * Creates a new Shoot.
    */
+  
+  private static final XboxController controller1 = new XboxController(RobotMap.operatorController);
+  
   public Shoot() {
     // Use addRequirements() here to declare subsystem dependencies.
-    super(new RumbleShoot(), new ShooterStop(), new BooleanSupplier() {
-
-      @Override
-      public boolean getAsBoolean() {
-        Joystick controller = Robot.CONTROLLERBINDING.operatorController;
-        double triggerValue = controller.getRawAxis(5);
+    super(new RumbleShoot(), new ShooterStop(), () -> {
+        if (controller1 == null) return false;
+        double triggerValue = controller1.getRawAxis(5);
         return triggerValue > -0.7;
-      }
     });
+    initialize();
   }
 }

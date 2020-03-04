@@ -10,13 +10,13 @@ package frc.robot.commands.shooter;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class Rumble extends CommandBase {
+public class RumbleRun extends CommandBase {
   /**
    * Creates a new Rumble.
    */
-  public Rumble() {
+  public RumbleRun() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.shooterSubsystem);
+    addRequirements(Robot.rumbleSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -27,7 +27,7 @@ public class Rumble extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.shooterSubsystem.shooterRumble();
+    Robot.rumbleSubsystem.shooterRumble();
   }
 
   // Called once the command ends or is interrupted.

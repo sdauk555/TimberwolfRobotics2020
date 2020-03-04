@@ -46,6 +46,7 @@ public class Robot extends TimedRobot {
   public static final Agitator agitatorSubsystem = new Agitator();
   public static final Autonomous autonomousSubsystem = new Autonomous();
   public static final Feeder feederSubsystem = new Feeder();
+  public static final Rumble rumbleSubsystem = new Rumble();
 
   public static final OI CONTROLLERBINDING = new OI();
 

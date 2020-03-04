@@ -44,9 +44,4 @@ public class Shooter extends SubsystemBase {
   public void shooterStop() {
     shooterMotor.set(ControlMode.PercentOutput, 0);
   }
-
-  public void shooterRumble() {
-    Joystick controller = Robot.CONTROLLERBINDING.operatorController;
-    controller.setRumble(GenericHID.RumbleType.kRightRumble, 0.2);
-  }
 }
