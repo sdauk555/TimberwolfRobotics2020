@@ -12,8 +12,6 @@ import java.util.function.BooleanSupplier;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.ConditionalCommand;
 import frc.robot.Robot;
-import frc.robot.commands.auto_commands.AutoShoot;
-
 public class Shoot extends ConditionalCommand {
   /**
    * Creates a new Shoot.
