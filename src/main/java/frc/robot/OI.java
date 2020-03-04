@@ -22,23 +22,23 @@ import frc.robot.commands.auto_commands.AlignRobot;
  */
 public class OI {
 
-    public OI () {
-		
-		//driver
+	public OI() {
+
+		// driver
 		driverButtonA.whenPressed(new AlignRobot());
 		driverButtonLeftBumper.whenPressed(new FeederStopSequential());
 		driverButtonRightBumper.whenPressed(new FeederRunSequential());
 		driverButtonB.whenPressed(new ControlPanelStageOne());
-		
+
 		operatorButtonRightBumper.whileHeld(new ActivateHopper());
 		operatorButtonLeftBumper.whileHeld(new ShooterRun());
-		
-		//operatorButtonStart.whenPressed(new SpinControlPanel());
-		//operatorButtonA.whenPressed(new SelectGreen());
-		//operatorButtonB.whenPressed(new selectRed());
-		//operatorButtonX.whenPressed(new SelectBlue());
-		//operatorButtonY.whenPressed(new SelectYellow());
-    }
+
+		// operatorButtonStart.whenPressed(new SpinControlPanel());
+		// operatorButtonA.whenPressed(new SelectGreen());
+		// operatorButtonB.whenPressed(new selectRed());
+		// operatorButtonX.whenPressed(new SelectBlue());
+		// operatorButtonY.whenPressed(new SelectYellow());
+	}
 
 	// driver controller setup
 	private Joystick driverController = new Joystick(RobotMap.driverController);
@@ -52,7 +52,7 @@ public class OI {
 	private Button driverButtonStart = new JoystickButton(driverController, 8);
 	private Button driverButtonLeftAxisPress = new JoystickButton(driverController, 9);
 	private Button driverButtonRightAxisPress = new JoystickButton(driverController, 10);
-	
+
 	// Operator controller setup
 	private Joystick operatorController = new Joystick(RobotMap.operatorController);
 	private Button operatorButtonA = new JoystickButton(operatorController, 1);
