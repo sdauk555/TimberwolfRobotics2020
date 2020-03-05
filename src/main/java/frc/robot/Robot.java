@@ -20,6 +20,7 @@ import frc.robot.commands.drive.DriveCommand;
 import frc.robot.commands.feeder.FeederStop;
 import frc.robot.commands.hopper.AgitatorStop;
 import frc.robot.commands.hopper.HopperMotorStop;
+import frc.robot.commands.shooter.RumbleShoot;
 import frc.robot.commands.shooter.ShooterStop;
 
 /**
@@ -46,6 +47,7 @@ public class Robot extends TimedRobot {
   public static final Agitator agitatorSubsystem = new Agitator();
   public static final Autonomous autonomousSubsystem = new Autonomous();
   public static final Feeder feederSubsystem = new Feeder();
+  public static final Rumble rumbleSubsystem = new Rumble();
 
   public static final OI CONTROLLERBINDING = new OI();
 
@@ -138,14 +140,22 @@ public class Robot extends TimedRobot {
   public void teleopInit() {
     CommandScheduler.getInstance().cancelAll();
   }
-
+  
   /**
    * This function is called periodically during operator control.
    */
   @Override
   public void teleopPeriodic() {
+    if (isTriggered()) {
+      new RumbleShoot().withInterrupt(() -> !this.isTriggered()).schedule(false);
+    }
     CommandScheduler.getInstance().run();
   }
+
+  public boolean isTriggered(){
+    double triggerValue = CONTROLLERBINDING.operatorController.getRawAxis(5);
+    return triggerValue > -0.7;
+  }  
 
   /**
    * This function is called periodically during test mode.
