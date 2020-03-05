@@ -20,7 +20,8 @@ import frc.robot.commands.drive.DriveCommand;
 import frc.robot.commands.feeder.FeederStop;
 import frc.robot.commands.hopper.AgitatorStop;
 import frc.robot.commands.hopper.HopperMotorStop;
-import frc.robot.commands.shooter.Shoot;
+import frc.robot.commands.shooter.RumbleShoot;
+import frc.robot.commands.shooter.ShooterStop;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -67,7 +68,7 @@ public class Robot extends TimedRobot {
 
     hopperSubsystem.setDefaultCommand(new HopperMotorStop());
     driveSubsystem.setDefaultCommand(new DriveCommand());
-    shooterSubsystem.setDefaultCommand(new Shoot());
+    shooterSubsystem.setDefaultCommand(new ShooterStop());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
     feederSubsystem.setDefaultCommand(new FeederStop());
 
@@ -139,14 +140,22 @@ public class Robot extends TimedRobot {
   public void teleopInit() {
     CommandScheduler.getInstance().cancelAll();
   }
-
+  
   /**
    * This function is called periodically during operator control.
    */
   @Override
   public void teleopPeriodic() {
+    if (isTriggered()) {
+      new RumbleShoot().withInterrupt(() -> !this.isTriggered()).schedule(false);
+    }
     CommandScheduler.getInstance().run();
   }
+
+  public boolean isTriggered(){
+    double triggerValue = CONTROLLERBINDING.operatorController.getRawAxis(5);
+    return triggerValue > -0.7;
+  }  
 
   /**
    * This function is called periodically during test mode.
