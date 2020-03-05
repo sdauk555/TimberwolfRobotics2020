@@ -153,8 +153,8 @@ public class Robot extends TimedRobot {
   }
 
   public boolean isTriggered() {
-    double triggerValue = CONTROLLERBINDING.operatorController.getRawAxis(5);
-    return triggerValue > -0.7;
+    double triggerValue = CONTROLLERBINDING.operatorController.getRawAxis(3);
+    return triggerValue > 0.3;
   }
 
   /**
