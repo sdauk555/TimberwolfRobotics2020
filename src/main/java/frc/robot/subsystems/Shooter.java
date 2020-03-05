@@ -7,7 +7,6 @@
 
 package frc.robot.subsystems;
 
-import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 import java.util.Map;
@@ -16,8 +15,6 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.networktables.NetworkTableEntry;
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
@@ -30,7 +27,7 @@ public class Shooter extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private static final WPI_VictorSPX shooterMotor = new WPI_VictorSPX(RobotMap.shooterMotor);
-  double defaultSpeed = -0.7;
+  double defaultSpeed = -0.8;
 
   private ShuffleboardTab testingTab = Shuffleboard.getTab("Testing");
   private NetworkTableEntry shooter = testingTab.add("Shooter", defaultSpeed).withWidget(BuiltInWidgets.kNumberSlider)
