@@ -37,6 +37,8 @@ public class OI {
 		operatorButtonB.whenPressed(new SectorRed());
 		operatorButtonX.whenPressed(new SectorBlue());
 		operatorButtonY.whenPressed(new SectorYellow());
+		operatorButtonStart.whenPressed(new ControlPanelExtend());
+		operatorButtonBack.whenPressed(new ControlPanelContract());
     }
 
 	// driver controller setup
