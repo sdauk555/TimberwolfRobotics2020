@@ -7,25 +7,25 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems;
+//package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj.I2C;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.util.Color;
+//import edu.wpi.first.wpilibj2.command.SubsystemBase;
+//import edu.wpi.first.wpilibj.I2C;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.util.Color;
 
-import com.revrobotics.ColorSensorV3;
+//import com.revrobotics.ColorSensorV3;
 
-public class ColorSensor extends SubsystemBase {
+//public class ColorSensor extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   /**
    * Change the I2C port below to match the connection of your color sensor
    */
   
-  public final I2C.Port i2cPort = I2C.Port.kOnboard;
+ // public final I2C.Port i2cPort = I2C.Port.kOnboard;
   
-  private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
+  //private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
 
   // public double getIR() {
 
@@ -36,15 +36,15 @@ public class ColorSensor extends SubsystemBase {
   //   return IR;
   // }
 
-  public void getColor() {
+  //public void getColor() {
 
-    Color detectedColor = m_colorSensor.getColor();
+    //Color detectedColor = m_colorSensor.getColor();
     // System.out.println(detectedColor);
 
-    SmartDashboard.putNumber("Red", detectedColor.red);
-    SmartDashboard.putNumber("Green", detectedColor.green);
-    SmartDashboard.putNumber("Blue", detectedColor.blue);
+   // SmartDashboard.putNumber("Red", detectedColor.red);
+   // SmartDashboard.putNumber("Green", detectedColor.green);
+   // SmartDashboard.putNumber("Blue", detectedColor.blue);
 
     //  return detectedColor;
-  }
-}
+  //}
+//}
