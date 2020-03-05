@@ -28,6 +28,6 @@ public class Rumble extends SubsystemBase {
 
   public void shooterRumble() {
     Joystick controller = Robot.CONTROLLERBINDING.operatorController;
-    controller.setRumble(GenericHID.RumbleType.kRightRumble, 0.2);
+    controller.setRumble(GenericHID.RumbleType.kRightRumble, 1);
   }
 }
