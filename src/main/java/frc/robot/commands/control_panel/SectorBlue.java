@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.util.Color;
 public class SectorBlue extends CommandBase {
 
   private final ColorMatch m_colorMatcher = new ColorMatch();
-  private final Color kBlueTarget = ColorMatch.makeColor(0.143, 0.427, 0.429);
+  private final Color kRedTarget = ColorMatch.makeColor(0.561, 0.232, 0.114);
   
   /**
    * Creates a new SectorBlue.
@@ -30,7 +30,7 @@ public class SectorBlue extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_colorMatcher.addColorMatch(kBlueTarget);
+    m_colorMatcher.addColorMatch(kRedTarget);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
