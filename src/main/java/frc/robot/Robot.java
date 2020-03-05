@@ -21,6 +21,7 @@ import frc.robot.commands.feeder.FeederStop;
 import frc.robot.commands.hopper.AgitatorStop;
 import frc.robot.commands.hopper.HopperMotorStop;
 import frc.robot.commands.shooter.Shoot;
+import frc.robot.commands.shooter.TriggerShoot;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -67,7 +68,7 @@ public class Robot extends TimedRobot {
 
     hopperSubsystem.setDefaultCommand(new HopperMotorStop());
     driveSubsystem.setDefaultCommand(new DriveCommand());
-    shooterSubsystem.setDefaultCommand(new Shoot());
+    shooterSubsystem.setDefaultCommand(new TriggerShoot());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
     feederSubsystem.setDefaultCommand(new FeederStop());
 
