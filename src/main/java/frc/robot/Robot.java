@@ -71,11 +71,11 @@ public class Robot extends TimedRobot {
     shooterSubsystem.setDefaultCommand(new ShooterStop());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
     feederSubsystem.setDefaultCommand(new FeederStop());
+    agitatorSubsystem.setDefaultCommand(new AgitatorStop());
 
     CameraServer camera1 = CameraServer.getInstance();
     camera1.startAutomaticCapture("cam1", 0);
 
-    agitatorSubsystem.setDefaultCommand(new AgitatorStop());
     autoPos2 = new PositionTwo();
     autoPos1 = new PositionOne();
     autoPos3 = new PositionThree();
@@ -140,7 +140,7 @@ public class Robot extends TimedRobot {
   public void teleopInit() {
     CommandScheduler.getInstance().cancelAll();
   }
-  
+
   /**
    * This function is called periodically during operator control.
    */
@@ -152,10 +152,10 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
   }
 
-  public boolean isTriggered(){
+  public boolean isTriggered() {
     double triggerValue = CONTROLLERBINDING.operatorController.getRawAxis(5);
     return triggerValue > -0.7;
-  }  
+  }
 
   /**
    * This function is called periodically during test mode.
