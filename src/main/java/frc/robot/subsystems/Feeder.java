@@ -34,7 +34,7 @@ public class Feeder extends SubsystemBase {
 
     private ShuffleboardTab HopperTab = Shuffleboard.getTab("Testing");
 
-    private NetworkTableEntry ValueA = HopperTab.add("Forward Speed", defaultValueA).withPosition(0, 0)
+    private NetworkTableEntry ValueA = HopperTab.add("Testing", defaultValueA).withPosition(0, 0)
             .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
     // Starts the roller bar
