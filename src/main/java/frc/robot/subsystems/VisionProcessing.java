@@ -8,17 +8,13 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 
 public class VisionProcessing extends SubsystemBase {
   /**
    * Creates a new VisionProcessing.
    */
   NetworkTableInstance ntinst = NetworkTableInstance.getDefault();
-  private ShuffleboardTab visionTab = Shuffleboard.getTab("Vision");
 
   public VisionProcessing() {
   }
@@ -33,19 +29,6 @@ public class VisionProcessing extends SubsystemBase {
     ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);
     ntinst.getTable("contourPoints").getEntry("midPointY").getDouble(-1);
     ntinst.getTable("contourPoints").getEntry("resultsCheck").getBoolean(false);
-  }
-
-  public void printCameraData() {
-    double area = ntinst.getTable("contourPoints").getEntry("area").getDouble(-1);
-    double midX = ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);
-    double midY = ntinst.getTable("contourPoints").getEntry("midPointY").getDouble(-1);
-    boolean resultsCheck = ntinst.getTable("contourPoints").getEntry("resultsCheck").getBoolean(false);
-
-    if (resultsCheck == true) {
-      NetworkTableEntry areaValue = visionTab.add("Vision Align Run Time", area).getEntry();
-      NetworkTableEntry midXValue = visionTab.add("Vision Align Run Time", midX).getEntry();
-      NetworkTableEntry midYValue = visionTab.add("Vision Align Run Time", midY).getEntry();
-    }
   }
 
   public double getArea() {

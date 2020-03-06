@@ -12,19 +12,19 @@ import frc.robot.Robot;
 
 public class AutoTurnAround extends CommandBase {
 
-  public AutoTurnAround(){
+  public AutoTurnAround() {
     addRequirements(Robot.autonomousSubsystem);
 
   }
 
   @Override
-    public void initialize() {
-   }  
+  public void initialize() {
+  }
 
   @Override
-    public void execute(){
-      Robot.autonomousSubsystem.autoAround();
-    }
+  public void execute() {
+    Robot.autonomousSubsystem.autoAround();
+  }
 
   @Override
   public boolean isFinished() {

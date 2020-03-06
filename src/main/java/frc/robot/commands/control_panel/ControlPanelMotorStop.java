@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
 public class ControlPanelMotorStop extends CommandBase {
-  
+
   public ControlPanelMotorStop() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.controlpanelSubsystem);
@@ -25,7 +25,5 @@ public class ControlPanelMotorStop extends CommandBase {
   @Override
   public void end(boolean interrupted) {
   }
- 
- 
-}
 
+}

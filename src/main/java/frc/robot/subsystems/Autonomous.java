@@ -45,10 +45,8 @@ public class Autonomous extends SubsystemBase {
   private NetworkTableEntry left = autonomousTab.add("Left Speed", defaultLeft).withPosition(6, 0)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 0)).getEntry();
 
-
   private NetworkTableEntry around = autonomousTab.add("Around Speed", defaultTurnAround).withPosition(8, 0)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1, "max", 1)).getEntry();
-
 
   private NetworkTableEntry waitShoot = autonomousTab.add("Shooter Run Time", defaultShootTime).withPosition(0, 1)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
@@ -68,9 +66,9 @@ public class Autonomous extends SubsystemBase {
   private NetworkTableEntry waitAlign = autonomousTab.add("Vision Align Run Time", defaultAlignTime).withPosition(2, 2)
       .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
 
-
-  private NetworkTableEntry waitTurnAround = autonomousTab.add("Turn Around Run Time", defaultTurnAroundTime).withPosition(8, 2)
-      .withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10)).getEntry();
+  private NetworkTableEntry waitTurnAround = autonomousTab.add("Turn Around Run Time", defaultTurnAroundTime)
+      .withPosition(8, 2).withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 10))
+      .getEntry();
 
   public double shootRun = waitShoot.getDouble(defaultShootTime);
   public double forwardRun = waitForward.getDouble(defaultDriveTime);
