@@ -13,7 +13,10 @@ public class ControlPanelStageOne extends SequentialCommandGroup {
     
 
     public ControlPanelStageOne() {
-        addCommands(new ControlPanelMotorStart(), new WaitCommand(3.0),
-                new ControlPanelMotorStop());
+        addCommands(new ControlPanelExtend(),
+                new WaitCommand(3),
+                new ControlPanelMotorStart().withTimeout(3), 
+                new ControlPanelMotorStop().withTimeout(1),
+                new ControlPanelContract().withTimeout(1));
     }
 }
