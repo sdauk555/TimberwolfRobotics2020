@@ -25,12 +25,12 @@ public class OI {
     public OI () {
 		
 		//driver
-		driverButtonA.whenPressed(new AlignRobot());
-		driverButtonLeftBumper.whenPressed(new FeederStopSequential());
-		driverButtonRightBumper.whenPressed(new FeederRunSequential());
+		driverButtonA.whileHeld(new AlignRobot());
+		// driverButtonLeftBumper.whenPressed(new FeederStopSequential());
+		// driverButtonRightBumper.whenPressed(new FeederRunSequential());
 		
-		operatorButtonRightBumper.whileHeld(new ActivateHopper());
-		operatorButtonLeftBumper.whileHeld(new ShooterRun());
+		// operatorButtonRightBumper.whileHeld(new ActivateHopper());
+		// operatorButtonLeftBumper.whileHeld(new ShooterRun());
 
 		//operatorButtonStart.whenPressed(new ExtendControlPanel();
 		//operatorButtonBack.whenPressed(new ContractControlPanel();

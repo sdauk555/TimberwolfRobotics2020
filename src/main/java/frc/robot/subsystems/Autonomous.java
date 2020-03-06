@@ -120,9 +120,9 @@ public class Autonomous extends SubsystemBase {
     if (resultscheck == false) {
       return;
     } else if (midX < -0.1) {
-      Robot.driveSubsystem.driveSystem(0, 0.1);
-    } else if (midX > 0.1) {
       Robot.driveSubsystem.driveSystem(0, -0.1);
+    } else if (midX > 0.1) {
+      Robot.driveSubsystem.driveSystem(0, 0.1);
     } else if (midX > -0.1 && midX < 0.1) {
       Robot.driveSubsystem.driveSystem(0, 0);
     }
