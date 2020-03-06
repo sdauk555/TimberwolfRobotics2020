@@ -14,7 +14,7 @@ import frc.robot.RobotMap;
 
 public class Agitator extends SubsystemBase {
   private static final WPI_VictorSPX agitatorMotor = new WPI_VictorSPX(RobotMap.agitatorMotor);
-  double defaultSpeed = 1.0;
+  double defaultSpeed = -0.4;
 
   private ShuffleboardTab testingTab = Shuffleboard.getTab("Testing");
   private NetworkTableEntry agitator = testingTab.add("Agitator", defaultSpeed).withWidget(BuiltInWidgets.kNumberSlider)

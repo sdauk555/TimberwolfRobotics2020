@@ -7,11 +7,10 @@
 
 package frc.robot.commands.auto_commands;
 
-import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class AlignRobot extends InstantCommand {
-
+public class AlignRobot extends CommandBase {
     /**
      * Creates a new AlignRobot.
      */
