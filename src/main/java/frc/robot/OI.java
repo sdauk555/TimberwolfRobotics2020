@@ -26,8 +26,8 @@ public class OI {
 		
 		//driver
 		driverButtonA.whenPressed(new AlignRobot());
-		driverButtonLeftBumper.whenPressed(new FeederStopSequential());
-		driverButtonRightBumper.whenPressed(new FeederRunSequential());
+		// driverButtonLeftBumper.whenPressed(new FeederStopSequential());
+		// driverButtonRightBumper.whenPressed(new FeederRunSequential());
 		
 		operatorButtonRightBumper.whileHeld(new ActivateHopper());
 		operatorButtonLeftBumper.whileHeld(new ShooterRun());
