@@ -26,13 +26,13 @@ public class SectorYellow extends CommandBase {
   @Override
   public void initialize() {
     m_colorMatcher.addColorMatch(kGreenTarget);
+    m_colorMatcher.setConfidenceThreshold(0.6);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     Robot.controlpanelSubsystem.start();
-
   }
 
   // Called once the command ends or is interrupted.
@@ -45,7 +45,10 @@ public class SectorYellow extends CommandBase {
   @Override
   public boolean isFinished() {
     Color detectedColor = Robot.controlpanelSubsystem.getColor();
-    if (m_colorMatcher.matchColor(detectedColor).confidence > 0.6)
-    return true;
-    else return false;  }
+    if (m_colorMatcher.matchColor(detectedColor) == null)
+      return false;
+    else
+      return true;
+  }
 }
+  
