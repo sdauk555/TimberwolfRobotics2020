@@ -7,18 +7,17 @@
 
 package frc.robot.subsystems;
 
-import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.GenericHID;
 
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Robot;
 
-public class PneumaticsCompressor extends SubsystemBase {
+public class Rumble extends SubsystemBase {
   /**
-   * Creates a new PneumaticsCompressor.
+   * Creates a new Rumble.
    */
-  public static final Compressor comp = new Compressor(RobotMap.compressor);
-
-  public PneumaticsCompressor() {
+  public Rumble() {
 
   }
 
@@ -27,11 +26,8 @@ public class PneumaticsCompressor extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void CompressorStart() {
-    comp.start();
-  }
-
-  public void CompressorStop() {
-    comp.stop();
+  public void shooterRumble() {
+    Joystick controller = Robot.CONTROLLERBINDING.operatorController;
+    controller.setRumble(GenericHID.RumbleType.kRightRumble, 1);
   }
 }

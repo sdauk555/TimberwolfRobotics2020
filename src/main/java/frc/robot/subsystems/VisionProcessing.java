@@ -27,7 +27,7 @@ public class VisionProcessing extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
-  
+
   public void getCameraData() {
     ntinst.getTable("contourPoints").getEntry("area").getDouble(-1);
     ntinst.getTable("contourPoints").getEntry("midPointX").getDouble(-1);
@@ -49,7 +49,7 @@ public class VisionProcessing extends SubsystemBase {
   }
 
   public double getArea() {
-    return ntinst.getTable("contourPoints").getEntry("area").getDouble(-1); 
+    return ntinst.getTable("contourPoints").getEntry("area").getDouble(-1);
   }
 
   public double getMidPointX() {
