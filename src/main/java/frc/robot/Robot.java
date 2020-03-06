@@ -23,6 +23,7 @@ import frc.robot.commands.drive.DriveCommand;
 import frc.robot.commands.feeder.FeederStop;
 import frc.robot.commands.hopper.AgitatorStop;
 import frc.robot.commands.hopper.HopperMotorStop;
+import frc.robot.commands.shooter.RumbleShoot;
 import frc.robot.commands.shooter.ShooterStop;
 
 /**
@@ -51,6 +52,7 @@ public class Robot extends TimedRobot {
   public static final Agitator agitatorSubsystem = new Agitator();
   public static final Autonomous autonomousSubsystem = new Autonomous();
   public static final Feeder feederSubsystem = new Feeder();
+  public static final Rumble rumbleSubsystem = new Rumble();
 
   public static final OI CONTROLLERBINDING = new OI();
 
@@ -74,11 +76,11 @@ public class Robot extends TimedRobot {
     shooterSubsystem.setDefaultCommand(new ShooterStop());
     controlpanelSubsystem.setDefaultCommand(new ControlPanelMotorStop());
     feederSubsystem.setDefaultCommand(new FeederStop());
+    agitatorSubsystem.setDefaultCommand(new AgitatorStop());
 
     CameraServer camera1 = CameraServer.getInstance();
     camera1.startAutomaticCapture("cam1", 0);
 
-    agitatorSubsystem.setDefaultCommand(new AgitatorStop());
     autoPos2 = new PositionTwo();
     autoPos1 = new PositionOne();
     autoPos3 = new PositionThree();
@@ -153,7 +155,15 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    if (isTriggered()) {
+      new RumbleShoot().withInterrupt(() -> !this.isTriggered()).schedule(false);
+    }
     CommandScheduler.getInstance().run();
+  }
+
+  public boolean isTriggered() {
+    double triggerValue = CONTROLLERBINDING.operatorController.getRawAxis(3);
+    return triggerValue > 0.3;
   }
 
   /**

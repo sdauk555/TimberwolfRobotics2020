@@ -10,7 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.control_panel.*;
 import frc.robot.commands.feeder.*;
 import frc.robot.commands.hopper.*;
@@ -33,12 +33,13 @@ public class OI {
 		operatorButtonRightBumper.whileHeld(new ActivateHopper());
 		operatorButtonLeftBumper.whileHeld(new ShooterRun());
 
-		// operatorButtonStart.whenPressed(new SpinControlPanel());
-		// operatorButtonA.whenPressed(new SelectGreen());
-		// operatorButtonB.whenPressed(new selectRed());
-		// operatorButtonX.whenPressed(new SelectBlue());
-		// operatorButtonY.whenPressed(new SelectYellow());
-	}
+		//operatorButtonStart.whenPressed(new ExtendControlPanel();
+		//operatorButtonBack.whenPressed(new ContractControlPanel();
+		//operatorButtonA.whenPressed(new SelectGreen());
+		//operatorButtonB.whenPressed(new selectRed());
+		//operatorButtonX.whenPressed(new SelectBlue());
+		//operatorButtonY.whenPressed(new SelectYellow());
+    }
 
 	// driver controller setup
 	private Joystick driverController = new Joystick(RobotMap.driverController);
@@ -54,7 +55,7 @@ public class OI {
 	private Button driverButtonRightAxisPress = new JoystickButton(driverController, 10);
 
 	// Operator controller setup
-	private Joystick operatorController = new Joystick(RobotMap.operatorController);
+	public Joystick operatorController = new Joystick(RobotMap.operatorController);
 	private Button operatorButtonA = new JoystickButton(operatorController, 1);
 	private Button operatorButtonB = new JoystickButton(operatorController, 2);
 	private Button operatorButtonX = new JoystickButton(operatorController, 3);

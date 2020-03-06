@@ -29,11 +29,11 @@
 
   // public double getIR() {
 
-  //   double IR = m_colorSensor.getIR();
+  // double IR = m_colorSensor.getIR();
 
-  //   SmartDashboard.putNumber("IR", IR);
+  // SmartDashboard.putNumber("IR", IR);
 
-  //   return IR;
+  // return IR;
   // }
 
   //public void getColor() {
