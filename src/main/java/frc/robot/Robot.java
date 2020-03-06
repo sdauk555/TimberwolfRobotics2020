@@ -42,7 +42,7 @@ public class Robot extends TimedRobot {
   public static final PneumaticsCompressor compressorSubsystem = new PneumaticsCompressor();
   public static final Shooter shooterSubsystem = new Shooter();
   public static final Hopper hopperSubsystem = new Hopper();
-  public static final ColorSensor colorSensorSubsystem = new ColorSensor();
+  //public static final ColorSensor colorSensorSubsystem = new ColorSensor();
   public static final ControlPanel controlpanelSubsystem = new ControlPanel();
   public static final Agitator agitatorSubsystem = new Agitator();
   public static final Autonomous autonomousSubsystem = new Autonomous();
@@ -162,5 +162,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void testPeriodic() {
+    CommandScheduler.getInstance().run();
   }
 }

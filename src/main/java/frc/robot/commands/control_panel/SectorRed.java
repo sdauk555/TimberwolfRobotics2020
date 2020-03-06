@@ -15,17 +15,19 @@ import edu.wpi.first.wpilibj.util.Color;
 public class SectorRed extends CommandBase {
   private final ColorMatch m_colorMatcher = new ColorMatch();
   private final Color kBlueTarget = ColorMatch.makeColor(0.143, 0.427, 0.429);
+
   /**
    * Creates a new SectorRed.
    */
   public SectorRed() {
-    addRequirements(Robot.controlpanelSubsystem); 
+    addRequirements(Robot.controlpanelSubsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
     m_colorMatcher.addColorMatch(kBlueTarget);
+    m_colorMatcher.setConfidenceThreshold(0.6);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -44,7 +46,9 @@ public class SectorRed extends CommandBase {
   @Override
   public boolean isFinished() {
     Color detectedColor = Robot.controlpanelSubsystem.getColor();
-    if (m_colorMatcher.matchColor(detectedColor).confidence > 0.6)
-    return true;
-    else return false;  }
+    if (m_colorMatcher.matchColor(detectedColor) == null)
+      return false;
+    else
+      return true;
+  }
 }
