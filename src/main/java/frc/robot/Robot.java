@@ -41,13 +41,12 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   ShuffleboardTab commandTab = Shuffleboard.getTab("commands");
 
-
   public static final Drive driveSubsystem = new Drive();
   public static final VisionProcessing visionSubsystem = new VisionProcessing();
   public static final PneumaticsCompressor compressorSubsystem = new PneumaticsCompressor();
   public static final Shooter shooterSubsystem = new Shooter();
   public static final Hopper hopperSubsystem = new Hopper();
-  //public static final ColorSensor colorSensorSubsystem = new ColorSensor();
+  // public static final ColorSensor colorSensorSubsystem = new ColorSensor();
   public static final ControlPanel controlpanelSubsystem = new ControlPanel();
   public static final Agitator agitatorSubsystem = new Agitator();
   public static final Autonomous autonomousSubsystem = new Autonomous();
@@ -85,9 +84,8 @@ public class Robot extends TimedRobot {
     autoPos1 = new PositionOne();
     autoPos3 = new PositionThree();
 
-    
     commandTab.add("ControlPanelStageOne", new ControlPanelStageOne());
-    
+
   }
 
   /**

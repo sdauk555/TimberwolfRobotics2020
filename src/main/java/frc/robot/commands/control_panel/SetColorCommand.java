@@ -8,15 +8,10 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.ControlPanel;
 
-
 public class SetColorCommand extends CommandBase {
 
-  private static final Map<String, String> colorMap = Collections.unmodifiableMap(Map.of(
-      "G", "Yellow",
-      "B", "Red",
-      "Y", "Green",
-      "R", "Blue"
-  ));
+  private static final Map<String, String> colorMap = Collections
+      .unmodifiableMap(Map.of("G", "Yellow", "B", "Red", "Y", "Green", "R", "Blue"));
 
   private final ControlPanel controlPanel;
   private String targetColor;

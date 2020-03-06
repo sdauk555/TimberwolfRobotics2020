@@ -12,19 +12,19 @@ import frc.robot.Robot;
 
 public class AutoRight extends CommandBase {
 
-  public AutoRight(){
+  public AutoRight() {
     addRequirements(Robot.autonomousSubsystem);
 
   }
 
   @Override
-    public void initialize() {
-   }  
+  public void initialize() {
+  }
 
   @Override
-    public void execute(){
-      Robot.autonomousSubsystem.autoRight();
-    }
+  public void execute() {
+    Robot.autonomousSubsystem.autoRight();
+  }
 
   @Override
   public boolean isFinished() {

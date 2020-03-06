@@ -18,4 +18,3 @@ public class ControlPanelExtend extends InstantCommand {
     public void end(boolean interrupted) {
     }
 }
-

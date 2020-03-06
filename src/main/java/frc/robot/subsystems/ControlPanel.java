@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
-import frc.robot.commands.control_panel.ControlPanelMotorStart;
 
 public class ControlPanel extends SubsystemBase {
   private final ColorSensorV3 colorSensor = new ColorSensorV3(I2C.Port.kOnboard);

@@ -22,6 +22,6 @@ public class PositionTwo extends SequentialCommandGroup {
     // super(new FooCommand(), new BarCommand());
     addCommands(new AutoShoot().withTimeout(Robot.autonomousSubsystem.shootRun),
         new AutoBackward().withTimeout(Robot.autonomousSubsystem.backwardRun));
-        new AutoTurnAround().withTimeout(Robot.autonomousSubsystem.turnAround);
+    new AutoTurnAround().withTimeout(Robot.autonomousSubsystem.turnAround);
   }
 }

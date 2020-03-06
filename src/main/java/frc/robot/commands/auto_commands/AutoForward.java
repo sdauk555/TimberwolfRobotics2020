@@ -12,19 +12,19 @@ import frc.robot.Robot;
 
 public class AutoForward extends CommandBase {
 
-  public AutoForward(){
+  public AutoForward() {
     addRequirements(Robot.autonomousSubsystem);
 
   }
 
   @Override
-    public void initialize() {
-   }  
+  public void initialize() {
+  }
 
   @Override
-    public void execute(){
-      Robot.autonomousSubsystem.autoForward();
-    }
+  public void execute() {
+    Robot.autonomousSubsystem.autoForward();
+  }
 
   @Override
   public boolean isFinished() {
