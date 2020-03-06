@@ -7,13 +7,13 @@
 
 package frc.robot.commands.control_panel;
 
-import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
 /**
  * Add your docs here.
  */
-public class ControlPanelMotorStart extends InstantCommand {
+public class ControlPanelMotorStart extends CommandBase {
   /**
    * Add your docs here.
    */

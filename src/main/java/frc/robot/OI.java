@@ -22,15 +22,16 @@ import frc.robot.commands.auto_commands.AlignRobot;
  */
 public class OI {
 
-    public OI () {
-		
-		//driver
-		driverButtonA.whileHeld(new AlignRobot());
-		// driverButtonLeftBumper.whenPressed(new FeederStopSequential());
-		// driverButtonRightBumper.whenPressed(new FeederRunSequential());
-		
-		// operatorButtonRightBumper.whileHeld(new ActivateHopper());
-		// operatorButtonLeftBumper.whileHeld(new ShooterRun());
+	public OI() {
+
+		// driver
+		driverButtonA.whenPressed(new AlignRobot());
+		driverButtonLeftBumper.whenPressed(new FeederStopSequential());
+		driverButtonRightBumper.whenPressed(new FeederRunSequential());
+		driverButtonB.whenPressed(new ControlPanelStageOne());
+
+		operatorButtonRightBumper.whileHeld(new ActivateHopper());
+		operatorButtonLeftBumper.whileHeld(new ShooterRun());
 
 		//operatorButtonStart.whenPressed(new ExtendControlPanel();
 		//operatorButtonBack.whenPressed(new ContractControlPanel();
@@ -52,7 +53,7 @@ public class OI {
 	private Button driverButtonStart = new JoystickButton(driverController, 8);
 	private Button driverButtonLeftAxisPress = new JoystickButton(driverController, 9);
 	private Button driverButtonRightAxisPress = new JoystickButton(driverController, 10);
-	
+
 	// Operator controller setup
 	public Joystick operatorController = new Joystick(RobotMap.operatorController);
 	private Button operatorButtonA = new JoystickButton(operatorController, 1);
