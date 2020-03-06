@@ -9,6 +9,8 @@ package frc.robot;
 
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -16,6 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
 import frc.robot.commands.auto_commands.*;
 import frc.robot.commands.control_panel.ControlPanelMotorStop;
+import frc.robot.commands.control_panel.ControlPanelStageOne;
 import frc.robot.commands.drive.DriveCommand;
 import frc.robot.commands.feeder.FeederStop;
 import frc.robot.commands.hopper.AgitatorStop;
@@ -35,6 +38,8 @@ public class Robot extends TimedRobot {
   private static final String kRight = "Position3";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
+  ShuffleboardTab commandTab = Shuffleboard.getTab("commands");
+
 
   public static final Drive driveSubsystem = new Drive();
   public static final VisionProcessing visionSubsystem = new VisionProcessing();
@@ -77,6 +82,10 @@ public class Robot extends TimedRobot {
     autoPos2 = new PositionTwo();
     autoPos1 = new PositionOne();
     autoPos3 = new PositionThree();
+
+    
+    commandTab.add("ControlPanelStageOne", new ControlPanelStageOne());
+    
   }
 
   /**
