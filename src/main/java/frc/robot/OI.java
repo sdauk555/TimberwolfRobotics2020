@@ -36,7 +36,7 @@ public class OI {
 	}
 
 	// driver controller setup
-	private XboxController driverController = new XboxController(RobotMap.driverController);
+	public XboxController driverController = new XboxController(RobotMap.driverController);
 	private Button driverButtonA = new JoystickButton(driverController, 1);
 	private Button driverButtonB = new JoystickButton(driverController, 2);
 	private Button driverButtonX = new JoystickButton(driverController, 3);
