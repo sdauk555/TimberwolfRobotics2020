@@ -34,6 +34,9 @@ public class SectorRed extends CommandBase {
   @Override
   public void execute() {
     Robot.controlpanelSubsystem.start();
+    System.out.println(Robot.controlpanelSubsystem.getColor());
+    System.out.println(m_colorMatcher.matchColor(kBlueTarget));
+    System.out.println(m_colorMatcher);
   }
 
   // Called once the command ends or is interrupted.
