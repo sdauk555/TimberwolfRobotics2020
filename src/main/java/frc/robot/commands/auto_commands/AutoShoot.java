@@ -9,7 +9,7 @@ package frc.robot.commands.auto_commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
-
+import frc.robot.Robot;
 import frc.robot.commands.hopper.ActivateHopper;
 import frc.robot.commands.shooter.ShooterRun;
 
@@ -23,6 +23,6 @@ public class AutoShoot extends ParallelCommandGroup {
   public AutoShoot() {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());super();
-    addCommands(new ShooterRun(), new WaitCommand(1).andThen(new ActivateHopper()));
+    addCommands(new ShooterRun(), new WaitCommand(Robot.shooterSubsystem.shootWait).andThen(new ActivateHopper()));
   }
 }
