@@ -9,6 +9,8 @@ package frc.robot;
 
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -160,7 +162,8 @@ public class Robot extends TimedRobot {
   }
 
   public boolean isTriggered() {
-    double triggerValue = CONTROLLERBINDING.operatorController.getRawAxis(3);
+    XboxController ctrl = CONTROLLERBINDING.operatorController;
+    double triggerValue = Robot.isSimulation() ? ctrl.getY(Hand.kRight) : ctrl.getTriggerAxis(Hand.kRight);
     return triggerValue > 0.3;
   }
 
