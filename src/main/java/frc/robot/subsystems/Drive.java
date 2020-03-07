@@ -46,7 +46,7 @@ public class Drive extends SubsystemBase {
   }
 
   public boolean isTriggered() {
-    double triggerValue = Robot.CONTROLLERBINDING.driverController.getRawAxis(5);
+    double triggerValue = Robot.CONTROLLERBINDING.driverController.getRawAxis(3);
     return triggerValue > 0.3;
   }
 
