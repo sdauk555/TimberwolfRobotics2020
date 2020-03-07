@@ -8,6 +8,7 @@
 package frc.robot.commands.shooter;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import frc.robot.Robot;
 import frc.robot.commands.auto_commands.AutoShoot;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
@@ -21,5 +22,11 @@ public class RumbleShoot extends ParallelCommandGroup {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());super();
     addCommands(new AutoShoot(), new RumbleRun());
+  }
+
+  @Override
+  public void end(boolean interrupted) {
+    super.end(interrupted);
+    Robot.rumbleSubsystem.rumbleStop();
   }
 }
