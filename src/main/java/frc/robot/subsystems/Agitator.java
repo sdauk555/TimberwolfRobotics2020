@@ -6,10 +6,13 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class Agitator extends SubsystemBase {
@@ -21,8 +24,15 @@ public class Agitator extends SubsystemBase {
       .withProperties(Map.of("min", -1, "max", 1)).getEntry();
 
   public void run() {
-    double agitatorSpeed = agitator.getDouble(defaultSpeed);
-    agitatorMotor.set(ControlMode.PercentOutput, agitatorSpeed);
+    double agitatorSpeed = agitator.getDouble(defaultSpeed);    
+    XboxController ctrl = Robot.CONTROLLERBINDING.operatorController;
+    double triggerValue = Robot.isSimulation() ? ctrl.getX(Hand.kRight) : ctrl.getTriggerAxis(Hand.kLeft);
+    if (triggerValue > 0.5){
+      agitatorMotor.set(ControlMode.PercentOutput, -agitatorSpeed);  
+    }
+    else {
+      agitatorMotor.set(ControlMode.PercentOutput, agitatorSpeed);
+    }
   }
 
   public void stop() {

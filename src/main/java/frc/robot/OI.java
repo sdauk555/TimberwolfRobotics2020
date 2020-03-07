@@ -7,10 +7,11 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.auto_commands.AlignRobot;
+import frc.robot.commands.control_panel.ControlPanelStageOne;
 
 /**
  * Add your docs here.
@@ -26,6 +27,8 @@ public class OI {
 
 		// operatorButtonStart.whenPressed(new ExtendControlPanel();
 		// operatorButtonBack.whenPressed(new ContractControlPanel();
+		 operatorButtonBack.whenPressed(new ControlPanelStageOne());
+		
 		// operatorButtonA.whenPressed(new SelectGreen());
 		// operatorButtonB.whenPressed(new selectRed());
 		// operatorButtonX.whenPressed(new SelectBlue());
@@ -33,7 +36,7 @@ public class OI {
 	}
 
 	// driver controller setup
-	private Joystick driverController = new Joystick(RobotMap.driverController);
+	private XboxController driverController = new XboxController(RobotMap.driverController);
 	private Button driverButtonA = new JoystickButton(driverController, 1);
 	private Button driverButtonB = new JoystickButton(driverController, 2);
 	private Button driverButtonX = new JoystickButton(driverController, 3);
@@ -46,7 +49,7 @@ public class OI {
 	private Button driverButtonRightAxisPress = new JoystickButton(driverController, 10);
 
 	// Operator controller setup
-	public Joystick operatorController = new Joystick(RobotMap.operatorController);
+	public XboxController operatorController = new XboxController(RobotMap.operatorController);
 	private Button operatorButtonA = new JoystickButton(operatorController, 1);
 	private Button operatorButtonB = new JoystickButton(operatorController, 2);
 	private Button operatorButtonX = new JoystickButton(operatorController, 3);
