@@ -33,7 +33,7 @@ public class OI {
 	}
 
 	// driver controller setup
-	private Joystick driverController = new Joystick(RobotMap.driverController);
+	public Joystick driverController = new Joystick(RobotMap.driverController);
 	private Button driverButtonA = new JoystickButton(driverController, 1);
 	private Button driverButtonB = new JoystickButton(driverController, 2);
 	private Button driverButtonX = new JoystickButton(driverController, 3);

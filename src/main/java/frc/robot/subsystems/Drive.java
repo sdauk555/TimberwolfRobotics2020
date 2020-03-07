@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 /**
@@ -33,7 +34,7 @@ public class Drive extends SubsystemBase {
   public void driveSystem() {
     double analogLY = controller1.getY(Hand.kLeft);
     double analogLX = controller1.getX(Hand.kLeft);
-    maindrive.arcadeDrive(analogLY, analogLX, true);
+    maindrive.arcadeDrive(analogLY, analogLX, isTriggered());
   }
 
   public void driveSystem(double speed, double zRotation) {
@@ -42,6 +43,11 @@ public class Drive extends SubsystemBase {
 
   public void stopDrive() {
     maindrive.stopMotor();
+  }
+
+  public boolean isTriggered() {
+    double triggerValue = Robot.CONTROLLERBINDING.driverController.getRawAxis(5);
+    return triggerValue > 0.3;
   }
 
 }
